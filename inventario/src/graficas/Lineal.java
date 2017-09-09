@@ -38,7 +38,7 @@ public class Lineal {
         if(colorLineas != null)
         	lineConfiguration.setColors(colorLineas);
 
-	        //Configuración
+	        //Configuraciï¿½n
 	        List<String> meses = new ArrayList<String>();
 	       	meses.add("Enero");
 	       	meses.add("Febrero");
@@ -78,15 +78,15 @@ public class Lineal {
         for(int a = 0; a < datos.size(); a++){
         	
         	List<Object> datoValues = new ArrayList<Object>();
-        	String año = "";
+        	String aÃ±o = "";
         	
         	while(datos.elementAt(a).next()){
-        		año = datos.elementAt(a).getString("nombreSerie");
+        		aÃ±o = datos.elementAt(a).getString("nombreSerie");
                 datoValues.add(datos.elementAt(a).getString("dato"));
         	}
         	
-        	LineChartSeries datoLine = new LineChartSeries(año, datoValues);
-        	datoLine = new LineChartSeries(año, datoValues);
+        	LineChartSeries datoLine = new LineChartSeries(aÃ±o, datoValues);
+        	datoLine = new LineChartSeries(aÃ±o, datoValues);
         	
             lineConfiguration.getSeriesList().add(datoLine);
         	
@@ -145,7 +145,7 @@ public class Lineal {
         //ZoomType zoom = ZoomType.XY;
         //lineConfiguration.setZoomType(zoom);
         
-	        //Configuración
+	        //Configuraciï¿½n
 	        List<String> meses = new ArrayList<String>();
 	       	/*meses.add("Enero");
 	       	meses.add("Febrero");
@@ -163,16 +163,16 @@ public class Lineal {
         for(int a = 0; a < datos.size(); a++){
         	
         	List<Object> datoValues = new ArrayList<Object>();
-        	String año = "";
+        	String aÃ±o = "";
         	
         	while(datos.elementAt(a).next()){
-        		año = datos.elementAt(a).getString("nombreSerie");
+        		aÃ±o = datos.elementAt(a).getString("nombreSerie");
                 datoValues.add(datos.elementAt(a).getString("dato"));
                 meses.add(datos.elementAt(a).getString("mes"));
         	}
         	
-        	LineChartSeries datoLine = new LineChartSeries(año, datoValues);
-        	datoLine = new LineChartSeries(año, datoValues);
+        	LineChartSeries datoLine = new LineChartSeries(aÃ±o, datoValues);
+        	datoLine = new LineChartSeries(aÃ±o, datoValues);
         	
             lineConfiguration.getSeriesList().add(datoLine);
         	
@@ -250,7 +250,7 @@ public class Lineal {
         //ZoomType zoom = ZoomType.XY;
         //lineConfiguration.setZoomType(zoom);
         
-	        //Configuración
+	        //Configuraciï¿½n
 	        List<String> meses = new ArrayList<String>();
 	       	/*meses.add("Enero");
 	       	meses.add("Febrero");
@@ -268,16 +268,16 @@ public class Lineal {
         for(int a = 0; a < datos.size(); a++){
         	
         	List<Object> datoValues = new ArrayList<Object>();
-        	String año = "";
+        	String aÃ±o = "";
         	
         	while(datos.elementAt(a).next()){
-        		año = datos.elementAt(a).getString("nombreSerie");
+        		aÃ±o = datos.elementAt(a).getString("nombreSerie");
                 datoValues.add(datos.elementAt(a).getString("dato"));
                 meses.add(obtenerMes(datos.elementAt(a).getString("mes")));
         	}
         	
-        	LineChartSeries datoLine = new LineChartSeries(año, datoValues);
-        	datoLine = new LineChartSeries(año, datoValues);
+        	LineChartSeries datoLine = new LineChartSeries(aÃ±o, datoValues);
+        	datoLine = new LineChartSeries(aÃ±o, datoValues);
         	
             lineConfiguration.getSeriesList().add(datoLine);
         	

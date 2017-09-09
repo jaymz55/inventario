@@ -105,7 +105,7 @@ public class Productos {
 				cantidad.setNullRepresentation("");
 				cantidad.setDecimalAllowed(true);
 				cantidad.setDecimalPrecision(3);
-				cantidad.setErrorText("Número no válido");
+				cantidad.setErrorText("NÃºmero no vÃ¡lido");
 				cantidad.setInvalidAllowed(false);
 				cantidad.setNegativeAllowed(false);
 				
@@ -129,40 +129,40 @@ public class Productos {
 						info.setHeight("100%");
 						info.setWidth("100%");
 						info.setMargin(true);
-						tab.addTab(info,"Información");
+						tab.addTab(info,"Informaciï¿½n");
 						
 					final TextField nombre = new TextField("Nombre de producto");
 						nombre.setWidth("80%");
 						nombre.setMaxLength(500);
 						
-					final NumberField precio = new NumberField("Precio al público");
+					final NumberField precio = new NumberField("Precio al pï¿½blico");
 						precio.setNullRepresentation("");
 						precio.setDecimalPrecision(2);
-						precio.setErrorText("Número no válido");
+						precio.setErrorText("NÃºmero no vÃ¡lido");
 						precio.setInvalidAllowed(false);
 						precio.setNegativeAllowed(false);
 						
-					final CheckBox iva = new CheckBox("¿Grava IVA?");
+					final CheckBox iva = new CheckBox("Â¿Grava IVA?");
 						iva.setValue(true);
 						
-					final TextArea descripcion = new TextArea("Descripción");
+					final TextArea descripcion = new TextArea("DescripciÃ³n");
 						descripcion.setWidth("100%");
 						descripcion.setMaxLength(500);
 					
-					final NumberField minimo = new NumberField("Mínimo");
+					final NumberField minimo = new NumberField("MÃ­nimo");
 						minimo.setNullRepresentation("");
 						minimo.setDecimalAllowed(true);
 						minimo.setDecimalPrecision(3);
-						minimo.setErrorText("Número no válido");
+						minimo.setErrorText("NÃºmero no vÃ¡lido");
 						minimo.setInvalidAllowed(false);
 						minimo.setNegativeAllowed(false);
 						minimo.setStyleName("boton_simple");
 						
-					final NumberField maximo = new NumberField("Máximo");
+					final NumberField maximo = new NumberField("MÃ¡ximo");
 						maximo.setNullRepresentation("");
 						maximo.setDecimalAllowed(true);
 						maximo.setDecimalPrecision(3);
-						maximo.setErrorText("Número no válido");
+						maximo.setErrorText("NÃºmero no vÃ¡lido");
 						maximo.setInvalidAllowed(false);
 						maximo.setNegativeAllowed(false);
 						maximo.setStyleName("boton_simple");
@@ -196,7 +196,7 @@ public class Productos {
 							    		if(!maximo.getValue().equals(""))
 							    			maximoAjustado = maximo.getValue();*/
 							    		
-							    	//Abro transacción
+							    	//Abro transacciï¿½n
 							    		
 							    		sql.transaccionAbrir();
 							    		String respuesta = "NO";
@@ -225,7 +225,7 @@ public class Productos {
 							    		
 							    	//Agrego componentes
 							    		
-							    		//Obtengo id del producto recién agregado
+							    		//Obtengo id del producto reciï¿½n agregado
 							    		
 							 		    String idProducto = "";
 							 		    BeanConsulta bean = sql.consultaSimple("SELECT LAST_INSERT_ID()");
@@ -238,7 +238,7 @@ public class Productos {
 							    		
 							    		//String idProducto = sql.consultaSimple("SELECT LAST_INSERT_ID()");
 							    		
-							    		//Genero JSON object para histórico
+							    		//Genero JSON object para histï¿½rico
 							    		JSONObject json = new JSONObject();
 							    		
 								    	Collection<?> ids = tabla.getItemIds();
@@ -258,18 +258,18 @@ public class Productos {
 								        	
 								        }
 								        
-								       //Inserto histórico
+								       //Inserto histï¿½rico
 								        respuesta = sql.insertarSimple("insert into "+SqlConf.obtenerBase()+"inventario.produccion_historico values ("+usuario.getCustid()+","+idProducto+",'"+json.toString()+"', now())");
 						    			
 								        if(!respuesta.equals("OK")){
 						    				throw new Exception(respuesta);
 						    			}
 
-								    //Verifico que respuesta sea SÍ para continuar
+								    //Verifico que respuesta sea Sï¿½ para continuar
 								        
 								    if(respuesta.equals("OK")){
 								    
-								    //Cierro transacción
+								    //Cierro transacciï¿½n
 								    	sql.transaccionCommit();
 								    	sql.transaccionCerrar();
 								    	
@@ -293,7 +293,7 @@ public class Productos {
 								    
 							    	}catch(Exception e){
 							    		
-								    	//Cierro transacción
+								    	//Cierro transacciï¿½n
 							    			sql.transaccionRollBack();
 							    			sql.transaccionCerrar();
 							    		
@@ -356,8 +356,8 @@ public class Productos {
 										tabla.addContainerProperty("COSTO", Double.class, null);
 										tabla.addContainerProperty("MEDIDA", String.class, null);
 									
-								Button añadir = new Button("Agregar");
-								añadir.addListener(new Button.ClickListener() {
+								Button aÃ±adir = new Button("Agregar");
+								aÃ±adir.addListener(new Button.ClickListener() {
 								    public void buttonClick(ClickEvent event) {
 								    	
 									    	if(material.getValue() == null || cantidad.getValue().equals("")){
@@ -412,7 +412,7 @@ public class Productos {
 										    		
 									    		}catch(Exception e){
 									    			e.printStackTrace();
-									    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+									    			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 									    		}finally{
 									    			sql.cerrar();
 									    			sql = null;
@@ -448,14 +448,14 @@ public class Productos {
 									        totalCostoLabel.setValue("Costo total: "+formatter.format(totalCosto));
 								    		
 								    	}else{
-								    		Notification.show("Se debe escoger algún material a eliminar", Type.WARNING_MESSAGE);
+								    		Notification.show("Se debe escoger algï¿½n material a eliminar", Type.WARNING_MESSAGE);
 								    	}
 								    	
 									    }
 									});
 								
 								
-							//Botón de agregar material
+							//Botï¿½n de agregar material
 								Button botonMaterial = new Button("Alta de material");
 									botonMaterial.setStyleName(ValoTheme.BUTTON_LINK);
 									botonMaterial.addListener(new Button.ClickListener() {
@@ -473,7 +473,7 @@ public class Productos {
 											proveedor.setWidth("80%");
 											
 											
-										final AutocompleteTextField categoria = new AutocompleteTextField("Categoría");
+										final AutocompleteTextField categoria = new AutocompleteTextField("Categorï¿½a");
 											categoria.setWidth("80%");
 											categoria.setCache(true); // Client side should cache suggestions
 											categoria.setDelay(50); // Delay before sending a query to the server
@@ -500,9 +500,9 @@ public class Productos {
 											nombreInterno.setWidth("80%");
 											nombreInterno.setMaxLength(200);
 
-										final NumberField minimo = new NumberField("Cantidad mínima");
+										final NumberField minimo = new NumberField("Cantidad mï¿½nima");
 											//minimo.setWidth("80%");
-										final NumberField maximo = new NumberField("Cantidad máxima");
+										final NumberField maximo = new NumberField("Cantidad mï¿½xima");
 											
 										final ComboBox unidad = llenarUnidadesMedida(new ComboBox());
 										unidad.setNullSelectionAllowed(false);
@@ -564,7 +564,7 @@ public class Productos {
 											    			}
 											    			
 											    		}catch(Exception e){
-											    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+											    			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 											    			e.printStackTrace();
 											    		}finally{
 											    			sql.cerrar();
@@ -669,14 +669,14 @@ public class Productos {
 											    	
 											    	
 										    	}else{
-										    		Notification.show("Se deben de ingresar Categoría, Nombre, Unidades y Fecha",  Type.WARNING_MESSAGE);
+										    		Notification.show("Se deben de ingresar Categorï¿½a, Nombre, Unidades y Fecha",  Type.WARNING_MESSAGE);
 										    	}
 											    		
 											    }
 											});
 												
 										
-									//Botón para registrar proveedores (copiado de Proveedores.java)
+									//Botï¿½n para registrar proveedores (copiado de Proveedores.java)
 											Button botonProveedor = new Button("Agregar proveedor");
 												botonProveedor.setStyleName(ValoTheme.BUTTON_LINK);
 												botonProveedor.addListener(new Button.ClickListener() {
@@ -697,15 +697,15 @@ public class Productos {
 													final TextField contacto = new TextField("Contacto");
 														contacto.setWidth("80%");
 														contacto.setMaxLength(500);
-													final TextField telefono = new TextField("Teléfono");
+													final TextField telefono = new TextField("Telï¿½fono");
 														telefono.setMaxLength(100);
-													final TextField correo = new TextField("Correo electrónico");
+													final TextField correo = new TextField("Correo electrï¿½nico");
 														correo.setWidth("80%");
 														correo.setMaxLength(500);
-													final TextField pagina = new TextField("Página web");
+													final TextField pagina = new TextField("Pï¿½gina web");
 														pagina.setWidth("80%");
 														pagina.setMaxLength(100);
-													final TextArea direccion = new TextArea("Dirección");
+													final TextArea direccion = new TextArea("Direcciï¿½n");
 														direccion.setWidth("80%");
 														direccion.setMaxLength(1000);
 													final TextArea observaciones = new TextArea("Observaciones");
@@ -885,8 +885,8 @@ public class Productos {
 								
 								HorizontalLayout botones = new HorizontalLayout();
 								botones.setWidth("100%");
-								botones.addComponent(añadir);
-									botones.setComponentAlignment(añadir, Alignment.MIDDLE_LEFT);
+								botones.addComponent(aÃ±adir);
+									botones.setComponentAlignment(aÃ±adir, Alignment.MIDDLE_LEFT);
 								botones.addComponent(eliminar);
 									botones.setComponentAlignment(eliminar, Alignment.MIDDLE_RIGHT);
 								grid2.addComponent(botones, 0, 5);
@@ -906,7 +906,7 @@ public class Productos {
 				try{
 					
 					//Titulo
-					Label titulo = new Label("Catálogo de productos");
+					Label titulo = new Label("CatÃ¡logo de productos");
 					titulo.setStyleName(ValoTheme.LABEL_H1);
 					
 					cabecera.addComponent(titulo);
@@ -919,7 +919,7 @@ public class Productos {
 						
 				
 				}catch(Exception e){
-					Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+					Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 					e.printStackTrace();
 				}/*finally{
 					sql.cerrar();
@@ -930,7 +930,7 @@ public class Productos {
 				respuesta.addComponent(dos);
 
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -941,7 +941,7 @@ public class Productos {
 		
 	}
 	
-	//Empiezan métodos externos
+	//Empiezan mï¿½todos externos
 	
 	private VerticalLayout generarTabla(VerticalLayout tablas, String custid){
 		
@@ -968,7 +968,7 @@ public class Productos {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -1221,7 +1221,7 @@ public class Productos {
 						info.setHeight("100%");
 						info.setWidth("100%");
 						info.setMargin(true);
-						tab.addTab(info,"Información");
+						tab.addTab(info,"Informaciï¿½n");
 						
 					final TextField nombre = new TextField("Nombre de producto");
 						nombre.setWidth("80%");
@@ -1239,27 +1239,27 @@ public class Productos {
 							//precio.setEnabled(false);
 						
 						//Agregar check de IVA
-						final CheckBox iva = new CheckBox("¿Grava IVA?");
+						final CheckBox iva = new CheckBox("ï¿½Grava IVA?");
 						//iva.setValue(true);
 						
 						
-						final TextArea descripcion = new TextArea("Descripción");
+						final TextArea descripcion = new TextArea("Descripciï¿½n");
 							descripcion.setWidth("100%");
 							descripcion.setMaxLength(500);
 		    				
-						final NumberField minimo = new NumberField("Mínimo");
+						final NumberField minimo = new NumberField("Mï¿½nimo");
 							minimo.setNullRepresentation("");
 							minimo.setDecimalAllowed(true);
 							minimo.setDecimalPrecision(3);
-							minimo.setErrorText("Número no válido");
+							minimo.setErrorText("Nï¿½mero no vï¿½lido");
 							minimo.setInvalidAllowed(false);
 							minimo.setNegativeAllowed(false);
 							
-						final NumberField maximo = new NumberField("Máximo");
+						final NumberField maximo = new NumberField("Mï¿½ximo");
 							maximo.setNullRepresentation("");
 							maximo.setDecimalAllowed(true);
 							maximo.setDecimalPrecision(3);
-							maximo.setErrorText("Número no válido");
+							maximo.setErrorText("Nï¿½mero no vï¿½lido");
 							maximo.setInvalidAllowed(false);
 							maximo.setNegativeAllowed(false);
 							
@@ -1313,7 +1313,7 @@ public class Productos {
 							    			maximoAjustado = maximo.getValue();
 							    		}*/
 							    		
-							    	//Abrir transacción
+							    	//Abrir transacciï¿½n
 							    		
 							    		sql.transaccionAbrir();
 							    		
@@ -1339,7 +1339,7 @@ public class Productos {
 							    			
 							    		}
 		    				    		
-		    				    	//Actualizo producción
+		    				    	//Actualizo producciï¿½n
 		    				    		respuesta = sql.insertarSimple("delete from "+SqlConf.obtenerBase()+"inventario.produccion where custid = '"+usuario.getCustid()+"' and id_prod = '"+id+"'");
 		    				    		
 		    				    		if(!respuesta.equals("OK")){
@@ -1362,24 +1362,24 @@ public class Productos {
 			    				    		}
 								        }
 								        
-								        //Inserto histórico
+								        //Inserto histï¿½rico
 								        respuesta = sql.insertarSimple("insert into "+SqlConf.obtenerBase()+"inventario.produccion_historico values ("+usuario.getCustid()+","+id+",'"+json.toString()+"', now())");
 								        
 		    				    		if(!respuesta.equals("OK")){
 		    				    			throw new Exception(respuesta);
 		    				    		}
 								        
-								    //Cerrar transacción
+								    //Cerrar transacciï¿½n
 		    				    		
 		    				    		if(respuesta.equals("OK")){
 		    				    			
-		    				    			//Cierro transacción
+		    				    			//Cierro transacciï¿½n
 		    				    				sql.transaccionCommit();
 		    				    				sql.transaccionCerrar();
 		    				    		
 			    				    		generarTabla(tablas, usuario.getCustidsRelacionados());
 			    				    		
-											Notification n = new Notification("Actualización correcta del producto", Type.TRAY_NOTIFICATION);
+											Notification n = new Notification("Actualizaciï¿½n correcta del producto", Type.TRAY_NOTIFICATION);
 											n.setDelayMsec(2000);
 											n.setPosition(Notification.POSITION_CENTERED); //POSITION_TOP_RIGHT
 											n.setStyleName(ValoTheme.NOTIFICATION_SUCCESS);
@@ -1391,11 +1391,11 @@ public class Productos {
 		    				    		
 		    			    	}catch(Exception e){
 		    			    		
-		    			    		//Cierro transacción
+		    			    		//Cierro transacciï¿½n
 		    			    			sql.transaccionRollBack();
 		    			    			sql.transaccionCerrar();
 		    			    		
-		    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+		    			    		Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 		    			    		e.printStackTrace();
 		    			    		
 		    			    	}finally{
@@ -1409,7 +1409,7 @@ public class Productos {
 		    			eliminarProducto.addListener(new Button.ClickListener() {
 		    			    public void buttonClick(ClickEvent event) {
 		    				    		
-		    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de querer eliminarlo?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 
 		    			            public void onClose(ConfirmDialog dialog) {
@@ -1420,7 +1420,7 @@ public class Productos {
 				    				    
 				    				    try{
 				    			    	
-				    			    		//Abro transacción
+				    			    		//Abro transacciï¿½n
 				    			    		sql.transaccionAbrir();
 				    			    		
 				    				    		respuesta = sql.insertarSimple("update "+SqlConf.obtenerBase()+"inventario.productos set activo = 'NO' where id = "+id);
@@ -1437,7 +1437,7 @@ public class Productos {
 				    				    		
 				    				    		if(respuesta.equals("OK")){
 				    				    			
-				    				    			//Cierro transacción
+				    				    			//Cierro transacciï¿½n
 				    				    				sql.transaccionCommit();
 				    				    				sql.transaccionCerrar();
 				    				    		
@@ -1456,11 +1456,11 @@ public class Productos {
 				    				    		
 				    			    	}catch(Exception e){
 				    			    		
-				    			    		//Cierro transacción
+				    			    		//Cierro transacciï¿½n
 				    			    			sql.transaccionRollBack();
 				    			    			sql.transaccionCerrar();
 				    			    		
-				    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				    			    		Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				    			    		e.printStackTrace();
 				    			    		
 				    			    	}finally{
@@ -1571,8 +1571,8 @@ public class Productos {
 								
 							}
 						
-					Button añadir = new Button("Agregar");
-					añadir.addListener(new Button.ClickListener() {
+					Button aÃ±adir = new Button("Agregar");
+					aÃ±adir.addListener(new Button.ClickListener() {
 					    public void buttonClick(ClickEvent event) {
 
 					    	if(material.getValue() == null || cantidad.getValue().equals("")){
@@ -1617,7 +1617,7 @@ public class Productos {
 						    		
 					    		}catch(Exception e){
 					    			e.printStackTrace();
-					    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+					    			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 					    		}finally{
 					    			sql.cerrar();
 					    		}
@@ -1651,7 +1651,7 @@ public class Productos {
 						        totalCostoLabel.setValue("Costo total: "+formatter.format(totalCosto));
 					    		
 					    	}else{
-					    		Notification.show("Se debe escoger algún material a eliminar", Type.WARNING_MESSAGE);
+					    		Notification.show("Se debe escoger algÃºn material a eliminar", Type.WARNING_MESSAGE);
 					    	}
 					    	
 						    }
@@ -1671,8 +1671,8 @@ public class Productos {
 					
 					HorizontalLayout botones = new HorizontalLayout();
 					botones.setWidth("100%");
-					botones.addComponent(añadir);
-						botones.setComponentAlignment(añadir, Alignment.MIDDLE_LEFT);
+					botones.addComponent(aÃ±adir);
+						botones.setComponentAlignment(aÃ±adir, Alignment.MIDDLE_LEFT);
 					botones.addComponent(eliminar);
 						botones.setComponentAlignment(eliminar, Alignment.MIDDLE_RIGHT);
 					grid2.addComponent(botones, 0, 4);
@@ -1687,7 +1687,7 @@ public class Productos {
 		    			UI.getCurrent().addWindow(ventanaActualizar);
 		    			
 		    		}catch(Exception e){
-		    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+		    			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 		    			e.printStackTrace();
 		    		}finally{
 		    			sql.cerrar();
@@ -1726,7 +1726,7 @@ public class Productos {
 			}
 			
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -1764,7 +1764,7 @@ public class Productos {
 			}
 			
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -1801,7 +1801,7 @@ public class Productos {
 			}
 			
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -1837,7 +1837,7 @@ public class Productos {
 			}
 			
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -1878,7 +1878,7 @@ public class Productos {
 			combo.setValue(1);
 			
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();

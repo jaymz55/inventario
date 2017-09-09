@@ -75,7 +75,7 @@ public class GraficasProductos {
 				campos.setHeight("50");
 				//campos.setStyleName(ValoTheme.LAYOUT_WELL);
 			
-		//Para gráfica lineal
+		//Para grï¿½fica lineal
 			final HorizontalLayout graficasLayLineal = new HorizontalLayout();
 			graficasLayLineal.setWidth("90%");
 			graficasLayLineal.setHeight("400");
@@ -93,7 +93,7 @@ public class GraficasProductos {
 			graficasLayDatos.setWidth("100%");
 			graficasLayDatos.setHeight("300");
 			
-		//Para gráfica circular
+		//Para grï¿½fica circular
 			final HorizontalLayout graficasLayPie = new HorizontalLayout();
 			//graficasLayPie.setStyleName(ValoTheme.LAYOUT_WELL);
 			graficasLayPie.setWidth("100%");
@@ -111,20 +111,20 @@ public class GraficasProductos {
 			final ComboBox producto = llenarComboBox(new ComboBox(), usuario.getCustidsRelacionados());
 				producto.setWidth("50%");
 				
-			final ComboBox año = new ComboBox("Año");
-				año.setWidth("100");
-				año.setNullSelectionAllowed(false);
+			final ComboBox aÃ±o = new ComboBox("aÃ±o");
+				aÃ±o.setWidth("100");
+				aÃ±o.setNullSelectionAllowed(false);
 				
 				Calendar now = Calendar.getInstance();   // Gets the current date and time
 				int year = now.get(Calendar.YEAR);
 				
 				for (int i = 2016; i <= year; i++) {
-					año.addItem(String.valueOf(i));
+					aÃ±o.addItem(String.valueOf(i));
 				}
 				
-				año.setValue(String.valueOf(year));				
+				aÃ±o.setValue(String.valueOf(year));				
 				
-			//Cambio de tipo de gráfico
+			//Cambio de tipo de grï¿½fico
 				
 				producto.addValueChangeListener(new Property.ValueChangeListener() {
 				    public void valueChange(ValueChangeEvent event) {
@@ -144,7 +144,7 @@ public class GraficasProductos {
 					    	
 					    	try{
 					    	
-						    	beanCon  = sql.conexionSimple(query(usuario.getCustidsRelacionados(), producto.getValue().toString(), año.getValue().toString()));
+						    	beanCon  = sql.conexionSimple(query(usuario.getCustidsRelacionados(), producto.getValue().toString(), aÃ±o.getValue().toString()));
 						    	
 								if(!beanCon.getRespuesta().equals("OK")){
 									throw new Exception(beanCon.getRespuesta());
@@ -153,7 +153,7 @@ public class GraficasProductos {
 								rs = beanCon.getRs();
 								
 						    	
-						    	beanCon2  = sql2.conexionSimple(query2(usuario.getCustidsRelacionados(), producto.getValue().toString(), año.getValue().toString()));
+						    	beanCon2  = sql2.conexionSimple(query2(usuario.getCustidsRelacionados(), producto.getValue().toString(), aÃ±o.getValue().toString()));
 						    	
 								if(!beanCon2.getRespuesta().equals("OK")){
 									throw new Exception(beanCon2.getRespuesta());
@@ -177,7 +177,7 @@ public class GraficasProductos {
 					    		
 					    	//Agrego Barras
 					    		
-					    		beanCon2  = sql2.conexionSimple(queryBarras(usuario.getCustidsRelacionados(), producto.getValue().toString(), año.getValue().toString()));
+					    		beanCon2  = sql2.conexionSimple(queryBarras(usuario.getCustidsRelacionados(), producto.getValue().toString(), aÃ±o.getValue().toString()));
 						    	
 								if(!beanCon2.getRespuesta().equals("OK")){
 									throw new Exception(beanCon2.getRespuesta());
@@ -239,12 +239,12 @@ public class GraficasProductos {
 	}
 	
 	
-//Empiezan métodos externos
+//Empiezan mï¿½todos externos
 	
-	private String query(String custid, String producto, String año){
+	private String query(String custid, String producto, String aÃ±o){
 		
 			
-			return "SELECT 'Ventas' as nombreSerie, concat(LPAD(month(str_to_date(a.mnth,'%M')),2,0),'-', '"+año+"') as mes, ifnull(SUM((b.total*b.cantidad) - b.descuento),0) as dato\r\n" + 
+			return "SELECT 'Ventas' as nombreSerie, concat(LPAD(month(str_to_date(a.mnth,'%M')),2,0),'-', '"+aÃ±o+"') as mes, ifnull(SUM((b.total*b.cantidad) - b.descuento),0) as dato\r\n" + 
 					"FROM   (\r\n" + 
 					"            SELECT 'January' mnth, 1 rn\r\n" + 
 					"            UNION ALL\r\n" + 
@@ -272,7 +272,7 @@ public class GraficasProductos {
 					"        ) a\r\n" + 
 					"        LEFT JOIN "+SqlConf.obtenerBase()+"inventario.ventas b force index (custid)\r\n" + 
 					"            ON a.mnth = DATE_FORMAT(b.fecha, '%M') AND\r\n" + 
-					"               year(b.fecha) =  '"+año+"' AND\r\n" + 
+					"               year(b.fecha) =  '"+aÃ±o+"' AND\r\n" + 
 					"               DATE_FORMAT(b.fecha, '%M') IN ('January', 'February','March','April','May','June','July','August', 'September', 'October', 'November', 'December')\r\n" + 
 					"              and b.custid in ("+custid+") and b.id_producto = "+producto+"\r\n" + 
 					"GROUP  BY a.mnth, year(b.fecha),month(b.fecha)\r\n" + 
@@ -282,10 +282,10 @@ public class GraficasProductos {
 		
 	}
 	
-	private String query2(String custid, String producto, String año){
+	private String query2(String custid, String producto, String aÃ±o){
 		
 			
-			return "SELECT 'Costos' as nombreSerie, concat(LPAD(month(str_to_date(a.mnth,'%M')),2,0),'-', '"+año+"') as mes, ifnull(SUM(b.total*b.unidades),0) as dato\r\n" + 
+			return "SELECT 'Costos' as nombreSerie, concat(LPAD(month(str_to_date(a.mnth,'%M')),2,0),'-', '"+aÃ±o+"') as mes, ifnull(SUM(b.total*b.unidades),0) as dato\r\n" + 
 					"FROM   (\r\n" + 
 					"            SELECT 'January' mnth, 1 rn\r\n" + 
 					"            UNION ALL\r\n" + 
@@ -313,7 +313,7 @@ public class GraficasProductos {
 					"        ) a\r\n" + 
 					"        LEFT JOIN "+SqlConf.obtenerBase()+"inventario.inventario b force index (custid)\r\n" + 
 					"            ON a.mnth = DATE_FORMAT(b.fecha, '%M') AND\r\n" + 
-					"               year(b.fecha) =  '"+año+"' AND\r\n" + 
+					"               year(b.fecha) =  '"+aÃ±o+"' AND\r\n" + 
 					"               DATE_FORMAT(b.fecha, '%M') IN ('January', 'February','March','April','May','June','July','August', 'September', 'October', 'November', 'December')\r\n" + 
 					"              and b.custid in ("+custid+")\r\n" + 
 					"			   and b.movimiento = 'ENTRADA' and b.id_producto = "+producto+" " +
@@ -323,13 +323,13 @@ public class GraficasProductos {
 		
 	}
 	
-	private String queryBarras(String custid, String producto, String año){
+	private String queryBarras(String custid, String producto, String aÃ±o){
 		
 		
 		return "SELECT 'Cliente' as nombreSerie, id_cliente, (select nombre from "+SqlConf.obtenerBase()+"inventario.clientes where id = a.id_cliente) as nombre, sum(cantidad) as dato\r\n" + 
 				"FROM "+SqlConf.obtenerBase()+"inventario.ventas a force index (custid)\r\n" + 
 				"where custid in ("+custid+")\r\n" + 
-				//"and year(fecha) = "+año+"\r\n" + 
+				//"and year(fecha) = "+aÃ±o+"\r\n" + 
 				"and movimiento = 'VENTA'\r\n" + 
 				"and id_cliente is not null\r\n" + 
 				"and id_producto = "+producto+"\r\n" + 
@@ -367,7 +367,7 @@ public class GraficasProductos {
 			}
 			
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();

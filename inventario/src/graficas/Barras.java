@@ -50,23 +50,23 @@ public class Barras {
         //ZoomType zoom = ZoomType.XY;
         //lineConfiguration.setZoomType(zoom);
         
-	    //Configuración
+	    //Configuraciï¿½n
 	    List<String> nombres = new ArrayList<String>();
 
         for(int a = 0; a < queries.size(); a++){
         	
         	List<Object> datoValues = new ArrayList<Object>();
-        	String año = "";
+        	String aÃ±o = "";
         	
         	while(queries.elementAt(a).next()){
-        		//año = queries.elementAt(a).getString("nombreSerie");
+        		//aÃ±o = queries.elementAt(a).getString("nombreSerie");
                 datoValues.add(queries.elementAt(a).getString("dato"));
                 nombres.add(queries.elementAt(a).getString("nombre"));
         	}
         	
         	
-        	ColumnChartSeries datoBar = new ColumnChartSeries(año, datoValues);
-        	datoBar = new ColumnChartSeries(año, datoValues);
+        	ColumnChartSeries datoBar = new ColumnChartSeries(aÃ±o, datoValues);
+        	datoBar = new ColumnChartSeries(aÃ±o, datoValues);
         	
         	barConfiguration.getSeriesList().add(datoBar);
         	
@@ -133,23 +133,23 @@ public class Barras {
         //ZoomType zoom = ZoomType.XY;
         //lineConfiguration.setZoomType(zoom);
         
-	    //Configuración
+	    //Configuraciï¿½n
 	    List<String> nombres = new ArrayList<String>();
 
         for(int a = 0; a < queries.size(); a++){
         	
         	List<Object> datoValues = new ArrayList<Object>();
-        	String año = "";
+        	String aÃ±o = "";
         	
         	while(queries.elementAt(a).next()){
-        		//año = queries.elementAt(a).getString("nombreSerie");
+        		//aÃ±o = queries.elementAt(a).getString("nombreSerie");
                 datoValues.add(queries.elementAt(a).getString("dato"));
                 nombres.add(Encriptar.Desencriptar(queries.elementAt(a).getString("nombre")));
         	}
         	
         	
-        	ColumnChartSeries datoBar = new ColumnChartSeries(año, datoValues);
-        	datoBar = new ColumnChartSeries(año, datoValues);
+        	ColumnChartSeries datoBar = new ColumnChartSeries(aÃ±o, datoValues);
+        	datoBar = new ColumnChartSeries(aÃ±o, datoValues);
         	
         	barConfiguration.getSeriesList().add(datoBar);
         	
@@ -212,7 +212,7 @@ public class Barras {
         //ZoomType zoom = ZoomType.XY;
         //lineConfiguration.setZoomType(zoom);
         
-	        //Configuración
+	        //Configuraciï¿½n
 	        List<String> meses = new ArrayList<String>();
 	       	/*meses.add("Enero");
 	       	meses.add("Febrero");
@@ -230,16 +230,16 @@ public class Barras {
         for(int a = 0; a < datos.size(); a++){
         	
         	List<Object> datoValues = new ArrayList<Object>();
-        	String año = "";
+        	String aÃ±o = "";
         	
         	while(datos.elementAt(a).next()){
-        		año = datos.elementAt(a).getString("nombreSerie");
+        		aÃ±o = datos.elementAt(a).getString("nombreSerie");
                 datoValues.add(datos.elementAt(a).getString("dato"));
                 meses.add(datos.elementAt(a).getString("mes"));
         	}
         	
-        	LineChartSeries datoLine = new LineChartSeries(año, datoValues);
-        	datoLine = new LineChartSeries(año, datoValues);
+        	LineChartSeries datoLine = new LineChartSeries(aÃ±o, datoValues);
+        	datoLine = new LineChartSeries(aÃ±o, datoValues);
         	
             lineConfiguration.getSeriesList().add(datoLine);
         	
@@ -317,7 +317,7 @@ public class Barras {
         //ZoomType zoom = ZoomType.XY;
         //lineConfiguration.setZoomType(zoom);
         
-	        //Configuración
+	        //Configuraciï¿½n
 	        List<String> meses = new ArrayList<String>();
 	       	/*meses.add("Enero");
 	       	meses.add("Febrero");
@@ -335,17 +335,17 @@ public class Barras {
         for(int a = 0; a < datos.size(); a++){
         	
         	List<Object> datoValues = new ArrayList<Object>();
-        	String año = "";
+        	String aÃ±o = "";
         	
         	while(datos.elementAt(a).next()){
-        		año = datos.elementAt(a).getString("nombreSerie");
+        		aÃ±o = datos.elementAt(a).getString("nombreSerie");
                 datoValues.add(datos.elementAt(a).getString("dato"));
                 meses.add(obtenerMes(datos.elementAt(a).getString("mes")));
         	}
         	
         	
-        	ColumnChartSeries datoLine = new ColumnChartSeries(año, datoValues);
-        	datoLine = new ColumnChartSeries(año, datoValues);
+        	ColumnChartSeries datoLine = new ColumnChartSeries(aÃ±o, datoValues);
+        	datoLine = new ColumnChartSeries(aÃ±o, datoValues);
         	
         	barConfiguration.getSeriesList().add(datoLine);
         	

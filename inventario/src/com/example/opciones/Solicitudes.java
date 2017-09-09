@@ -135,7 +135,7 @@ public class Solicitudes {
 						tabla.setLocale(Locale.US);
 					 	
 					 	
-					 //Horizontal que contendrá a costo total y descuento
+					 //Horizontal que contendrï¿½ a costo total y descuento
 					 HorizontalLayout costos = new HorizontalLayout();
 					 	costos.setMargin(true);
 					 	costos.setWidth("90%");
@@ -160,7 +160,7 @@ public class Solicitudes {
 				            		
 				            	}else{
 				            		
-				            		//Función para hacer descuento
+				            		//Funciï¿½n para hacer descuento
 				            		
 				            		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 							        totalCostoLabel.setValue("Costo total: "+formatter.format(calcularTotalSinDescuento(tabla, Double.parseDouble(event.getText()))));
@@ -190,8 +190,8 @@ public class Solicitudes {
 						tabla.addContainerProperty("CANTIDAD", String.class, null);
 						tabla.addContainerProperty("PRECIO", Double.class, null);
 
-						Button añadir = new Button("Agregar");
-						añadir.addListener(new Button.ClickListener() {
+						Button aÃ±adir = new Button("Agregar");
+						aÃ±adir.addListener(new Button.ClickListener() {
 						    public void buttonClick(ClickEvent event) {
 						    	
 							    	if(producto.getValue() == null || cantidadCelda.getValue().equals("")){
@@ -235,7 +235,7 @@ public class Solicitudes {
 						            		
 						            	}else{
 						            		
-						            		//Función para hacer descuento
+						            		//Funciï¿½n para hacer descuento
 						            		
 						            		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 									        totalCostoLabel.setValue("Costo total: "+formatter.format(calcularTotalSinDescuento(tabla, Double.parseDouble(descuento.getValue()))));
@@ -262,14 +262,14 @@ public class Solicitudes {
 					            		
 					            	}else{
 					            		
-					            		//Función para hacer descuento
+					            		//Funciï¿½n para hacer descuento
 					            		
 					            		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 								        totalCostoLabel.setValue("Costo total: "+formatter.format(calcularTotalSinDescuento(tabla, Double.parseDouble(descuento.getValue()))));
 					            	}
 						    		
 						    	}else{
-						    		Notification.show("Se debe escoger algún producto a eliminar", Type.WARNING_MESSAGE);
+						    		Notification.show("Se debe escoger algï¿½n producto a eliminar", Type.WARNING_MESSAGE);
 						    	}
 						    	
 							    }
@@ -290,7 +290,7 @@ public class Solicitudes {
 								    	Mysql sql = new Mysql();
 								    	try{
 								    		
-								    	//Abro transacción
+								    	//Abro transacciï¿½n
 								    		
 								    		sql.transaccionAbrir();
 								    		String respuesta = "NO";
@@ -310,7 +310,7 @@ public class Solicitudes {
 								    		
 								    	//Agrego componentes
 								    		
-								    		//Obtengo id del producto recién agregado
+								    		//Obtengo id del producto reciï¿½n agregado
 								    		
 								 		    String idSolicitud = "";
 								 		    BeanConsulta bean = sql.consultaSimple("SELECT LAST_INSERT_ID()");
@@ -342,11 +342,11 @@ public class Solicitudes {
 									        cantidad = null;
 									        precio = null;
 									        
-									    //Verifico que respuesta sea SÍ para continuar
+									    //Verifico que respuesta sea Sï¿½ para continuar
 									        
 									    if(respuesta.equals("OK")){
 									    
-									    //Cierro transacción
+									    //Cierro transacciï¿½n
 									    	sql.transaccionCommit();
 									    	sql.transaccionCerrar();
 									    	
@@ -355,13 +355,13 @@ public class Solicitudes {
 										    	Correo correo = new Correo();
 										    	
 												String texto = "<STYLE TYPE='text/css'><!--.atxt {font-family: arial;	font-size: 12px;	color:#31309c;}a.atxt:link  {text-decoration: underline; color:#0000ff;}a.atxt:hover  {text-decoration: none; color:red;}.txt {font-family: Arial; font-size: 8pt; color: #000000}.txt2 {font-family: Arial; font-size: 9pt; font-weight: bold; color: #000000}.date {font-family: Arial; font-size: 9pt; font-weight: bold; color: #9c0000}.intro {font-family: Arial; font-size: 9pt; color: #000000}.ayuda {font-family: arial;	font-size: 11px;	color:#838283;}a.ayuda:link {font-family: arial;font-size: 11px;	color:#0000FF;}a.ayuda:hover {text-decoration: none;font-size: 11px;	color:#FF0000;}.boton {color:#FFFFFF; font-weight:bold; background-color:#333399;width: 60px; font-family:Arial; font-size:11px;}--></STYLE><table width='570' border='0' cellspacing='0' cellpadding='0' align='center'><tr><td align='center'><style type='text/css'><!--.a,.titblanco,.titazul1,.titnegro,.titnegro1,.titazul,.titbold,.tit {font-family:Arial,Helvetica,sans-serif;font-size:11px;font-style:normal;font-weight:normal;color:#0000ff}.tit {color:#000000}.titbold,.titblanco,.titazul1,.titnegro {font-size:12px;font-weight:bold;color:#32388b}.titazul,.titnegro1 {font-size:14px;font-style:normal;font-weight:bold;color:#32388b}.titnegro1 {font-size:10px;color:#000000}.titnegro,.titblanco {font-weight:normal;color:#000000}.titazul1 {font-weight:bold;color:#32388b}.titblanco {color:#ffffff}--> </style>"+
-														"<table width='570' border='0' cellpadding='0' cellspacing='0' style=' text-align:left; font-family:Arial, Helvetica, sans-serif;'><tr><td width='3'></td><td width='175'><a href='http://www.tuprograma.mx'><img src='http://www.tuprograma.mx/imagenes/Tuprograma_chico.gif' width='178' height='48' border='0' / alt='TuPrograma.mx'></a></td><td width='372'></td>  </tr>	<tr><td></td><td></td><td></td></tr><tr><td colspan='3' style='border:1px solid #c1c1c1; border-bottom:0px; padding:20px 20px 10px 20px; font-size:12px; color:#333333; line-height:18px;'><p>Hola: </p><p>Se ha cargado una nueva solicitud de producción con número <b>"+idSolicitud+"</b>.</p>"+
+														"<table width='570' border='0' cellpadding='0' cellspacing='0' style=' text-align:left; font-family:Arial, Helvetica, sans-serif;'><tr><td width='3'></td><td width='175'><a href='http://www.tuprograma.mx'><img src='http://www.tuprograma.mx/imagenes/Tuprograma_chico.gif' width='178' height='48' border='0' / alt='TuPrograma.mx'></a></td><td width='372'></td>  </tr>	<tr><td></td><td></td><td></td></tr><tr><td colspan='3' style='border:1px solid #c1c1c1; border-bottom:0px; padding:20px 20px 10px 20px; font-size:12px; color:#333333; line-height:18px;'><p>Hola: </p><p>Se ha cargado una nueva solicitud de producciï¿½n con nï¿½mero <b>"+idSolicitud+"</b>.</p>"+
 														"<p>Saludos,</p><p>TuPrograma.mx<br><a href='http://www.tuprograma.mx/tuinventario' target='_blank'>www.tuprograma.mx/tuinventario</a></p></td></tr><tr><td height='9' colspan='3' style='font-size:0;; border:1px solid #c1c1c1; border-top:0;'><!--<img src='http://www.mercadolibre.com/org-img/dmac/templates/generico/dmac_footer.gif' width='570' height='9' />--></td></tr><tr><td colspan='3' style='font-size:11px; color:#666666; text-align:center; padding-top:15px;'>Por favor no respondas este e-mail. Si tienes alguna duda o quieres contactarnos, ingresa al <a href='http://www.tuprograma.mx'>Portal de Ayuda.</a></td></tr></table></td></tr></table>";
 												
 												if(usuario.getCorreoSolicitudesCopia().equals("SI"))
-													correo.nuevo(usuario.getCorreoSolicitudes(), usuario.getCorreo(),"Nueva solicitud de producción", texto);
+													correo.nuevo(usuario.getCorreoSolicitudes(), usuario.getCorreo(),"Nueva solicitud de producciï¿½n", texto);
 												else
-													correo.nuevo(usuario.getCorreoSolicitudes(), null,"Nueva solicitud de producción", texto);
+													correo.nuevo(usuario.getCorreoSolicitudes(), null,"Nueva solicitud de producciï¿½n", texto);
 	
 									    	}
 									    	
@@ -384,7 +384,7 @@ public class Solicitudes {
 									    
 								    	}catch(Exception e){
 								    		
-									    	//Cierro transacción
+									    	//Cierro transacciï¿½n
 								    			sql.transaccionRollBack();
 								    			sql.transaccionCerrar();
 								    		
@@ -473,8 +473,8 @@ public class Solicitudes {
 								
 								HorizontalLayout botones = new HorizontalLayout();
 									botones.setWidth("50%");
-									botones.addComponent(añadir);
-										botones.setComponentAlignment(añadir, Alignment.MIDDLE_CENTER);
+									botones.addComponent(aÃ±adir);
+										botones.setComponentAlignment(aÃ±adir, Alignment.MIDDLE_CENTER);
 									botones.addComponent(eliminar);
 										botones.setComponentAlignment(eliminar, Alignment.MIDDLE_CENTER);
 								
@@ -517,14 +517,14 @@ public class Solicitudes {
 						dos.setComponentAlignment(insertar, Alignment.BOTTOM_RIGHT);
 				
 				}catch(Exception e){
-					Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+					Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 					e.printStackTrace();
 				}finally{
 					sql.cerrar();
 				}
 				
 				//Titulo
-				Label titulo = new Label("Solicitudes de producción");
+				Label titulo = new Label("Solicitudes de producciï¿½n");
 				titulo.setStyleName(ValoTheme.LABEL_H1);
 				
 				cabecera.addComponent(titulo);
@@ -537,7 +537,7 @@ public class Solicitudes {
 				respuesta.addComponent(dos);
 
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -547,7 +547,7 @@ public class Solicitudes {
 		
 	}
 	
-	//Empiezan métodos externos
+	//Empiezan mï¿½todos externos
 	
 	private VerticalLayout generarTabla(VerticalLayout tablas, String custid){
 		
@@ -572,7 +572,7 @@ public class Solicitudes {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -659,7 +659,7 @@ public class Solicitudes {
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3)}, id);
 			}else if(count==4){ 
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)}, id);
-			}else if(count==5){ //Éste es el que usa
+			}else if(count==5){ //ï¿½ste es el que usa
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)}, id);
 			}else if(count==6){ 
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getDouble(6)}, id);
@@ -837,7 +837,7 @@ public class Solicitudes {
 					final Table tablaInterna = new Table();
 						tablaInterna.setLocale(Locale.US);
 						
-					//Horizontal que contendrá a costo total y descuento
+					//Horizontal que contendrï¿½ a costo total y descuento
 						 HorizontalLayout costos = new HorizontalLayout();
 						 	costos.setMargin(true);
 						 	costos.setWidth("90%");
@@ -863,7 +863,7 @@ public class Solicitudes {
 					            		
 					            	}else{
 					            		
-					            		//Función para hacer descuento
+					            		//Funciï¿½n para hacer descuento
 					            		
 					            		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 								        totalCostoLabel.setValue("Costo total: "+formatter.format(calcularTotalSinDescuento(tablaInterna, Double.parseDouble(event.getText()))));
@@ -892,8 +892,8 @@ public class Solicitudes {
 							tablaInterna.addContainerProperty("CANTIDAD", String.class, null);
 							tablaInterna.addContainerProperty("PRECIO", Double.class, null);
 
-							Button añadir = new Button("Agregar");
-							añadir.addListener(new Button.ClickListener() {
+							Button aÃ±adir = new Button("Agregar");
+							aÃ±adir.addListener(new Button.ClickListener() {
 							    public void buttonClick(ClickEvent event) {
 							    	
 								    	if(producto.getValue() == null || cantidad.getValue().equals("")){
@@ -939,7 +939,7 @@ public class Solicitudes {
 							            		
 							            	}else{
 							            		
-							            		//Función para hacer descuento
+							            		//Funciï¿½n para hacer descuento
 							            		
 							            		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 										        totalCostoLabel.setValue("Costo total: "+formatter.format(calcularTotalSinDescuento(tablaInterna, Double.parseDouble(descuento.getValue()))));
@@ -967,14 +967,14 @@ public class Solicitudes {
 						            		
 						            	}else{
 						            		
-						            		//Función para hacer descuento
+						            		//Funciï¿½n para hacer descuento
 						            		
 						            		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 									        totalCostoLabel.setValue("Costo total: "+formatter.format(calcularTotalSinDescuento(tablaInterna, Double.parseDouble(descuento.getValue()))));
 						            	}
 							    		
 							    	}else{
-							    		Notification.show("Se debe escoger algún producto a eliminar", Type.WARNING_MESSAGE);
+							    		Notification.show("Se debe escoger algï¿½n producto a eliminar", Type.WARNING_MESSAGE);
 							    	}
 							    	
 								    }
@@ -1089,7 +1089,7 @@ public class Solicitudes {
 		            		
 		            	}else{
 		            		
-		            		//Función para hacer descuento
+		            		//Funciï¿½n para hacer descuento
 		            		
 		            		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 					        totalCostoLabel.setValue("Costo total: "+formatter.format(calcularTotalSinDescuento(tablaInterna, Double.parseDouble(descuento.getValue()))));
@@ -1101,7 +1101,7 @@ public class Solicitudes {
 		    			    public void buttonClick(ClickEvent event) {
 		    			    	
 						    	if(tablaInterna.size() == 0){
-						    		Notification.show("La tabla no puede estar vacía", Type.WARNING_MESSAGE); 
+						    		Notification.show("La tabla no puede estar vacï¿½a", Type.WARNING_MESSAGE); 
 						    	}else{
 		    			    	
 			    				    Mysql sql = new Mysql();
@@ -1109,7 +1109,7 @@ public class Solicitudes {
 			    				    
 			    			    	try{
 			    			    	
-			    			    		//Empieza transacción
+			    			    		//Empieza transacciï¿½n
 			    			    			
 			    			    		sql.transaccionAbrir();
 			    			    		
@@ -1163,7 +1163,7 @@ public class Solicitudes {
 			    				    			
 				    				    		generarTabla(tablas, usuario.getCustidsRelacionados());
 				    				    		
-												Notification n = new Notification("Correcta actualización de la solicitud", Type.TRAY_NOTIFICATION);
+												Notification n = new Notification("Correcta actualizaciï¿½n de la solicitud", Type.TRAY_NOTIFICATION);
 												n.setDelayMsec(2000);
 												n.setPosition(Notification.POSITION_CENTERED); //POSITION_TOP_RIGHT
 												n.setStyleName(ValoTheme.NOTIFICATION_SUCCESS);
@@ -1176,7 +1176,7 @@ public class Solicitudes {
 			    			    		sql.transaccionRollBack();
 			    			    		sql.transaccionCerrar();
 			    			    		
-			    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			    			    		Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 			    			    		e.printStackTrace();
 			    			    	}finally{
 			    			    		sql.cerrar();
@@ -1193,7 +1193,7 @@ public class Solicitudes {
 		    			eliminarSolicitud.addListener(new Button.ClickListener() {
 		    			    public void buttonClick(ClickEvent event) {
 		    			    	
-		    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarla?",
+		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de querer eliminarla?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 
 		    			            public void onClose(ConfirmDialog dialog) {
@@ -1231,7 +1231,7 @@ public class Solicitudes {
 		    			completarSolicitud.addListener(new Button.ClickListener() {
 		    			    public void buttonClick(ClickEvent event) {
 		    			    	
-		    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de marcarla como completada?",
+		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de marcarla como completada?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 
 		    			            public void onClose(ConfirmDialog dialog) {
@@ -1289,8 +1289,8 @@ public class Solicitudes {
 						
 						HorizontalLayout botones = new HorizontalLayout();
 							botones.setWidth("50%");
-							botones.addComponent(añadir);
-								botones.setComponentAlignment(añadir, Alignment.MIDDLE_CENTER);
+							botones.addComponent(aÃ±adir);
+								botones.setComponentAlignment(aÃ±adir, Alignment.MIDDLE_CENTER);
 							botones.addComponent(eliminar);
 								botones.setComponentAlignment(eliminar, Alignment.MIDDLE_CENTER);
 						
@@ -1326,7 +1326,7 @@ public class Solicitudes {
 		    			UI.getCurrent().addWindow(ventanaActualizar);
 		    			
 		    		}catch(Exception e){
-		    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+		    			Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 		    			e.printStackTrace();
 		    		}finally{
 		    			sql.cerrar();
@@ -1340,7 +1340,7 @@ public class Solicitudes {
 		return respuesta;
 	}
 	
-	//Empiezan métodos externos
+	//Empiezan mï¿½todos externos
 	
 		private AutocompleteSuggestionProvider listaCategorias(String custid){
 			
@@ -1362,7 +1362,7 @@ public class Solicitudes {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1393,7 +1393,7 @@ public class Solicitudes {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1426,7 +1426,7 @@ public class Solicitudes {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1463,7 +1463,7 @@ public class Solicitudes {
 				combo.setValue(1);
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1498,7 +1498,7 @@ public class Solicitudes {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();

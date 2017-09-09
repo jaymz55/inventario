@@ -115,12 +115,12 @@ public class Almacen {
 			});
 
 				
-			final Button insertar = new Button("ProducciÛn");
+			final Button insertar = new Button("Producci√≥n");
 			insertar.setStyleName("boton_simple");
 				insertar.addListener(new Button.ClickListener() {
 				    public void buttonClick(ClickEvent event) {
 				    	
-						final Window ventanaRegistrar = new Window("Nueva producciÛn");
+						final Window ventanaRegistrar = new Window("Nueva producci√≥n");
 						ventanaRegistrar.center();
 						ventanaRegistrar.setHeight("30%");
 						ventanaRegistrar.setWidth("80%");
@@ -161,7 +161,7 @@ public class Almacen {
 						    		try{
 						    			
 						    			
-						    			//*****************AquÌ debo abrir una transacciÛn
+						    			//*****************Aqu√≠ debo abrir una transacci√≥n
 						    			sql.transaccionAbrir();
 						    			sql2.transaccionAbrir();
 
@@ -170,7 +170,7 @@ public class Almacen {
 						    			}
 						    			
 						    			respuesta = sql.insertarSimple("insert into "+SqlConf.obtenerBase()+"inventario.almacen values ("
-						    					+ "null, '"+usuario.getCustid()+"','"+producto.getValue().toString()+"','"+Funcion.fechaFormato(fechaProduccion.getValue(), "yyyy-MM-dd")+"', "+caducidadAjustada+","+cantidad.getValue()+",'PRODUCCI”N', null, null, 'SI', null)");
+						    					+ "null, '"+usuario.getCustid()+"','"+producto.getValue().toString()+"','"+Funcion.fechaFormato(fechaProduccion.getValue(), "yyyy-MM-dd")+"', "+caducidadAjustada+","+cantidad.getValue()+",'PRODUCCIÔøΩN', null, null, 'SI', null)");
 						    			
 						    			if(!respuesta.equals("OK")){
 						    				throw new Exception(respuesta);
@@ -181,7 +181,7 @@ public class Almacen {
 						    		//Reviso CheckBox
 						    			if(descuenta.getValue() == true){
 						    			
-							    			//Obtengo el n˙mero de id
+							    			//Obtengo el nÔøΩmero de id
 								 		    
 								 		    BeanConsulta bean = sql.consultaSimple("SELECT LAST_INSERT_ID()");
 								 		    
@@ -321,7 +321,7 @@ public class Almacen {
 			    }
 			});
 			
-			final Button salidas = new Button("Tr·nsitos");
+			final Button salidas = new Button("TrÔøΩnsitos");
 			salidas.setStyleName("boton_simple");
 			
 			salidas.addListener(new Button.ClickListener() {
@@ -361,7 +361,7 @@ public class Almacen {
 						    	
 						    	if(producto.getValue() != null && !cantidad.getValue().equals("") && fechaProduccion.getValue() != null){
 						    	
-			    					ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÛn", "øEst·s seguro de querer registrar la merma? Recuerda que debiste registrar la producciÛn de este artÌculo antes",
+			    					ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÔøΩn", "ÔøΩEstÔøΩs seguro de querer registrar la merma? Recuerda que debiste registrar la producciÔøΩn de este artÔøΩculo antes",
 			    							"SI", "NO", new ConfirmDialog.Listener() {
 
 			    			            public void onClose(ConfirmDialog dialog) {
@@ -442,9 +442,9 @@ public class Almacen {
 			    }
 			});
 			
-		//BotÛn para salida de producto sin venta
+		//BotÔøΩn para salida de producto sin venta
 			
-			final Button salida = new Button("Tr·nsito");
+			final Button salida = new Button("Tr√°nsito");
 			salida.setStyleName("boton_simple");
 	
 			salida.addListener(new Button.ClickListener() {
@@ -486,8 +486,8 @@ public class Almacen {
 									tabla.addContainerProperty("PRODUCTO", String.class, null);
 									tabla.addContainerProperty("CANTIDAD", String.class, null);
 
-									Button aÒadir = new Button("Agregar");
-									aÒadir.addListener(new Button.ClickListener() {
+									Button a√±adir = new Button("Agregar");
+									a√±adir.addListener(new Button.ClickListener() {
 									    public void buttonClick(ClickEvent event) {
 									    	
 										    	if(producto.getValue() == null || cantidad.getValue().equals("")){
@@ -510,7 +510,7 @@ public class Almacen {
 									    		tabla.removeItem(tabla.getValue());
 									    		
 									    	}else{
-									    		Notification.show("Se debe escoger alg˙n producto a eliminar", Type.WARNING_MESSAGE);
+									    		Notification.show("Se debe escoger alg√∫n producto a eliminar", Type.WARNING_MESSAGE);
 									    	}
 									    	
 										    }
@@ -532,13 +532,13 @@ public class Almacen {
 											    	
 											    	try{
 											    		
-											    	//Abro transacciÛn
+											    	//Abro transacciÔøΩn
 											    		
 											    		sql.transaccionAbrir();
 
 											    	//Agrego componentes
 											    		
-											    		//Obtengo id del producto reciÈn agregado
+											    		//Obtengo id del producto reciÔøΩn agregado
 
 											 		    BeanConsulta bean = sql.consultaSimple("SELECT ifnull(max(id_salida)+1,1) from "+SqlConf.obtenerBase()+"inventario.almacen where custid in ("+usuario.getCustidsRelacionados()+")");
 											 		    
@@ -556,7 +556,7 @@ public class Almacen {
 												        for (Object elem : ids) {
 												        	
 												        	cantidad = tabla.getItem(elem).getItemProperty("CANTIDAD");
-												        	respuesta = sql.insertarSimple("insert into "+SqlConf.obtenerBase()+"inventario.almacen values (null, '"+usuario.getCustid()+"',"+elem+",'"+Funcion.fechaFormato(fecha.getValue(), "yyyy-MM-dd")+"', null, "+Double.parseDouble(cantidad.getValue())*-1+",'TR¡NSITO',"+idSalida+",'"+comentarios.getValue()+"','SI', null)");
+												        	respuesta = sql.insertarSimple("insert into "+SqlConf.obtenerBase()+"inventario.almacen values (null, '"+usuario.getCustid()+"',"+elem+",'"+Funcion.fechaFormato(fecha.getValue(), "yyyy-MM-dd")+"', null, "+Double.parseDouble(cantidad.getValue())*-1+",'TRÔøΩNSITO',"+idSalida+",'"+comentarios.getValue()+"','SI', null)");
 
 											    			if(!respuesta.equals("OK")){
 											    				throw new Exception(respuesta);
@@ -566,11 +566,11 @@ public class Almacen {
 												        
 												        ids = null;
 
-												    //Verifico que respuesta sea SÕ para continuar
+												    //Verifico que respuesta sea SÔøΩ para continuar
 												        
 												    if(respuesta.equals("OK")){
 												    
-												    //Cierro transacciÛn
+												    //Cierro transacciÔøΩn
 												    	sql.transaccionCommit();
 												    	sql.transaccionCerrar();
 												    	
@@ -592,7 +592,7 @@ public class Almacen {
 												    
 											    	}catch(Exception e){
 											    		
-												    	//Cierro transacciÛn
+												    	//Cierro transacciÔøΩn
 											    			sql.transaccionRollBack();
 											    			sql.transaccionCerrar();
 											    		
@@ -643,8 +643,8 @@ public class Almacen {
 									
 									HorizontalLayout botones = new HorizontalLayout();
 										botones.setWidth("50%");
-										botones.addComponent(aÒadir);
-											botones.setComponentAlignment(aÒadir, Alignment.MIDDLE_CENTER);
+										botones.addComponent(a√±adir);
+											botones.setComponentAlignment(a√±adir, Alignment.MIDDLE_CENTER);
 										botones.addComponent(eliminar);
 											botones.setComponentAlignment(eliminar, Alignment.MIDDLE_CENTER);
 									
@@ -664,7 +664,7 @@ public class Almacen {
 					    }
 			    	});
 			
-			Label tituloLabel = new Label("Registro de nuevos productos en almacÈn");
+			Label tituloLabel = new Label("Registro de nuevos productos en almac√©n");
 			tituloLabel.setStyleName(ValoTheme.LABEL_H1);
 			
 			titulo.addComponent(tituloLabel);
@@ -715,7 +715,7 @@ public class Almacen {
 		
 	}
 	
-	//Empiezan mÈtodos externos
+	//Empiezan mÔøΩtodos externos
 	
 	private VerticalLayout generarTabla(VerticalLayout tablas, String custid, String fechaInicial, String fechaFinal){
 		
@@ -744,7 +744,7 @@ public class Almacen {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -942,7 +942,7 @@ public class Almacen {
 		    public void itemClick(ItemClickEvent event) {
 		    	if (event.isDoubleClick()){
 
-		    		//Saco el id para evitar confusiÛn cuando hay dos facturas con un mismo folio
+		    		//Saco el id para evitar confusi√≥n cuando hay dos facturas con un mismo folio
 		    		Property<String> itemProperty = event.getItem().getItemProperty("ID");
 		    		final String id = itemProperty.getValue();
 
@@ -951,7 +951,7 @@ public class Almacen {
 		    		
 		    		final UsuarioDTO usuario = (UsuarioDTO) UI.getCurrent().getData();
 
-		    			if(movimiento.equals("VENTA") || movimiento.equals("DEVOLUCI”N") || movimiento.equals("TR¡NSITO")){
+		    			if(movimiento.equals("VENTA") || movimiento.equals("DEVOLUCI√ìN") || movimiento.equals("TR√ÅNSITO")){
 		    				
 		    				Notification.show("No se puede editar este movimiento", Type.WARNING_MESSAGE);
 		    			
@@ -970,7 +970,7 @@ public class Almacen {
 				    			eliminar.addListener(new Button.ClickListener() {
 				    			    public void buttonClick(ClickEvent event) {
 				    				    		
-				    					ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÛn", "øEst·s seguro de querer eliminar esta merma?",
+				    					ConfirmDialog.show(UI.getCurrent(), "Confirmaci√≥n", "ÔøΩEst√°s seguro de querer eliminar esta merma?",
 				    							"SI", "NO", new ConfirmDialog.Listener() {
 
 				    			            public void onClose(ConfirmDialog dialog) {
@@ -1003,7 +1003,7 @@ public class Almacen {
 						    				    		}
 						    				    		
 						    			    	}catch(Exception e){
-						    			    		Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+						    			    		Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 						    			    		e.printStackTrace();
 						    			    	}finally{
 						    			    		sql.cerrar();
@@ -1031,7 +1031,7 @@ public class Almacen {
 				    			UI.getCurrent().addWindow(ventanaActualizar);
 				    			
 				    		}catch(Exception e){
-				    			Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+				    			Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 				    			e.printStackTrace();
 				    		}finally{
 				    			//sql.cerrar();
@@ -1052,7 +1052,7 @@ public class Almacen {
 				    			eliminar.addListener(new Button.ClickListener() {
 				    			    public void buttonClick(ClickEvent event) {
 				    				    		
-				    					ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÛn", "øEst·s seguro de querer eliminarlo?",
+				    					ConfirmDialog.show(UI.getCurrent(), "Confirmaci√≥n", "Est√°s seguro de querer eliminarlo?",
 				    							"SI", "NO", new ConfirmDialog.Listener() {
 		
 				    			            public void onClose(ConfirmDialog dialog) {
@@ -1096,7 +1096,7 @@ public class Almacen {
 						    				    		}
 						    				    		
 						    			    	}catch(Exception e){
-						    			    		Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+						    			    		Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 						    			    		e.printStackTrace();
 						    			    	}finally{
 						    			    		sql.cerrar();
@@ -1124,7 +1124,7 @@ public class Almacen {
 				    			UI.getCurrent().addWindow(ventanaActualizar);
 				    			
 				    		}catch(Exception e){
-				    			Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+				    			Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 				    			e.printStackTrace();
 				    		}finally{
 				    			//sql.cerrar();
@@ -1162,7 +1162,7 @@ public class Almacen {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciÔøΩn: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -1389,7 +1389,7 @@ public class Almacen {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -1566,7 +1566,7 @@ public class Almacen {
 		    	if (event.isDoubleClick()){
 		
 		    		
-		    		//Saco el id para evitar confusiÛn cuando hay dos facturas con un mismo folio
+		    		//Saco el id para evitar confusiÔøΩn cuando hay dos facturas con un mismo folio
 		    		Property<String> itemProperty = event.getItem().getItemProperty("ID");
 		    		final String id = itemProperty.getValue();
 
@@ -1666,7 +1666,7 @@ public class Almacen {
 						registrar.addListener(new Button.ClickListener() {
 						    public void buttonClick(ClickEvent event) {
 						    	
-		    					ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÛn", "øEst·s seguro de querer eliminarla?",
+		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaci√≥n", "Est√°s seguro de querer eliminarla?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 
 		    			            public void onClose(ConfirmDialog dialog) {
@@ -1757,7 +1757,7 @@ public class Almacen {
 
 	
 	
-	//Empiezan mÈtodos externos
+	//Empiezan mÔøΩtodos externos
 	
 		private AutocompleteSuggestionProvider listaCategorias(String custid){
 			
@@ -1779,7 +1779,7 @@ public class Almacen {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1811,7 +1811,7 @@ public class Almacen {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1845,7 +1845,7 @@ public class Almacen {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÔøΩn: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1880,7 +1880,7 @@ public class Almacen {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicaciÛn: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaci√≥n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();

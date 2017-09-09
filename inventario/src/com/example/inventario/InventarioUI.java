@@ -7,12 +7,11 @@ import javax.servlet.http.Cookie;
 
 import sql.SqlConf;
 import sql.DTO.UsuarioDTO;
-import caratulas.ContraseñaNueva;
+import caratulas.ContraseÃ±aNueva;
 import caratulas.Correo_recuperar;
 import caratulas.Principal;
 
 import com.vaadin.annotations.Theme;
-import com.vaadin.annotations.Widgetset;
 import com.vaadin.event.ShortcutAction.KeyCode;
 import com.vaadin.server.CustomizedSystemMessages;
 import com.vaadin.server.Page;
@@ -48,17 +47,17 @@ public class InventarioUI extends UI {
 	@Override
 	protected void init(VaadinRequest request) {
 
-		//Configuración de página
+		//Configuracion de pagina
 		Page.getCurrent().setTitle("Inventario");
 		VaadinService.getCurrent().setSystemMessagesProvider(new SystemMessagesProvider() {
             
             public SystemMessages getSystemMessages(SystemMessagesInfo systemMessagesInfo) {
                 CustomizedSystemMessages messages = new CustomizedSystemMessages();
                 
-                messages.setSessionExpiredCaption("Sesión expirada");
-                messages.setSessionExpiredMessage("Haz clic aquí para reiniciarla");
+                messages.setSessionExpiredCaption("SesiÃ³n expirada");
+                messages.setSessionExpiredMessage("Haz clic aquÃ­ para reiniciarla");
                 messages.setCommunicationErrorCaption("Servidor fuera de servicio");
-                messages.setCommunicationErrorMessage("Problemas de conectividad, revisa tu conexión.");
+                messages.setCommunicationErrorMessage("Problemas de conectividad, revisa tu conexiÃ³n.");
                 messages.setCommunicationErrorNotificationEnabled(true);
                 messages.setCommunicationErrorURL("about:blank");
                 return messages;
@@ -72,12 +71,12 @@ public class InventarioUI extends UI {
 		
 			final Facade facade = new Facade();
 		
-	//Revisar si hay parametro para mandar a página específica
+	//Revisar si hay parametro para mandar a pÃ¡gina especÃ­fica
 	String parametro = Page.getCurrent().getUriFragment();
 	
 	if(parametro == null){
 			
-	//No hay parámetros, empieza la carga normal
+	//No hay parï¿½metros, empieza la carga normal
 		
 	//Variables
 		final VerticalLayout login = new VerticalLayout();
@@ -90,10 +89,10 @@ public class InventarioUI extends UI {
 			
 			final TextField correo = new TextField("Correo");
 				correo.setWidth("100%");
-			final PasswordField password = new PasswordField("Contraseña");
+			final PasswordField password = new PasswordField("ContraseÃ±a");
 				password.setWidth("100%");
-			final CheckBox sesion = new CheckBox("No cerrar sesión");
-			final Button recuperar = new Button("Olvidé mi contraseña");
+			final CheckBox sesion = new CheckBox("No cerrar sesiÃ³n");
+			final Button recuperar = new Button("OlvidÃ© mi contraseÃ±a");
 	
 			recuperar.addStyleName(ValoTheme.BUTTON_LINK);
 	
@@ -101,10 +100,10 @@ public class InventarioUI extends UI {
 			    public void buttonClick(ClickEvent event) {
 			    	
 			        if(correo.getValue().equals("")){
-			        	Notification.show("Ingresa tu correo electrónico en el campo correspondiente", Type.WARNING_MESSAGE);
+			        	Notification.show("Ingresa tu correo electrÃ³nico en el campo correspondiente", Type.WARNING_MESSAGE);
 			        	correo.focus();
 			        }else{
-			        	String enviado = recuperarContraseña(correo.getValue());
+			        	String enviado = recuperarContraseÃ±a(correo.getValue());
 			        	if(enviado.equals("SI"))
 			        		Notification.show("Te hemos mandado un correo con las instrucciones", Type.TRAY_NOTIFICATION);
 			        	else
@@ -116,7 +115,7 @@ public class InventarioUI extends UI {
 		
 			String sesionActiva = "";
 	
-		//Reviso si hay sesión activa
+		//Reviso si hay sesiÃ³n activa
 		//Leo las cookies activas
 			Cookie[] nameCookie = VaadinService.getCurrentRequest().getCookies();
 			
@@ -151,7 +150,7 @@ public class InventarioUI extends UI {
 			        	Notification.show("Se deben ingresar los datos completos", Type.WARNING_MESSAGE);
 			        }else{
 		
-			        	//Revisar si es contraseña comodín
+			        	//Revisar si es contraseï¿½a comodï¿½n
 			        	
 			        	UsuarioDTO usuario = facade.verificarUsuario(correo.getValue(), password.getValue());
 			        	
@@ -159,12 +158,12 @@ public class InventarioUI extends UI {
 			        		
 			        		UI.getCurrent().setData(usuario);
 			        		principal.removeAllComponents();
-			        		ContraseñaNueva nueva = new ContraseñaNueva();
+			        		ContraseÃ±aNueva nueva = new ContraseÃ±aNueva();
 			        		principal.addComponent(nueva.personalizar(principal, correo.getValue()));
 			        		
 			        	}else if(usuario.getAutenticado()){ //Es usuario autenticado
 			        		
-			        		//Reviso si se mantiene sesión
+			        		//Reviso si se mantiene sesiï¿½n
 				        		if(sesion.getValue() == true){
 				        			Cookies sesion = new Cookies();
 				        			sesion.createCookie("usuario", correo.getValue(), 60 * 60 * 24 * 120);
@@ -194,10 +193,10 @@ public class InventarioUI extends UI {
 			    }
 			});
 	
-		//Agrego a página principal
+		//Agrego a pÃ¡gina principal
 			principal.addComponent(login);
 	
-	}else{ //Hay una sesión activa
+	}else{ //Hay una sesiÃ³n activa
 
 		try{
 		
@@ -218,7 +217,7 @@ public class InventarioUI extends UI {
 	}
 
 	
-	}else{//Sí tiene parámetros, procesa la petición
+	}else{//SÃ­ tiene parÃ¡metros, procesa la peticiÃ³n
 	
 		StringTokenizer st = new StringTokenizer(Page.getCurrent().getUriFragment(), "&");
 		String parametroMandado = st.nextElement().toString();
@@ -273,7 +272,7 @@ public class InventarioUI extends UI {
 	        		
 				}else{
 					
-					Notification.show("La información proporcionada no es válida", Type.WARNING_MESSAGE);
+					Notification.show("La informaciÃ³n proporcionada no es vÃ¡lida", Type.WARNING_MESSAGE);
 					
 				}
 				
@@ -309,7 +308,7 @@ public class InventarioUI extends UI {
 	}
 	}
 	
-	private String recuperarContraseña(String correo){
+	private String recuperarContraseÃ±a(String correo){
 		
 		String resultado = "Revisar este punto";
 		
