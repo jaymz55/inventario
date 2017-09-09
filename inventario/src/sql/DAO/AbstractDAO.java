@@ -7,6 +7,5 @@ public abstract class AbstractDAO {
 	public abstract AbstractDTO buscarUno();
 	
 	//public abstract AbstractDTO
-	
-	
+		
 }
