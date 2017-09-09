@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
-import org.codehaus.jettison.json.JSONObject;
 import org.vaadin.dialogs.ConfirmDialog;
 import org.vaadin.haijian.ExcelExporter;
 import org.vaadin.ui.NumberField;
@@ -112,7 +111,7 @@ public class EdoDeCuenta {
 	 		    cabecera.addComponent(saldo);
 	 		    cabecera.setComponentAlignment(cabecera.getComponent(0), Alignment.MIDDLE_LEFT);
 	 		    
-	 		    //Reviso si agrego botón de pago
+	 		    //Reviso si agrego botï¿½n de pago
 	 		    
 	 		    if(deuda > 0){
 	 		    	
@@ -197,7 +196,7 @@ public class EdoDeCuenta {
 		
 	}
 	
-	//Empiezan métodos externos
+	//Empiezan mï¿½todos externos
 
 	
 }

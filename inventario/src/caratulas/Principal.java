@@ -75,7 +75,7 @@ public class Principal {
 				
 				if(usuario.getDeuda() > 0 && !usuario.getDeudaVencida()){
 				
-					Notification.show("Tienes una nueva factura generada. Cons鷏tala en la secci髇 Estado de cuenta", Type.TRAY_NOTIFICATION);
+					Notification.show("Tienes una nueva factura generada. Cons煤ltala en la secci贸n Estado de cuenta", Type.TRAY_NOTIFICATION);
 					habilitado = true;
 					
 				}else if(usuario.getDeuda() > 0 && usuario.getDeudaVencida()){
@@ -192,12 +192,12 @@ public class Principal {
 			    		cuerpo.addComponent(qrCodes.cuerpo());
 			    	}else if(opcion.equals("Solicitudes")){ 
 			    		cuerpo.addComponent(solicitud.cuerpo());
-			    	}else if(opcion.equals("Cat醠ogo de productos")){ 
+			    	}else if(opcion.equals("Cat谩logo de productos")){ 
 			    		/*if(Conf.getNuevoMundo())
 			    			cuerpo.addComponent(appProductos.cuerpo());
 			    		else*/
 			    			cuerpo.addComponent(product.cuerpo());
-			    	}else if(opcion.equals("Almac閚")){ 
+			    	}else if(opcion.equals("Almac茅n")){ 
 			    		cuerpo.addComponent(almacen.cuerpo());
 			    	}else if(opcion.equals("Ventas / Devoluciones")){ 
 			    		if(Conf.getNuevoMundo())
@@ -217,11 +217,11 @@ public class Principal {
 			    		//cuerpo.addComponent(buscarPagos.cuerpo());
 			    	}else if(opcion.equals("Estado de cuenta")){ 
 			    		cuerpo.addComponent(cuenta.cuerpo());
-			    	}else if(opcion.equals("Configuraci髇")){ 
+			    	}else if(opcion.equals("Configuraci贸n")){ 
 			    		cuerpo.addComponent(conf.cuerpo());
-			    	}else if(opcion.equals("Cerrar sesi髇")){
+			    	}else if(opcion.equals("Cerrar sesi贸n")){
 			    		
-			    		//Borro sesi髇 guardada
+			    		//Borro sesi贸n guardada
 			    		Cookies cookie = new Cookies();
 			    		cookie.deleteCookie("usuario");
 			    		
@@ -254,8 +254,8 @@ public class Principal {
 				barmenu.addItem("Producto terminado", null, null);
 			
 				if(usuario.getPrivilegios().equals("1") || usuario.getPrivilegios().equals("3")){
-					productos.addItem("Cat醠ogo de productos", null, mycommand);
-					productos.addItem("Almac閚", null, mycommand);
+					productos.addItem("Cat谩logo de productos", null, mycommand);
+					productos.addItem("Almac茅n", null, mycommand);
 					productos.addItem("Ventas / Devoluciones", null, mycommand);
 				}
 				
@@ -275,7 +275,7 @@ public class Principal {
 			}
 			
 			MenuBar.MenuItem reportes =
-					barmenu.addItem("Gr醘icas", null, null);
+					barmenu.addItem("Gr谩ficas", null, null);
 			
 				reportes.addItem("Generales", null, mycommand);
 				reportes.addItem("Por producto", null, mycommand);
@@ -286,12 +286,12 @@ public class Principal {
 			//if(usuario.getTipo().equals("PRINCIPAL")){
 			/*if(usuario.getCorreo().equals("hectorb2002@hotmail.com")){
 				MenuBar.MenuItem config =
-						barmenu.addItem("Configuraci髇", null, mycommand);
+						barmenu.addItem("Configuraci贸n", null, mycommand);
 			}*/
 			
-			// Cerrar sesi髇
+			// Cerrar sesi锟絥
 			MenuBar.MenuItem cerrar =
-					barmenu.addItem("Cerrar sesi髇", null, mycommand);
+					barmenu.addItem("Cerrar sesi贸n", null, mycommand);
 			
 			respuesta.addComponent(cabecera);
 			respuesta.addComponent(cuerpo);
