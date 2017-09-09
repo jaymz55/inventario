@@ -1,0 +1,1 @@
+$wnd.com_example_inventario_widgetset_InventarioWidgetset.runAsyncCallback2('Geb(1634,1,D5d);_.vc=function hkc(){x4b((!q4b&&(q4b=new C4b),q4b),this.a.d)};$$d(Th)(2);\n//# sourceURL=com.example.inventario.widgetset.InventarioWidgetset-2.js\n')

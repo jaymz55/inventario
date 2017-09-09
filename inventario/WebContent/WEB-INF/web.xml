@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>inventario</display-name>
+  <context-param>
+  	<description>
+  	Vaadin production mode</description>
+  	<param-name>productionMode</param-name>
+  	<param-value>false</param-value>
+  </context-param>
+  <servlet>
+  	<servlet-name>Inventario Application</servlet-name>
+  	<servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
+  	<init-param>
+  		<description>
+  		Vaadin UI class to use</description>
+  		<param-name>UI</param-name>
+  		<param-value>com.example.inventario.InventarioUI</param-value>
+  	</init-param>
+  	<init-param>
+  		<description>
+  		Legacy mode to return the value of the property as a string from AbstractProperty.toString()</description>
+  		<param-name>legacyPropertyToString</param-name>
+  		<param-value>false</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Inventario Application</servlet-name>
+  	<url-pattern>/*</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Yo lo cree -->
+	<listener>
+		<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>Resteasy</servlet-name>
+		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+		    <init-param>
+		        <param-name>javax.ws.rs.Application</param-name>
+		        <param-value>com.example.inventario.Application</param-value>
+		    </init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Resteasy</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<param-name>resteasy.scan</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/rest</param-value>
+	</context-param>
+  
+</web-app>

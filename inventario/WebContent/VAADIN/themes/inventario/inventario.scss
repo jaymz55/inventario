@@ -1,0 +1,208 @@
+// Global variable overrides. Must be declared before importing Valo.
+
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+//$v-font-size: 16px;
+//$v-font-weight: 300;
+//$v-font-family: "Open Sans", sans-serif;
+
+// Defines the border used by all components.
+//$v-border: 1px solid (v-shade 0.7);
+//$v-border-radius: 4px;
+
+// Affects the color of some component elements, e.g Button, Panel title, etc
+//$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+//$v-app-background-color: $v-background-color;
+
+// Affects the visual appearance of all components
+//$v-gradient: v-linear 8%;
+//$v-bevel-depth: 30%;
+//$v-shadow-opacity: 5%;
+
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+
+
+//Facebook
+$v-background-color: #fafafa;
+$v-app-background-color: #e7ebf2;
+$v-panel-background-color: #fff;
+$v-focus-color: #3b5998;
+$v-focus-style: 0 0 1px 1px rgba($v-focus-color, .5);
+$v-border-radius: 3px;
+$v-textfield-border-radius: 0;
+$v-font-family: Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif;
+$v-font-size: 13px;
+$v-font-color: #37404E;
+$v-font-weight: 400;
+$v-link-text-decoration: none;
+$v-shadow: 0 1px 0 (v-shade 0.2);
+$v-bevel: inset 0 1px 0 v-tint;
+$v-unit-size: 30px;
+$v-gradient: v-linear 12%;
+$v-overlay-shadow: 0 3px 8px v-shade, 0 0 0 1px (v-shade 0.7);
+$v-shadow-opacity: 20%;
+$v-selection-overlay-padding-horizontal: 0;
+$v-selection-overlay-padding-vertical: 6px;
+$v-selection-item-border-radius: 0;
+//$v-loading-indicator-bar-height: ceil($v-unit-size/2) !default;
+$v-loading-indicator-bar-height: ceil($v-unit-size/8) !default;
+//$v-loading-indicator-bar-height--wait: ceil($v-unit-size/2) !default;
+$v-loading-indicator-bar-height--wait: ceil($v-unit-size/8) !default;
+
+
+@import "../valo/valo.scss";
+
+@mixin inventario {
+  @include valo;
+
+  // Insert your own theme rules here
+  
+  .boton_simple {
+font-size: 100%;
+color: #424242;
+height: 30px;
+width: 90%;
+}
+
+.boton_simple_azul {
+font-size: 100%;
+color: #424242;
+background: #81BEF7;
+height: 30px;
+width: 90%;
+}
+
+.boton_registrar_nuevo {
+font-size: 12pt;
+font-weight: bold;
+color: #424242;
+height: 40px;
+}
+
+.boton_registrar_nuevo_dos {
+//font-size: 12pt;
+font-size: 100%;
+font-weight: bold;
+color: #424242;
+height: 30px;
+width: 100%;
+}
+
+//Labels
+
+.LabelTitulos {
+/*font-style: italic;*/
+color: #16335D;
+font-size: 30px;
+/*text-align:center;*/
+vertical-align:text-middle;
+
+}
+
+//Para botón de deuda en archivo Principal (línea 210)
+.LabelDeuda {
+/*font-style: italic;*/
+color: #6E6E6E;
+font-size: 20px;
+/*text-align:center;*/
+//vertical-align:text-middle;
+
+}
+
+.LabelCostoTotal {
+/*font-style: italic;*/
+//color: #6E6E6E;
+font-size: 18px;
+/*text-align:center;*/
+//vertical-align:text-middle;
+
+}
+
+.LabelHistorial {
+color: #6E6E6E;
+font-size: 20px;
+padding-bottom: 20px;
+
+}
+
+//Para etiquetas de Desglose inventarios
+.LabelProveniente {
+	  /*font-style: italic;*/
+	  color: #16335D;
+	  font-size: 13px;
+	  /*text-align:center;*/
+	  //vertical-align:text-middle;
+
+	}
+
+//Ventanas
+	.v-window .v-gridlayout {
+		background: #F5F5F5;
+	}
+
+	.v-window .v-gridlayout-VentanaSecundaria {
+
+	//background: #D8D8D8;
+		background: #E7ECF2;
+	}
+
+.Label_titulo{
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    font-size: 30px;
+}
+
+.v-table-row.v-table-row-highlight-green,
+.v-table-row-odd.v-table-row-highlight-green {
+background-color: #00ff00;
+}
+
+.v-table-row.v-table-row-highlight-red,
+.v-table-row-odd.v-table-row-highlight-red {
+background-color: #FC7373;
+}
+
+.v-table-row.v-table-row-highlight-blue,
+.v-table-row-odd.v-table-row-highlight-blue {
+background-color: #81BEF7;
+}
+
+.v-table-row.v-table-row-highlight-yellow,
+.v-table-row-odd.v-table-row-highlight-yellow {
+background-color: #F3E2A9;
+}
+
+.v-table-row.v-table-row-highlight-greenEdoCuenta,
+.v-table-row-odd.v-table-row-highlight-greenEdoCuenta {
+background-color: #E8F9E9;
+}
+
+.v-table-row.v-table-row-highlight-redEdoCuenta,
+.v-table-row-odd.v-table-row-highlight-redEdoCuenta {
+background-color: #F9CBCB;
+}
+
+.v-table-cell-content-black {
+/*font-style: italic;*/
+font-size: 14px;
+font-weight: bold;
+
+}
+
+//.v-menubar {
+//width: 90%;
+//}
+
+.v-datefield.ajustado {
+width: 90%;
+}
+}
