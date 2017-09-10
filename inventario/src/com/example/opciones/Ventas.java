@@ -145,7 +145,7 @@ public class Ventas {
 				final NumberField cantidad = new NumberField("Cantidad");
 				cantidad.setNullRepresentation("");
 				cantidad.setDecimalPrecision(2);
-				cantidad.setErrorText("Número no válido");
+				cantidad.setErrorText("Nï¿½mero no vï¿½lido");
 				cantidad.setInvalidAllowed(false);
 				cantidad.setNegativeAllowed(false);
 				cantidad.setImmediate(true);
@@ -156,7 +156,7 @@ public class Ventas {
 				final NumberField precio = new NumberField("Precio");
 				precio.setNullRepresentation("");
 				precio.setDecimalPrecision(2);
-				precio.setErrorText("Número no válido");
+				precio.setErrorText("Nï¿½mero no vï¿½lido");
 				precio.setInvalidAllowed(false);
 				precio.setNegativeAllowed(false);
 				precio.setWidth("50%");
@@ -164,7 +164,7 @@ public class Ventas {
 				final NumberField descuento = new NumberField("Descuento");
 				descuento.setNullRepresentation("");
 				descuento.setDecimalPrecision(2);
-				descuento.setErrorText("Número no válido");
+				descuento.setErrorText("Nï¿½mero no vï¿½lido");
 				descuento.setInvalidAllowed(false);
 				descuento.setNegativeAllowed(false);
 				descuento.setWidth("50%");
@@ -237,7 +237,7 @@ public class Ventas {
 										* Double.parseDouble(event.getText()));
 
 							} catch (Exception e) {
-								Notification.show("Error en la aplicación: "
+								Notification.show("Error en la aplicaciï¿½n: "
 										+ e.toString(), Type.ERROR_MESSAGE);
 								e.printStackTrace();
 							} finally {
@@ -294,7 +294,7 @@ public class Ventas {
 
 						} catch (Exception e) {
 							Notification.show(
-									"Error en la aplicación: " + e.toString(),
+									"Error en la aplicaciï¿½n: " + e.toString(),
 									Type.ERROR_MESSAGE);
 							e.printStackTrace();
 						} finally {
@@ -335,7 +335,7 @@ public class Ventas {
 								}
 
 							} catch (Exception e) {
-								Notification.show("Error en la aplicación: "
+								Notification.show("Error en la aplicaciï¿½n: "
 										+ e.toString(), Type.ERROR_MESSAGE);
 								e.printStackTrace();
 							} finally {
@@ -361,7 +361,7 @@ public class Ventas {
 
 							try {
 
-								// Abro transacción
+								// Abro transacciï¿½n
 								sql.transaccionAbrir();
 
 								String clienteAjuste = "";
@@ -467,7 +467,7 @@ public class Ventas {
 									throw new Exception(respuesta);
 								}
 
-								// Registro salida de producto de almacén sólo
+								// Registro salida de producto de almacï¿½n sï¿½lo
 								// si registra bien la venta
 
 								// Obtengo id de venta
@@ -502,7 +502,7 @@ public class Ventas {
 
 								if (respuesta.equals("OK")) {
 
-									// Cierro transacción
+									// Cierro transacciï¿½n
 									sql.transaccionCommit();
 									sql.transaccionCerrar();
 
@@ -528,7 +528,7 @@ public class Ventas {
 
 							} catch (Exception e) {
 
-								// Cierro transacción
+								// Cierro transacciï¿½n
 								sql.transaccionRollBack();
 								sql.transaccionCerrar();
 
@@ -558,7 +558,7 @@ public class Ventas {
 					}
 				});
 
-				// Botón de alta de cliente
+				// Botï¿½n de alta de cliente
 				Button clienteAlta = new Button("Alta de cliente");
 				clienteAlta.setStyleName(ValoTheme.BUTTON_LINK);
 
@@ -576,18 +576,18 @@ public class Ventas {
 						nombre.setWidth("80%");
 						nombre.setMaxLength(500);
 
-						final TextField telefono = new TextField("Teléfono");
+						final TextField telefono = new TextField("Telï¿½fono");
 						telefono.setWidth("80%");
 						telefono.setMaxLength(100);
 						final TextField correo = new TextField(
-								"Correo electrónico");
+								"Correo electrï¿½nico");
 						correo.setWidth("80%");
 						correo.setMaxLength(500);
 						final ComboBox vendedorAsignado = llenarComboBoxVendedoresAsignados(
 								new ComboBox(),
 								usuario.getCustidsRelacionados());
 						vendedorAsignado.setWidth("60%");
-						final TextArea direccion = new TextArea("Dirección");
+						final TextArea direccion = new TextArea("Direcciï¿½n");
 						direccion.setWidth("80%");
 						direccion.setMaxLength(1000);
 						final TextArea observaciones = new TextArea(
@@ -741,14 +741,14 @@ public class Ventas {
 			}
 		});
 
-		// Botón de registro de devoluciones
+		// Botï¿½n de registro de devoluciones
 
-		final Button devolucion = new Button("Devolución");
+		final Button devolucion = new Button("DevoluciÃ³n");
 		devolucion.setStyleName("boton_simple");
 		devolucion.addListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 
-				final Window ventanaRegistrar = new Window("Devolución");
+				final Window ventanaRegistrar = new Window("DevoluciÃ³n");
 				ventanaRegistrar.center();
 				ventanaRegistrar.setHeight("50%");
 				ventanaRegistrar.setWidth("70%");
@@ -766,7 +766,7 @@ public class Ventas {
 				final NumberField descuento = new NumberField("Descuento");
 				descuento.setNullRepresentation("");
 				descuento.setDecimalPrecision(2);
-				descuento.setErrorText("Número no válido");
+				descuento.setErrorText("NÃºmero no vÃ¡lido");
 				descuento.setInvalidAllowed(false);
 				descuento.setNegativeAllowed(false);
 				descuento.setWidth("50%");
@@ -777,14 +777,14 @@ public class Ventas {
 				fechaDevolucion.setTimeZone(timeZone1);
 				fechaDevolucion.setDateFormat("dd MMMM yyyy");
 
-				final CheckBox regresa = new CheckBox("Regresa a almacén");
+				final CheckBox regresa = new CheckBox("Regresa a almacÃ©n");
 				regresa.setValue(false);
 
 				final TextArea comentarios = new TextArea("Comentarios");
 				comentarios.setWidth("80%");
 				comentarios.setMaxLength(500);
 
-				Button registrar = new Button("Registrar devolución");
+				Button registrar = new Button("Registrar devoluciÃ³n");
 				registrar.addListener(new Button.ClickListener() {
 					public void buttonClick(ClickEvent event) {
 
@@ -794,8 +794,8 @@ public class Ventas {
 
 							ConfirmDialog.show(
 									UI.getCurrent(),
-									"Confirmación",
-									"¿Estás seguro de querer registrar la devolución?",
+									"ConfirmaciÃ³n",
+									"Â¿EstÃ¡s seguro de querer registrar la devoluciÃ³n?",
 									"SI", "NO", new ConfirmDialog.Listener() {
 
 										public void onClose(ConfirmDialog dialog) {
@@ -805,7 +805,7 @@ public class Ventas {
 
 												try {
 
-													// Empieza transacción
+													// Empieza transacciï¿½n
 													sql.transaccionAbrir();
 
 													String clienteAjustado = "null";
@@ -925,7 +925,7 @@ public class Ventas {
 															+ comentarioAjuste
 															+ ",'SI', '"
 															+ regresaAlmacen
-															+ "','DEVOLUCIÓN')");
+															+ "','DEVOLUCIÃ“N')");
 
 													if (!respuesta.equals("OK")) {
 														throw new Exception(
@@ -933,8 +933,8 @@ public class Ventas {
 													}
 
 													// Registro entrada de
-													// producto de almacén sólo
-													// si se escoge la opción
+													// producto de almacï¿½n sï¿½lo
+													// si se escoge la opciï¿½n
 													// del Check
 
 													if (regresa.getValue() == true) {
@@ -971,7 +971,7 @@ public class Ventas {
 																		+ "', null, "
 																		+ Double.parseDouble(cantidad
 																				.getValue())
-																		+ ",'DEVOLUCIÓN', null, null, 'SI', "
+																		+ ",'DEVOLUCIï¿½N', null, null, 'SI', "
 																		+ idVenta
 																		+ ")");
 
@@ -994,7 +994,7 @@ public class Ventas {
 													comentarios.setValue("");
 
 													Notification n = new Notification(
-															"Registro de devolución correcto",
+															"Registro de devoluciï¿½n correcto",
 															Type.TRAY_NOTIFICATION);
 													n.setDelayMsec(2000);
 													n.setPosition(Notification.POSITION_CENTERED); // POSITION_TOP_RIGHT
@@ -1081,7 +1081,7 @@ public class Ventas {
 			}
 		});
 
-		// Botón de alta de vendedor
+		// Botï¿½n de alta de vendedor
 
 		final Button vendedorAlta = new Button("Vendedores");
 		vendedorAlta.setStyleName("boton_simple");
@@ -1186,8 +1186,8 @@ public class Ventas {
 									Type.WARNING_MESSAGE);
 						} else {
 
-							ConfirmDialog.show(UI.getCurrent(), "Confirmación",
-									"¿Estás seguro de querer eliminarlo?",
+							ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÃ³n",
+									"Â¿EstÃ¡s seguro de querer eliminarlo?",
 									"SI", "NO", new ConfirmDialog.Listener() {
 
 										public void onClose(ConfirmDialog dialog) {
@@ -1347,7 +1347,7 @@ public class Ventas {
 
 	}
 
-	// Empiezan métodos externos
+	// Empiezan mï¿½todos externos
 
 	private VerticalLayout generarTabla(VerticalLayout tablas, String custid,
 			String fechaInicial, String fechaFinal) {
@@ -1403,7 +1403,7 @@ public class Ventas {
 					Alignment.TOP_CENTER);
 
 		} catch (Exception e) {
-			Notification.show("Error en la aplicación: " + e.toString(),
+			Notification.show("Error en la aplicaciï¿½n: " + e.toString(),
 					Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		} finally {
@@ -1553,7 +1553,7 @@ public class Ventas {
 								rs.getString(9), rs.getString(10),
 								rs.getString(11), rs.getString(12),
 								rs.getString(13) }, id);
-			} else if (count == 14) { // Usa éste
+			} else if (count == 14) { // Usa ï¿½ste
 				tabla.addItem(
 						new Object[] { rs.getString(1), rs.getString(2),
 								Encriptar.Desencriptar(rs.getString(3)),
@@ -1708,8 +1708,8 @@ public class Ventas {
 
 								ConfirmDialog.show(
 										UI.getCurrent(),
-										"Confirmación",
-										"¿Estás seguro de querer eliminar esta venta?",
+										"ConfirmaciÃ³n",
+										"Â¿EstÃ¡s seguro de querer eliminar esta venta?",
 										"SI", "NO",
 										new ConfirmDialog.Listener() {
 
@@ -1724,7 +1724,7 @@ public class Ventas {
 
 														sql.transaccionAbrir();
 
-														// Saco si reflejó en
+														// Saco si reflejï¿½ en
 														// almacen o no
 														String afectaAlmacen = "";
 														BeanConsulta bean = sql
@@ -1798,7 +1798,7 @@ public class Ventas {
 														sql.transaccionCerrar();
 
 														Notification.show(
-																"Error en la aplicación: "
+																"Error en la aplicaciï¿½n: "
 																		+ e.toString(),
 																Type.ERROR_MESSAGE);
 														e.printStackTrace();
@@ -1828,7 +1828,7 @@ public class Ventas {
 
 					} catch (Exception e) {
 						Notification.show(
-								"Error en la aplicación: " + e.toString(),
+								"Error en la aplicaciï¿½n: " + e.toString(),
 								Type.ERROR_MESSAGE);
 						e.printStackTrace();
 					} finally {
@@ -1842,7 +1842,7 @@ public class Ventas {
 		return respuesta;
 	}
 
-	// Empiezan métodos externos
+	// Empiezan mï¿½todos externos
 
 	private AutocompleteSuggestionProvider listaCategorias(String custid) {
 
@@ -1866,7 +1866,7 @@ public class Ventas {
 			}
 
 		} catch (Exception e) {
-			Notification.show("Error en la aplicación: " + e.toString(),
+			Notification.show("Error en la aplicaciï¿½n: " + e.toString(),
 					Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		} finally {
@@ -1901,7 +1901,7 @@ public class Ventas {
 			}
 
 		} catch (Exception e) {
-			Notification.show("Error en la aplicación: " + e.toString(),
+			Notification.show("Error en la aplicaciÃ³n: " + e.toString(),
 					Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		} finally {
@@ -1938,7 +1938,7 @@ public class Ventas {
 			}
 
 		} catch (Exception e) {
-			Notification.show("Error en la aplicación: " + e.toString(),
+			Notification.show("Error en la aplicaciÃ³n: " + e.toString(),
 					Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		} finally {
@@ -1976,7 +1976,7 @@ public class Ventas {
 			}
 
 		} catch (Exception e) {
-			Notification.show("Error en la aplicación: " + e.toString(),
+			Notification.show("Error en la aplicaciÃ³n: " + e.toString(),
 					Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		} finally {
@@ -2013,7 +2013,7 @@ public class Ventas {
 			}
 
 		} catch (Exception e) {
-			Notification.show("Error en la aplicación: " + e.toString(),
+			Notification.show("Error en la aplicaciÃ³n: " + e.toString(),
 					Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		} finally {
@@ -2056,7 +2056,7 @@ public class Ventas {
 			combo.setNullSelectionAllowed(true);
 
 		} catch (Exception e) {
-			Notification.show("Error en la aplicación: " + e.toString(),
+			Notification.show("Error en la aplicaciÃ³n: " + e.toString(),
 					Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		} finally {
