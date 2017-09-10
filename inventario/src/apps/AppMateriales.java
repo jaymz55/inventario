@@ -56,7 +56,7 @@ public class AppMateriales extends App{
 		@Override
 		protected void elementosFormato() {
 			
-			titulo.setValue("Cat·logo de materiales");
+			titulo.setValue("Cat√°logo de materiales");
 			btnInsertar.setStyleName("boton_registrar_nuevo");
 			
 		}

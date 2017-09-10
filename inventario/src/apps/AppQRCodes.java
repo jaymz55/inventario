@@ -63,7 +63,7 @@ public class AppQRCodes{
 				cuerpo.addComponent(print);
 
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				code = null;
@@ -88,7 +88,7 @@ public class AppQRCodes{
 	    	
 	    	HorizontalLayout layOut = new HorizontalLayout();
 	    	
-	    	Label label = new Label("Producto de importación");
+	    	Label label = new Label("Producto de importaciÃ³n");
 	    	
 	    	QRCode code = new QRCode();
 			code.setWidth("200");

@@ -27,7 +27,7 @@ public class AppVentas extends App{
 			HorizontalLayout layoutReportes = new HorizontalLayout();
 		//Botones
 			Button btnVenta = new Button("Venta");
-			Button btnDevolucion = new Button("Devolución");
+			Button btnDevolucion = new Button("DevoluciÃ³n");
 			Button btnVendedores = new Button("Vendedores");
 			Button btnBuscar = new Button("Buscar");
 		//Fechas
@@ -75,7 +75,7 @@ public class AppVentas extends App{
 
 
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}
 

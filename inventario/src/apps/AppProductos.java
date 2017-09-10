@@ -56,7 +56,7 @@ public class AppProductos extends App{
 		@Override
 		protected void elementosFormato() {
 			
-			titulo.setValue("Cat·logo de productos");
+			titulo.setValue("Cat√°logo de productos");
 			btnInsertar.setStyleName("boton_registrar_nuevo");
 			
 		}
