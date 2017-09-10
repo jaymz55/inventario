@@ -16,8 +16,6 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
-import fi.jasoft.qrcode.QRCode;
-
 public class AppQRCodes{
 
 	public static VerticalLayout cuerpo(){
@@ -36,17 +34,12 @@ public class AppQRCodes{
 			
 		//Variables
 			final HorizontalLayout layOut = new HorizontalLayout();
-			QRCode code = new QRCode();
 			Label texto = new Label();
 			
 			try{
 			
 				texto.setValue("Cajas de kleenex - 435");
-				code.setWidth("200");
-				code.setHeight("200");
-				code.setValue("435");
-				
-				layOut.addComponent(code);
+
 				layOut.addComponent(texto);
 				
 				cuerpo.addComponent(layOut);
@@ -66,7 +59,6 @@ public class AppQRCodes{
 				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
-				code = null;
 			}
 
 			
@@ -89,13 +81,7 @@ public class AppQRCodes{
 	    	HorizontalLayout layOut = new HorizontalLayout();
 	    	
 	    	Label label = new Label("Producto de importación");
-	    	
-	    	QRCode code = new QRCode();
-			code.setWidth("200");
-			code.setHeight("200");
-			code.setValue("435");
-			
-			layOut.addComponent(code);
+
 			layOut.addComponent(label);
 			
 	        setContent(layOut);

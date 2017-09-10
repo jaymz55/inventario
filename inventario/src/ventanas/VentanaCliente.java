@@ -33,10 +33,10 @@ public class VentanaCliente extends Ventana{
 			
 			GridLayout grid = new GridLayout(2, 4);
 			TextField nombre = new TextField("Cliente");
-			TextField telefono = new TextField("Teléfono");
-			TextField correo = new TextField("Correo electrónico");
+			TextField telefono = new TextField("TelÃ©fono");
+			TextField correo = new TextField("Correo electrÃ³nico");
 			ComboVendedor vendedor = new ComboVendedor();
-			TextArea direccion = new TextArea("Dirección");
+			TextArea direccion = new TextArea("DirecciÃ³n");
 			TextArea observaciones = new TextArea("Observaciones");
 			ClienteDTO cliente;
 		
@@ -51,7 +51,7 @@ public class VentanaCliente extends Ventana{
 		}
 	
 	
-	//Métodos
+	//Mï¿½todos
 		private boolean registrar(){
 			
 			try{
@@ -271,7 +271,7 @@ public class VentanaCliente extends Ventana{
 					try {
 						
 					//Confirmar
-    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+    					ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÃ³n", "Â¿EstÃ¡s seguro de querer eliminarlo?",
     							"SI", "NO", new ConfirmDialog.Listener() {
 									private static final long serialVersionUID = 1L;
 

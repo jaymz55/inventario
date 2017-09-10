@@ -269,7 +269,7 @@ public class Solicitudes {
 					            	}
 						    		
 						    	}else{
-						    		Notification.show("Se debe escoger alg�n producto a eliminar", Type.WARNING_MESSAGE);
+						    		Notification.show("Se debe escoger algún producto a eliminar", Type.WARNING_MESSAGE);
 						    	}
 						    	
 							    }
@@ -524,7 +524,7 @@ public class Solicitudes {
 				}
 				
 				//Titulo
-				Label titulo = new Label("Solicitudes de producci�n");
+				Label titulo = new Label("Solicitudes de producción");
 				titulo.setStyleName(ValoTheme.LABEL_H1);
 				
 				cabecera.addComponent(titulo);

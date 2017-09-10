@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+
+	<session-factory>
+		<property name="dialect">org.hibernate.dialect.HSQLDialect</property>
+		<property name="connection.url">jdbc:mysql://www.tuprograma:3306/tupro_inventario</property>
+		<property name="connection.username">tuprogra_reader</property>
+		<property name="connection.password">Hetfield#55</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		
+		<mapping class="clases.Vendedores" />
+		<mapping class="clases.Proveedores" />
+		<mapping class="clases.Material" />
+	</session-factory>
+	
+</hibernate-configuration>

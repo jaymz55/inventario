@@ -135,7 +135,7 @@ public class Productos {
 						nombre.setWidth("80%");
 						nombre.setMaxLength(500);
 						
-					final NumberField precio = new NumberField("Precio al p�blico");
+					final NumberField precio = new NumberField("Precio al público");
 						precio.setNullRepresentation("");
 						precio.setDecimalPrecision(2);
 						precio.setErrorText("Número no válido");
@@ -1221,7 +1221,7 @@ public class Productos {
 						info.setHeight("100%");
 						info.setWidth("100%");
 						info.setMargin(true);
-						tab.addTab(info,"Informaci�n");
+						tab.addTab(info,"Información");
 						
 					final TextField nombre = new TextField("Nombre de producto");
 						nombre.setWidth("80%");
@@ -1243,23 +1243,23 @@ public class Productos {
 						//iva.setValue(true);
 						
 						
-						final TextArea descripcion = new TextArea("Descripci�n");
+						final TextArea descripcion = new TextArea("Descripción");
 							descripcion.setWidth("100%");
 							descripcion.setMaxLength(500);
 		    				
-						final NumberField minimo = new NumberField("M�nimo");
+						final NumberField minimo = new NumberField("Mínimo");
 							minimo.setNullRepresentation("");
 							minimo.setDecimalAllowed(true);
 							minimo.setDecimalPrecision(3);
-							minimo.setErrorText("N�mero no v�lido");
+							minimo.setErrorText("Número no válido");
 							minimo.setInvalidAllowed(false);
 							minimo.setNegativeAllowed(false);
 							
-						final NumberField maximo = new NumberField("M�ximo");
+						final NumberField maximo = new NumberField("Máximo");
 							maximo.setNullRepresentation("");
 							maximo.setDecimalAllowed(true);
 							maximo.setDecimalPrecision(3);
-							maximo.setErrorText("N�mero no v�lido");
+							maximo.setErrorText("Número no válido");
 							maximo.setInvalidAllowed(false);
 							maximo.setNegativeAllowed(false);
 							
@@ -1409,7 +1409,7 @@ public class Productos {
 		    			eliminarProducto.addListener(new Button.ClickListener() {
 		    			    public void buttonClick(ClickEvent event) {
 		    				    		
-		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaci�n", "�Est�s seguro de querer eliminarlo?",
+		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaci�n", "¿Estás seguro de querer eliminarlo?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 
 		    			            public void onClose(ConfirmDialog dialog) {

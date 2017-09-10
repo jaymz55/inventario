@@ -19,10 +19,10 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.DateField;
 import com.vaadin.ui.Notification.Type;
 
 import comboBox.ComboMateriales;
+import fechas.CampoFecha;
 import funciones.Funcion;
 
 public class VentanaMaterialEntrada extends Ventana{
@@ -39,8 +39,8 @@ public class VentanaMaterialEntrada extends Ventana{
 			ComboMateriales nombre = new ComboMateriales();
 			NumberField cantidad = new NumberField("Cantidad");
 			NumberField costo = new NumberField("Costo por unidad");
-			DateField fechaIngreso = new DateField("Fecha de ingreso");
-			DateField fechaCaducidad = new DateField("Fecha de caducidad");
+			CampoFecha fechaIngreso = new CampoFecha("Fecha de ingreso");
+			CampoFecha fechaCaducidad = new CampoFecha("Fecha de caducidad");
 			CheckBox contieneIva = new CheckBox("¿Contiene IVA?");
 			MaterialDTO material;
 			

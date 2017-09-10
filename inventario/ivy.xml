@@ -41,16 +41,9 @@
 		<!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
 		<dependency org="org.jboss.resteasy" name="resteasy-jaxrs" rev="3.0.4.Final"/>
 		
-		<!--QR Codes-->
-		<dependency org="org.vaadin.addons" name="qrcode" rev="2.0.1" />
-		
 		<!--MySQL-->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency org="mysql" name="mysql-connector-java" rev="5.1.6"/>
-		
-		<!--Hibernate-->
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-		<dependency org="org.hibernate" name="hibernate-core" rev="4.3.0.Final"/>
 		
 	</dependencies>
 </ivy-module>

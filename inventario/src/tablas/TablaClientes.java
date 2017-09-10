@@ -25,7 +25,7 @@ public class TablaClientes extends Tabla{
 			generarTabla();
 		}
 		
-	//Métodos
+	//Mï¿½todos
 		public void generarTabla(){
 			
 			TablaClientes.this.setColumnCollapsingAllowed(true);
@@ -35,12 +35,12 @@ public class TablaClientes extends Tabla{
 					TablaClientes.this.setColumnCollapsed("ID", true);
 				TablaClientes.this.addContainerProperty("NOMBRE", String.class, null);
 					TablaClientes.this.setColumnAlignment("NOMBRE",Align.LEFT);
-				TablaClientes.this.addContainerProperty("TELÉFONO", String.class, null);
-					TablaClientes.this.setColumnAlignment("TELÉFONO",Align.LEFT);
+				TablaClientes.this.addContainerProperty("TELÃ‰FONO", String.class, null);
+					TablaClientes.this.setColumnAlignment("TELÃ‰FONO",Align.LEFT);
 				TablaClientes.this.addContainerProperty("CORREO", String.class, null);
 					TablaClientes.this.setColumnAlignment("CORREO",Align.LEFT);
-				TablaClientes.this.addContainerProperty("DIRECCIÓN", String.class, null);
-					TablaClientes.this.setColumnAlignment("DIRECCIÓN",Align.LEFT);
+				TablaClientes.this.addContainerProperty("DIRECCIÃ“N", String.class, null);
+					TablaClientes.this.setColumnAlignment("DIRECCIÃ“N",Align.LEFT);
 				TablaClientes.this.addContainerProperty("OBSERVACIONES", String.class, null);
 					TablaClientes.this.setColumnAlignment("OBSERVACIONES",Align.LEFT);
 				TablaClientes.this.addContainerProperty("VENDEDOR ASIGNADO", String.class, null);
@@ -123,8 +123,8 @@ public class TablaClientes extends Tabla{
 				
 				respuesta.addComponent(generar2Filtros(TablaClientes.this, "NOMBRE", "CORREO"));
 				respuesta.addComponent(TablaClientes.this);
-				respuesta.addComponent(generarExcel(TablaClientes.this, new String[]{"NOMBRE","TELÉFONO",
-						"CORREO","DIRECCIÓN","OBSERVACIONES","VENDEDOR ASIGNADO"}));
+				respuesta.addComponent(generarExcel(TablaClientes.this, new String[]{"NOMBRE","TELÃ‰FONO",
+						"CORREO","DIRECCIÃ“N","OBSERVACIONES","VENDEDOR ASIGNADO"}));
 				
 				return respuesta;
 			

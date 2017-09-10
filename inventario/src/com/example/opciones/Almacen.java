@@ -321,7 +321,7 @@ public class Almacen {
 			    }
 			});
 			
-			final Button salidas = new Button("Tr�nsitos");
+			final Button salidas = new Button("Tránsitos");
 			salidas.setStyleName("boton_simple");
 			
 			salidas.addListener(new Button.ClickListener() {

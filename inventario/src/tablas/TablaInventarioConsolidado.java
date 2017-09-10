@@ -39,7 +39,7 @@ public class TablaInventarioConsolidado extends Tabla{
 				TablaInventarioConsolidado.this.addContainerProperty("SKU", String.class, null);
 					TablaInventarioConsolidado.this.setColumnAlignment("SKU",Align.LEFT);
 				TablaInventarioConsolidado.this.addContainerProperty("MÍNIMO", String.class, null);
-					TablaInventarioConsolidado.this.setColumnAlignment("MÍNIMO",Align.CENTER);
+					TablaInventarioConsolidado.this.setColumnAlignment("MÍNIMO",Align.RIGHT);
 				TablaInventarioConsolidado.this.addContainerProperty("MÁXIMO", String.class, null);
 					TablaInventarioConsolidado.this.setColumnAlignment("MÁXIMO",Align.RIGHT);
 				TablaInventarioConsolidado.this.addContainerProperty("EXISTENCIA", String.class, null);
