@@ -18,10 +18,10 @@ import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.DateField;
 import com.vaadin.ui.Notification.Type;
 
 import comboBox.ComboMateriales;
+import fechas.CampoFecha;
 import funciones.Funcion;
 
 public class VentanaMerma extends Ventana{
@@ -37,7 +37,7 @@ public class VentanaMerma extends Ventana{
 			GridLayout grid = new GridLayout(2, 3);
 			ComboMateriales nombre = new ComboMateriales();
 			NumberField cantidad = new NumberField("Cantidad");
-			DateField fechaMerma = new DateField("Fecha");
+			CampoFecha fechaMerma = new CampoFecha("Fecha");
 			MaterialDTO material;
 			
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -51,7 +51,7 @@ public class VentanaMerma extends Ventana{
 
 		}
 	
-	//Métodos
+	//Mï¿½todos
 		private boolean registrar(){
 			
 			try{
@@ -162,6 +162,7 @@ public class VentanaMerma extends Ventana{
 			//Ajuste de campos
 				//correo.setWidth("80%");correo.setMaxLength(500);
 				fechaMerma.setValue(new Date());
+				//fechaMerma.setDateFormat("dd MMM yyyy");
 				
 				
 			//Agrego a grid
@@ -265,7 +266,7 @@ public class VentanaMerma extends Ventana{
 					try {
 						
 					//Confirmar
-    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de querer eliminarlo?",
     							"SI", "NO", new ConfirmDialog.Listener() {
 									private static final long serialVersionUID = 1L;
 

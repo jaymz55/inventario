@@ -41,7 +41,7 @@ public class VentanaMaterialEntrada extends Ventana{
 			NumberField costo = new NumberField("Costo por unidad");
 			DateField fechaIngreso = new DateField("Fecha de ingreso");
 			DateField fechaCaducidad = new DateField("Fecha de caducidad");
-			CheckBox contieneIva = new CheckBox("¿Contiene IVA?");
+			CheckBox contieneIva = new CheckBox("Â¿Contiene IVA?");
 			MaterialDTO material;
 			
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -57,7 +57,7 @@ public class VentanaMaterialEntrada extends Ventana{
 		}
 	
 	
-	//Métodos
+	//Mï¿½todos
 		private boolean registrar(){
 			
 			try{
@@ -306,7 +306,7 @@ public class VentanaMaterialEntrada extends Ventana{
 					try {
 						
 					//Confirmar
-    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de querer eliminarlo?",
     							"SI", "NO", new ConfirmDialog.Listener() {
 									private static final long serialVersionUID = 1L;
 

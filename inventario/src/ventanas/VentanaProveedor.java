@@ -31,10 +31,10 @@ public class VentanaProveedor extends Ventana{
 			final TextField nombre = new TextField("Proveedor");
 			final TextField producto = new TextField("Producto");
 			final TextField contacto = new TextField("Contacto");
-			final TextField telefono = new TextField("Teléfono");
-			final TextField correo = new TextField("Correo electrónico");
-			final TextField pagina = new TextField("Página web");
-			final TextArea direccion = new TextArea("Dirección");
+			final TextField telefono = new TextField("TelÃ©fono");
+			final TextField correo = new TextField("Correo electrÃ³nico");
+			final TextField pagina = new TextField("PÃ¡gina web");
+			final TextArea direccion = new TextArea("DirecciÃ³n");
 			final TextArea observaciones = new TextArea("Observaciones");
 			ProveedorDTO proveedor;
 			
@@ -167,7 +167,7 @@ public class VentanaProveedor extends Ventana{
 								//UI.getCurrent().addWindow(new VentanaCorreo());
 								
 							//Confirmar
-		    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+		    					ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÃ³n", "Â¿EstÃ¡s seguro de querer eliminarlo?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 											private static final long serialVersionUID = 1L;
 
@@ -204,7 +204,7 @@ public class VentanaProveedor extends Ventana{
 		}
 	
 	
-	//Métodos
+	//Mï¿½todos
 		private boolean registrar() throws SQLException{
 			
 			if(nombre.getValue().equals("")){

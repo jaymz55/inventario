@@ -25,7 +25,7 @@ public class TablaProductos extends Tabla{
 			generarTabla();
 		}
 		
-	//MÈtodos
+	//MÔøΩtodos
 		public void generarTabla(){
 			
 			TablaProductos.this.setColumnCollapsingAllowed(true);
@@ -41,12 +41,12 @@ public class TablaProductos extends Tabla{
 					TablaProductos.this.setColumnAlignment("IVA",Align.LEFT);
 				TablaProductos.this.addContainerProperty("TOTAL", String.class, null);
 					TablaProductos.this.setColumnAlignment("TOTAL",Align.LEFT);
-				TablaProductos.this.addContainerProperty("DESCRIPCI”N", String.class, null);
-					TablaProductos.this.setColumnAlignment("DESCRIPCI”N",Align.LEFT);
-				TablaProductos.this.addContainerProperty("MÕNIMO", String.class, null);
-					TablaProductos.this.setColumnAlignment("MÕNIMO",Align.LEFT);
-				TablaProductos.this.addContainerProperty("M¡XIMO", String.class, null);
-					TablaProductos.this.setColumnAlignment("M¡XIMO",Align.LEFT);				
+				TablaProductos.this.addContainerProperty("DESCRIPCI√ìN", String.class, null);
+					TablaProductos.this.setColumnAlignment("DESCRIPCI√ìN",Align.LEFT);
+				TablaProductos.this.addContainerProperty("M√çNIMO", String.class, null);
+					TablaProductos.this.setColumnAlignment("M√çNIMO",Align.LEFT);
+				TablaProductos.this.addContainerProperty("M√ÅXIMO", String.class, null);
+					TablaProductos.this.setColumnAlignment("M√ÅXIMO",Align.LEFT);				
 				
 
 					
@@ -122,10 +122,10 @@ public class TablaProductos extends Tabla{
 			
 				respuesta.setWidth("100%");
 				
-				respuesta.addComponent(generar2Filtros(TablaProductos.this, "NOMBRE", "DESCRIPCI”N"));
+				respuesta.addComponent(generar2Filtros(TablaProductos.this, "NOMBRE", "DESCRIPCI√ìN"));
 				respuesta.addComponent(TablaProductos.this);
 				respuesta.addComponent(generarExcel(TablaProductos.this, new String[]{"NOMBRE",
-						"PRECIO","IVA","TOTAL","DESCRIPCI”N","MÕNIMO","M¡XIMO"}));
+						"PRECIO","IVA","TOTAL","DESCRIPCI√ìN","M√çNIMO","M√ÅXIMO"}));
 				
 				return respuesta;
 			

@@ -25,7 +25,7 @@ public class TablaMateriales extends Tabla{
 			generarTabla();
 		}
 		
-	//MÈtodos
+	//MÔøΩtodos
 		public void generarTabla(){
 			
 			TablaMateriales.this.setColumnCollapsingAllowed(true);
@@ -33,18 +33,18 @@ public class TablaMateriales extends Tabla{
 			//Encabezados
 				TablaMateriales.this.addContainerProperty("ID", String.class, null);
 					TablaMateriales.this.setColumnCollapsed("ID", true);
-				TablaMateriales.this.addContainerProperty("CATEGORÕA", String.class, null);
-					TablaMateriales.this.setColumnAlignment("CATEGORÕA",Align.LEFT);
+				TablaMateriales.this.addContainerProperty("CATEGOR√çA", String.class, null);
+					TablaMateriales.this.setColumnAlignment("CATEGOR√çA",Align.LEFT);
 				TablaMateriales.this.addContainerProperty("NOMBRE", String.class, null);
 					TablaMateriales.this.setColumnAlignment("NOMBRE",Align.LEFT);
 				TablaMateriales.this.addContainerProperty("SKU", String.class, null);
 					TablaMateriales.this.setColumnAlignment("SKU",Align.LEFT);
 				TablaMateriales.this.addContainerProperty("PROVEEDOR", String.class, null);
 					TablaMateriales.this.setColumnAlignment("PROVEEDOR",Align.LEFT);
-				TablaMateriales.this.addContainerProperty("MÕNIMO", String.class, null);
-					TablaMateriales.this.setColumnAlignment("MÕNIMO",Align.LEFT);
-				TablaMateriales.this.addContainerProperty("M¡XIMO", String.class, null);
-					TablaMateriales.this.setColumnAlignment("M¡XIMO",Align.LEFT);				
+				TablaMateriales.this.addContainerProperty("M√çNIMO", String.class, null);
+					TablaMateriales.this.setColumnAlignment("M√çNIMO",Align.LEFT);
+				TablaMateriales.this.addContainerProperty("M√ÅXIMO", String.class, null);
+					TablaMateriales.this.setColumnAlignment("M√ÅXIMO",Align.LEFT);				
 				
 
 					
@@ -118,10 +118,10 @@ public class TablaMateriales extends Tabla{
 			
 				respuesta.setWidth("100%");
 				
-				respuesta.addComponent(generar2Filtros(TablaMateriales.this, "CATEGORÕA", "NOMBRE"));
+				respuesta.addComponent(generar2Filtros(TablaMateriales.this, "CATEGOR√çA", "NOMBRE"));
 				respuesta.addComponent(TablaMateriales.this);
-				respuesta.addComponent(generarExcel(TablaMateriales.this, new String[]{"CATEGORÕA","NOMBRE",
-						"SKU","PROVEEDOR","MÕNIMO","M¡XIMO"}));
+				respuesta.addComponent(generarExcel(TablaMateriales.this, new String[]{"CATEGORÔøΩA","NOMBRE",
+						"SKU","PROVEEDOR","M√çNIMO","M√ÅXIMO"}));
 				
 				return respuesta;
 			

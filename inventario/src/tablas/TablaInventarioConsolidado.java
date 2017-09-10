@@ -24,7 +24,7 @@ public class TablaInventarioConsolidado extends Tabla{
 			generarTabla();
 		}
 		
-	//Métodos
+	//Mï¿½todos
 		public void generarTabla(){
 			
 			TablaInventarioConsolidado.this.setColumnCollapsingAllowed(true);
@@ -32,16 +32,16 @@ public class TablaInventarioConsolidado extends Tabla{
 			//Encabezados
 				TablaInventarioConsolidado.this.addContainerProperty("ID", String.class, null);
 					TablaInventarioConsolidado.this.setColumnCollapsed("ID", true);
-				TablaInventarioConsolidado.this.addContainerProperty("CATEGORÍA", String.class, null);
-					TablaInventarioConsolidado.this.setColumnAlignment("CATEGORÍA",Align.LEFT);
+				TablaInventarioConsolidado.this.addContainerProperty("CATEGORÃA", String.class, null);
+					TablaInventarioConsolidado.this.setColumnAlignment("CATEGORÃA",Align.LEFT);
 				TablaInventarioConsolidado.this.addContainerProperty("NOMBRE", String.class, null);
 					TablaInventarioConsolidado.this.setColumnAlignment("NOMBRE",Align.LEFT);
 				TablaInventarioConsolidado.this.addContainerProperty("SKU", String.class, null);
 					TablaInventarioConsolidado.this.setColumnAlignment("SKU",Align.LEFT);
-				TablaInventarioConsolidado.this.addContainerProperty("MÍNIMO", String.class, null);
-					TablaInventarioConsolidado.this.setColumnAlignment("MÍNIMO",Align.CENTER);
-				TablaInventarioConsolidado.this.addContainerProperty("MÁXIMO", String.class, null);
-					TablaInventarioConsolidado.this.setColumnAlignment("MÁXIMO",Align.RIGHT);
+				TablaInventarioConsolidado.this.addContainerProperty("MÃNIMO", String.class, null);
+					TablaInventarioConsolidado.this.setColumnAlignment("MÃNIMO",Align.CENTER);
+				TablaInventarioConsolidado.this.addContainerProperty("MÃXIMO", String.class, null);
+					TablaInventarioConsolidado.this.setColumnAlignment("MÃXIMO",Align.RIGHT);
 				TablaInventarioConsolidado.this.addContainerProperty("EXISTENCIA", String.class, null);
 					TablaInventarioConsolidado.this.setColumnAlignment("EXISTENCIA",Align.RIGHT);				
 				TablaInventarioConsolidado.this.addContainerProperty("DIFERENCIAL", String.class, null);
@@ -110,10 +110,10 @@ public class TablaInventarioConsolidado extends Tabla{
 
 			respuesta.setWidth("100%");
 			
-			respuesta.addComponent(generar2Filtros(TablaInventarioConsolidado.this, "CATEGORÍA", "NOMBRE"));
+			respuesta.addComponent(generar2Filtros(TablaInventarioConsolidado.this, "CATEGORÃA", "NOMBRE"));
 			respuesta.addComponent(TablaInventarioConsolidado.this);
-			respuesta.addComponent(generarExcel(TablaInventarioConsolidado.this, new String[]{"CATEGORÍA","NOMBRE",
-					"SKU","MÍNIMO","MÁXIMO","EXISTENCIA","DIFERENCIAL"}));
+			respuesta.addComponent(generarExcel(TablaInventarioConsolidado.this, new String[]{"CATEGORÃA","NOMBRE",
+					"SKU","MÃNIMO","MÃXIMO","EXISTENCIA","DIFERENCIAL"}));
 			
 			return respuesta;
 			

@@ -9,7 +9,6 @@ import ventanas.VentanaMerma;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
@@ -18,6 +17,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.themes.ValoTheme;
 
+import fechas.CampoFecha;
 import funciones.Funcion;
 
 public class AppInventario extends App{
@@ -32,8 +32,8 @@ public class AppInventario extends App{
 			Button btnBuscar = new Button("Buscar");
 			Button btnConsolidado = new Button("Consolidado");
 		//Fechas
-			DateField fechaUno = new DateField();
-			DateField fechaDos = new DateField();
+			CampoFecha fechaUno = new CampoFecha();
+			CampoFecha fechaDos = new CampoFecha();
 		//Tablas
 			TablaInventarioBusqueda tablaBusqueda;
 			TablaInventarioConsolidado tablaConsolidado;
@@ -77,7 +77,7 @@ public class AppInventario extends App{
 
 
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}
 
@@ -107,10 +107,8 @@ public class AppInventario extends App{
 				btnBuscar.setStyleName("boton_simple");
 				btnConsolidado.setStyleName("boton_simple");
 			//Fechas
-				fechaUno.setDateFormat("dd MMMM yyyy");
 				fechaUno.setValue(getFirstDateOfCurrentMonth());
 				fechaUno.setStyleName("ajustado");			
-				fechaDos.setDateFormat("dd MMMM yyyy");
 				fechaDos.setValue(new Date());
 				fechaDos.setStyleName("ajustado");
 		}

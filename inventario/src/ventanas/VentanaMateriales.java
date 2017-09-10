@@ -39,9 +39,9 @@ public class VentanaMateriales extends Ventana{
 			TextField nombre = new TextField("Cliente");
 			TextField sku = new TextField("SKU");
 			ComboProveedores proveedores = new ComboProveedores();
-			AutoCompleteCategorias categoria = new AutoCompleteCategorias(usuario.getCustid(), "Categorías");
-			NumberField minimo = new NumberField("Cantidad mínima");
-			NumberField maximo = new NumberField("Cantidad máxima");
+			AutoCompleteCategorias categoria = new AutoCompleteCategorias(usuario.getCustid(), "CategorÃ­as");
+			NumberField minimo = new NumberField("Cantidad mÃ­nima");
+			NumberField maximo = new NumberField("Cantidad mÃ¡xima");
 			
 			ComboUnidadMedida comboUnidadMedida = new ComboUnidadMedida();
 
@@ -58,7 +58,7 @@ public class VentanaMateriales extends Ventana{
 		}
 	
 	
-	//Métodos
+	//Mï¿½todos
 		private boolean registrar(){
 			
 			try{
@@ -287,7 +287,7 @@ public class VentanaMateriales extends Ventana{
 					try {
 						
 					//Confirmar
-    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+    					ConfirmDialog.show(UI.getCurrent(), "ConfirmaciÃ³n", "Â¿EstÃ¡s seguro de querer eliminarlo?",
     							"SI", "NO", new ConfirmDialog.Listener() {
 									private static final long serialVersionUID = 1L;
 

@@ -28,7 +28,7 @@ public class TablaInventarioBusqueda extends Tabla{
 			generarTabla();
 		}
 		
-	//Métodos
+	//Mï¿½todos
 		public void generarTabla(){
 			
 			TablaInventarioBusqueda.this.setColumnCollapsingAllowed(true);
@@ -36,8 +36,8 @@ public class TablaInventarioBusqueda extends Tabla{
 			//Encabezados
 				TablaInventarioBusqueda.this.addContainerProperty("ID", String.class, null);
 					TablaInventarioBusqueda.this.setColumnCollapsed("ID", true);
-				TablaInventarioBusqueda.this.addContainerProperty("CATEGORÍA", String.class, null);
-					TablaInventarioBusqueda.this.setColumnAlignment("CATEGORÍA",Align.LEFT);
+				TablaInventarioBusqueda.this.addContainerProperty("CATEGORÃA", String.class, null);
+					TablaInventarioBusqueda.this.setColumnAlignment("CATEGORÃA",Align.LEFT);
 				TablaInventarioBusqueda.this.addContainerProperty("NOMBRE", String.class, null);
 					TablaInventarioBusqueda.this.setColumnAlignment("NOMBRE",Align.LEFT);
 				TablaInventarioBusqueda.this.addContainerProperty("SKU", String.class, null);
@@ -134,9 +134,9 @@ public class TablaInventarioBusqueda extends Tabla{
 
 			respuesta.setWidth("100%");
 			
-			respuesta.addComponent(generar3Filtros(TablaInventarioBusqueda.this, "CATEGORÍA", "NOMBRE", "SKU"));
+			respuesta.addComponent(generar3Filtros(TablaInventarioBusqueda.this, "CATEGORÃA", "NOMBRE", "SKU"));
 			respuesta.addComponent(TablaInventarioBusqueda.this);
-			respuesta.addComponent(generarExcel(TablaInventarioBusqueda.this, new String[]{"CATEGORÍA","NOMBRE",
+			respuesta.addComponent(generarExcel(TablaInventarioBusqueda.this, new String[]{"CATEGORÃA","NOMBRE",
 					"SKU","PROVEEDOR","UNIDADES","COSTO","IVA","TOTAL","MOVIMIENTO",
 					"FECHA","CADUCIDAD"}));
 			
@@ -163,7 +163,7 @@ public class TablaInventarioBusqueda extends Tabla{
 
 		@Override
 		public void dobleClic(String id) {
-			//Sólo para cumplir con metodo abstracto
+			//Sï¿½lo para cumplir con metodo abstracto
 			
 		};
 		

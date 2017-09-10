@@ -101,6 +101,20 @@ public class Facade {
 			
 		}
 	
+		//Metodos Hibernate
+			public boolean registrarProveedorHibernate(ProveedorDTO proveedor) throws SQLException{
+				
+				UsuarioDTO usuario = (UsuarioDTO) UI.getCurrent().getData();
+				ProveedorDAO dao = new ProveedorDAO(usuario.getCustid());
+				
+				if(dao.registrarProveedor(proveedor)){
+					return true;
+				}else{
+					return false;
+				}
+				
+			}
+		
 	//Metodo de clientes	
 		public ClienteDTO obtenerCliente(String custid, String idCliente) throws SQLException{
 			

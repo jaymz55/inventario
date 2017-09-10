@@ -315,6 +315,68 @@ public class ProveedorDAO{
 
 		}
 
+	//Metodos Hibernate
+		public boolean registrarProveedorHibernate(ProveedorDTO proveedor) throws SQLException{
+			
+			//Variables
+			
+			Connection con = null;
+			PreparedStatement pstm = null;
+			ResultSet rs = null;
+			int respuesta;
+			StringBuilder buffer;
+			
+			try{
+				
+				con = ConnectionPool.getPool().getConnection();
+				
+				buffer = new StringBuilder();
+				
+				buffer.append("insert into "+SqlConf.obtenerBase()+"inventario.proveedores values (null, ");
+				buffer.append(proveedor.getCustid()+", ");
+				buffer.append((proveedor.getNombre())!= null?"'"+Encriptar.Encriptar(proveedor.getNombre())+"', ":"null, ");
+				buffer.append((proveedor.getProducto())!= null?"'"+proveedor.getProducto()+"', ":"null, ");
+				buffer.append((proveedor.getContacto())!= null?"'"+Encriptar.Encriptar(proveedor.getContacto())+"', ":"null, ");
+				buffer.append((proveedor.getTelefono())!= null?"'"+Encriptar.Encriptar(proveedor.getTelefono())+"', ":"null, ");
+				buffer.append((proveedor.getCorreo())!= null?"'"+Encriptar.Encriptar(proveedor.getCorreo())+"', ":"null, ");
+				buffer.append((proveedor.getPagina())!= null?"'"+proveedor.getPagina()+"', ":"null, ");
+				buffer.append((proveedor.getDireccion())!= null?"'"+Encriptar.Encriptar(proveedor.getDireccion())+"', ":"null, ");
+				buffer.append((proveedor.getObservaciones())!= null?"'"+proveedor.getObservaciones()+"', ":"null, ");
+				buffer.append("'SI')");
+				
+					pstm = con.prepareStatement(buffer.toString());
+
+	        	respuesta = pstm.executeUpdate();
+				
+	        	if(respuesta == 1){
+	        		return true;
+	        	}else{
+	        		return false;
+	        	}
+	        	
+			}catch(Exception e){
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}finally{
+				
+				if(rs != null)rs.close();
+				if(pstm != null)pstm.close();
+
+				if(con != null){
+					//Regreso conexion
+					ConnectionPool.getPool().releaseConnection(con);
+				}
+
+				con = null;
+				pstm = null;
+				rs = null;
+				
+				buffer = null;
+				
+			}
+
+		}
+
 
 		
 }
