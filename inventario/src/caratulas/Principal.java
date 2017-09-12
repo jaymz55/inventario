@@ -200,9 +200,9 @@ public class Principal {
 			    	}else if(opcion.equals("Almacén")){ 
 			    		cuerpo.addComponent(almacen.cuerpo());
 			    	}else if(opcion.equals("Ventas / Devoluciones")){ 
-			    		/*if(Conf.getNuevoMundo())
+			    		if(Conf.getNuevoMundo())
 			    			cuerpo.addComponent(appVentas.cuerpo());
-			    		else*/
+			    		else
 			    			cuerpo.addComponent(ventas.cuerpo());
 			    	}else if(opcion.equals("Generales")){ 
 			    		cuerpo.addComponent(graf.cuerpo());

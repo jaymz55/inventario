@@ -19,6 +19,8 @@ public class ProductoDTO {
 		private String activo;
 		private JSONObject json;
 
+		private int existencia;
+		
 	//Getters y Setters
 		public String getIdProducto() {
 			return idProducto;
@@ -86,8 +88,13 @@ public class ProductoDTO {
 		public void setActivo(String activo) {
 			this.activo = activo;
 		}
-		
-	//Metodos
+		public int getExistencia() {
+			return existencia;
+		}
+		public void setExistencia(int existencia) {
+			this.existencia = existencia;
+		}
+		//Metodos
 		public JSONObject getJson() throws JSONException{
 			
 			json = new JSONObject();

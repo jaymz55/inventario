@@ -7,11 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import funciones.Encriptar;
 import sql.ConnectionPool;
 import sql.SqlConf;
 import sql.DTO.ProductoDTO;
-import sql.DTO.ProveedorDTO;
 
 public class ProductoDAO {
 
@@ -203,56 +201,28 @@ public class ProductoDAO {
 
 		}
 
-		
-		//Me quede aqui
-		
-		public boolean actualizarProveedor(ProveedorDTO proveedor) throws SQLException{
-			
-			//Variables
+		public double existenciaProducto(String custid, String idProducto) throws SQLException{
 			
 			Connection con = null;
 			PreparedStatement pstm = null;
 			ResultSet rs = null;
-			int respuesta;
-			StringBuffer buffer;
+
+			UsuarioDAO dao = new UsuarioDAO();
 			
 			try{
 				
 				con = ConnectionPool.getPool().getConnection();
-				
-				buffer = new StringBuffer();
-				
-				buffer.append("update "+SqlConf.obtenerBase()+"inventario.proveedores set ");
-				buffer.append("nombre = ");
-				buffer.append((proveedor.getNombre())!= null?"'"+Encriptar.Encriptar(proveedor.getNombre())+"', ":"null, ");
-				buffer.append("producto = ");
-				buffer.append((proveedor.getProducto())!= null?"'"+proveedor.getProducto()+"', ":"null, ");
-				buffer.append("contacto = ");
-				buffer.append((proveedor.getContacto())!= null?"'"+Encriptar.Encriptar(proveedor.getContacto())+"', ":"null, ");
-				buffer.append("telefono = ");
-				buffer.append((proveedor.getTelefono())!= null?"'"+Encriptar.Encriptar(proveedor.getTelefono())+"', ":"null, ");
-				buffer.append("correo = ");
-				buffer.append((proveedor.getCorreo())!= null?"'"+Encriptar.Encriptar(proveedor.getCorreo())+"', ":"null, ");
-				buffer.append("pagina = ");
-				buffer.append((proveedor.getPagina())!= null?"'"+proveedor.getPagina()+"', ":"null, ");
-				buffer.append("direccion = ");
-				buffer.append((proveedor.getDireccion())!= null?"'"+Encriptar.Encriptar(proveedor.getDireccion())+"', ":"null, ");
-				buffer.append("observaciones = ");
-				buffer.append((proveedor.getObservaciones())!= null?"'"+proveedor.getObservaciones()+"' ":"null ");
-				buffer.append("where id = "+proveedor.getIdProveedor());
-				
-				//System.out.println(buffer.toString());
-				//System.out.println("descifrar: "+Encriptar.Desencriptar("An9pSojrhHA="));
-				
-				pstm = con.prepareStatement(buffer.toString());
-	        	respuesta = pstm.executeUpdate();
-				
-	        	if(respuesta == 1){
-	        		return true;
-	        	}else{
-	        		return false;
-	        	}
+        		pstm = con.prepareStatement("select sum(cantidad) as cantidad from "+SqlConf.obtenerBase()+"inventario.almacen where custid in ("
+						+ dao.obtenerCustidsRelacionados(custid)
+						+ ") and id_producto = "
+						+ idProducto
+						+ " and activo = 'SI'");
+	        	rs = pstm.executeQuery();
 	        	
+	        	rs.next();
+	        	
+	        	return rs.getDouble("cantidad");
+				
 			}catch(Exception e){
 				e.printStackTrace();
 				throw new RuntimeException(e);
@@ -270,35 +240,35 @@ public class ProductoDAO {
 				pstm = null;
 				rs = null;
 				
-				buffer = null;
+				//Variables locales
+					dao = null;
 				
 			}
-
-		}
-
-		
-		public boolean eliminarProveedor(String idProveedor) throws SQLException{
 			
-			//Variables
+		}
+		
+		public double obtenerPrecioProducto(String custid, String idProducto) throws SQLException{
 			
 			Connection con = null;
 			PreparedStatement pstm = null;
 			ResultSet rs = null;
-			int respuesta;
+
+			UsuarioDAO dao = new UsuarioDAO();
 			
 			try{
 				
 				con = ConnectionPool.getPool().getConnection();
-				
-				pstm = con.prepareStatement("update "+SqlConf.obtenerBase()+"inventario.proveedores set activo = 'NO' where id = "+idProveedor);
-	        	respuesta = pstm.executeUpdate();
-				
-	        	if(respuesta == 1){
-	        		return true;
-	        	}else{
-	        		return false;
-	        	}
+        		pstm = con.prepareStatement("select total from "+SqlConf.obtenerBase()+"inventario.productos where custid in ("
+						+ dao.obtenerCustidsRelacionados(custid)
+						+ ") and id = "
+						+ idProducto
+						+ " and activo = 'SI'");
+	        	rs = pstm.executeQuery();
 	        	
+	        	rs.next();
+	        	
+	        	return rs.getDouble("total");
+				
 			}catch(Exception e){
 				e.printStackTrace();
 				throw new RuntimeException(e);
@@ -316,8 +286,58 @@ public class ProductoDAO {
 				pstm = null;
 				rs = null;
 				
+				//Variables locales
+					dao = null;
+				
 			}
-
+			
 		}
+		
+		public String obtenerGravaIva(String custid, String idProducto) throws SQLException{
+			
+			Connection con = null;
+			PreparedStatement pstm = null;
+			ResultSet rs = null;
+
+			UsuarioDAO dao = new UsuarioDAO();
+			
+			try{
+				
+				con = ConnectionPool.getPool().getConnection();
+        		pstm = con.prepareStatement("select grava_iva from "+SqlConf.obtenerBase()+"inventario.productos where custid in ("
+						+ dao.obtenerCustidsRelacionados(custid)
+						+ ") and id = "
+						+ idProducto
+						+ " and activo = 'SI'");
+	        	rs = pstm.executeQuery();
+	        	
+	        	rs.next();
+	        	
+	        	return rs.getString("grava_iva");
+				
+			}catch(Exception e){
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}finally{
+				
+				if(rs != null)rs.close();
+				if(pstm != null)pstm.close();
+
+				if(con != null){
+					//Regreso conexion
+					ConnectionPool.getPool().releaseConnection(con);
+				}
+
+				con = null;
+				pstm = null;
+				rs = null;
+				
+				//Variables locales
+					dao = null;
+				
+			}
+			
+		}
+		
 		
 }

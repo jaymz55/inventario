@@ -398,6 +398,41 @@ public class Facade {
 			return true;
 		}
 
+		public double existenciaProductos(String custid, String idProducto){
+			
+			ProductoDAO dao = new ProductoDAO(custid);
+			try {
+				return dao.existenciaProducto(custid, idProducto);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+		
+		public double obtenerPrecioProducto(String custid, String idProducto){
+			
+			ProductoDAO dao = new ProductoDAO(custid);
+			try {
+				return dao.obtenerPrecioProducto(custid, idProducto);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+			
+		}
+		
+		public String obtenerGravaIva(String custid, String idProducto){
+			
+			ProductoDAO dao = new ProductoDAO(custid);
+			try {
+				return dao.obtenerGravaIva(custid, idProducto);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+			
+		}
+
 		
 	//Metodos de Codigo de Barras
 		public String obtenerIdBarras(String custid, String codigoBarras) throws SQLException{
@@ -432,9 +467,12 @@ public class Facade {
 
 		public boolean registrarVenta(VentaDTO venta){
 			
+			VentaDAO dao = new VentaDAO(venta.getCustid());
+			return dao.registrarVenta(venta);
 			
-			return true;
 		}
+		
+
 		
 	//Metodos de vendedores
 		public Collection<VendedorDTO> obtenerVendedores(String custid) throws SQLException{

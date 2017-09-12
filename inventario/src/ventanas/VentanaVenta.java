@@ -4,10 +4,13 @@ import java.sql.SQLException;
 
 import org.vaadin.ui.NumberField;
 
+import sql.DTO.UsuarioDTO;
 import sql.DTO.VentaDTO;
+
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.DateField;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.PopupView;
@@ -20,6 +23,10 @@ import com.vaadin.ui.VerticalLayout;
 import comboBox.ComboClientes;
 import comboBox.ComboProductos;
 import comboBox.ComboVendedor;
+import facade.Facade;
+import fechas.CampoFecha;
+import funciones.Funcion;
+import notificaciones.NotificacionCorrecta;
 import notificaciones.NotificacionError;
 
 @SuppressWarnings("serial")
@@ -38,12 +45,12 @@ public class VentanaVenta extends Ventana{
 			//Campos
 				ComboProductos productos = new ComboProductos();
 				NumberField cantidad = new NumberField("Cantidad");
-				DateField fechaVenta = new DateField("Fecha de venta");
+				CampoFecha fechaVenta = new CampoFecha("Fecha de venta");
 				ComboClientes clientes = new ComboClientes();
 				
 				ComboVendedor vendedores = new ComboVendedor();
 				NumberField precio = new NumberField("Precio");
-				NumberField descuento = new NumberField("Descuento");
+				NumberField descuento = new NumberField("Descuento (%)");
 				TextArea descComentario = new TextArea("Comentario");
 				PopupView popup = new PopupView("Comentario del descuento",popupContent);
 				NumberField existencia = new NumberField("Existencia");
@@ -51,7 +58,9 @@ public class VentanaVenta extends Ventana{
 				
 			//Otros
 				VentaDTO venta;
-
+				Facade facade = new Facade();
+				final UsuarioDTO usuario = (UsuarioDTO) UI.getCurrent().getData();
+				
 	//Constructores
 		public VentanaVenta(boolean secundaria, final Object paraActualizar, boolean esActualizacion, 
 				final String idVentaActualizar) throws SQLException{
@@ -62,14 +71,34 @@ public class VentanaVenta extends Ventana{
 		}
 	
 	
-	//Métodos
+	//Metodos
 		private boolean registrar(){
 			
 			try{
 			
-				
-				
-				return true;
+				//Lleno la informacion
+					venta = new VentaDTO();
+					venta.setCustid(usuario.getCustid());
+					venta.setIdProducto(productos.getValue().toString());
+					venta.setCantidad(Integer.parseInt(cantidad.getValue()));
+					venta.setFecha(Funcion.fechaFormato(fechaVenta.getValue(), "yyyy-MM-dd"));
+					venta.setIdCliente(clientes.getValue().toString());
+					//Primero descuento
+						venta.setDescuento(descuento.getDoubleValueDoNotThrow());
+						venta.setDescuentoDescripcion(descComentario.getValue());
+					venta.setTotal(Double.parseDouble(precio.getValue()));
+					//No se si lleno subtotal e iva
+					if(vendedores.getValue() != null)
+						venta.setVendedor(vendedores.getValue().toString());
+					
+					venta.setGravaIva(facade.obtenerGravaIva(usuario.getCustid(), productos.getValue().toString()));
+					venta.setComentarios(comentarios.getValue());
+					venta.setPagada("NO");
+					venta.setAfectaAlmacen("SI");
+					venta.setMovimiento("VENTA");
+					
+					//Registro
+						return facade.registrarVenta(venta);
 				
 			}catch(Exception e){
 				e.printStackTrace();
@@ -94,15 +123,15 @@ public class VentanaVenta extends Ventana{
 			return true;
 		}*/
 		
-		private boolean eliminar(String idProveedor) throws SQLException{
-			return facade.eliminarProveedor(usuario.getCustid(), idProveedor);
-		}
+		/*private boolean eliminar(String idVenta) throws SQLException{
+			return facade.eliminarProveedor(usuario.getCustid(), idVenta);
+		}*/
 		
 		private void borrarCampos(){
-			productos.setValue("");
+			productos.setValue(null);
 			cantidad.setValue("");
-			clientes.setValue("");
-			vendedores.setValue("");
+			clientes.setValue(null);
+			vendedores.setValue(null);
 			precio.setValue("");
 			descuento.setValue("");
 			descComentario.setValue("");
@@ -110,7 +139,6 @@ public class VentanaVenta extends Ventana{
 			comentarios.setValue("");
 		}
 		
-
 		private void elementosFormato(boolean secundaria, final Object paraActualizar, boolean esActualizacion, 
 				final String idVentaActualizar){
 			
@@ -180,14 +208,14 @@ public class VentanaVenta extends Ventana{
 				//Ajustes de campo Precio y descuento
 					precio.setNullRepresentation("");
 					precio.setDecimalPrecision(2);
-					precio.setErrorText("Número no válido");
+					precio.setErrorText("Nï¿½mero no vï¿½lido");
 					precio.setInvalidAllowed(false);
 					precio.setNegativeAllowed(false);
 					precio.setWidth("50%");
 					
 					descuento.setNullRepresentation("");
 					descuento.setDecimalPrecision(2);
-					descuento.setErrorText("Número no válido");
+					descuento.setErrorText("Nï¿½mero no vï¿½lido");
 					descuento.setInvalidAllowed(false);
 					descuento.setNegativeAllowed(false);
 					descuento.setWidth("50%");
@@ -220,7 +248,12 @@ public class VentanaVenta extends Ventana{
 	
 					public void buttonClick(ClickEvent event) {
 						try {
-							registrar();
+							if(registrar()){
+								NotificacionCorrecta.mostrar("Venta registrada correctamente");
+								borrarCampos();
+							}else{
+								//NotificacionError.mostrar("Contacte al administrador", 5000);
+							}
 						} catch (Exception e) {
 							NotificacionError.mostrar(e.toString(), 3000);
 							e.printStackTrace();
@@ -240,6 +273,25 @@ public class VentanaVenta extends Ventana{
 					}
 				});
 			
+			//Existencia al escoger productos
+				productos.addValueChangeListener(new ValueChangeListener()
+				{
+					private static final long serialVersionUID = 1L;
+
+					@Override
+					public void valueChange(ValueChangeEvent event) {
+						// TODO Auto-generated method stub
+						if(productos.getValue() != null){
+							existencia.setValue(facade.existenciaProductos(usuario.getCustid(), productos.getValue().toString()));
+							precio.setValue(facade.obtenerPrecioProducto(usuario.getCustid(), productos.getValue().toString()));
+						}else{
+							existencia.setValue(0.0);
+						}
+						
+					}
+					
+				});
+				
 		}
 		
 }
