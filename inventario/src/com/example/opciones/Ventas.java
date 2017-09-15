@@ -576,18 +576,18 @@ public class Ventas {
 						nombre.setWidth("80%");
 						nombre.setMaxLength(500);
 
-						final TextField telefono = new TextField("Tel�fono");
+						final TextField telefono = new TextField("Teléfono");
 						telefono.setWidth("80%");
 						telefono.setMaxLength(100);
 						final TextField correo = new TextField(
-								"Correo electr�nico");
+								"Correo electrónico");
 						correo.setWidth("80%");
 						correo.setMaxLength(500);
 						final ComboBox vendedorAsignado = llenarComboBoxVendedoresAsignados(
 								new ComboBox(),
 								usuario.getCustidsRelacionados());
 						vendedorAsignado.setWidth("60%");
-						final TextArea direccion = new TextArea("Direcci�n");
+						final TextArea direccion = new TextArea("Dirección");
 						direccion.setWidth("80%");
 						direccion.setMaxLength(1000);
 						final TextArea observaciones = new TextArea(

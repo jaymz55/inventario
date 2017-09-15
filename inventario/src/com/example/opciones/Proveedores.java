@@ -83,15 +83,15 @@ public class Proveedores {
 					final TextField contacto = new TextField("Contacto");
 						contacto.setWidth("80%");
 						contacto.setMaxLength(500);
-					final TextField telefono = new TextField("Teléfono");
+					final TextField telefono = new TextField("TelÃ©fono");
 						telefono.setMaxLength(100);
-					final TextField correo = new TextField("Correo electrónico");
+					final TextField correo = new TextField("Correo electrÃ³nico");
 						correo.setWidth("80%");
 						correo.setMaxLength(500);
-					final TextField pagina = new TextField("Página web");
+					final TextField pagina = new TextField("PÃ¡gina web");
 						pagina.setWidth("80%");
 						pagina.setMaxLength(100);
-					final TextArea direccion = new TextArea("Dirección");
+					final TextArea direccion = new TextArea("DirecciÃ³n");
 						direccion.setWidth("80%");
 						direccion.setMaxLength(1000);
 					final TextArea observaciones = new TextArea("Observaciones");
@@ -189,7 +189,7 @@ public class Proveedores {
 
 				
 				}catch(Exception e){
-					Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+					Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 					e.printStackTrace();
 				}finally{
 					sql.cerrar();
@@ -199,7 +199,7 @@ public class Proveedores {
 				respuesta.addComponent(dos);
 
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -209,7 +209,7 @@ public class Proveedores {
 		
 	}
 	
-	//Empiezan métodos externos
+	//Empiezan mï¿½todos externos
 	
 	private VerticalLayout generarTabla(VerticalLayout tablas, String custid){
 		
@@ -234,7 +234,7 @@ public class Proveedores {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -313,7 +313,7 @@ public class Proveedores {
 				tabla.addItem(new Object[]{rs.getObject(1), rs.getObject(2), rs.getObject(3), rs.getObject(4), rs.getObject(5), rs.getObject(6), rs.getObject(7)}, id);
 			}else if(count==8){
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)}, id);
-			}else if(count==9){ //Usa éste
+			}else if(count==9){ //Usa ï¿½ste
 				tabla.addItem(new Object[]{rs.getString(1), Encriptar.Desencriptar(rs.getString(2)), rs.getString(3), Encriptar.Desencriptar(rs.getString(4)), Encriptar.Desencriptar(rs.getString(5)), Encriptar.Desencriptar(rs.getString(6)), rs.getString(7), Encriptar.Desencriptar(rs.getString(8)), rs.getString(9)}, id);
 			}else if(count==10){
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10)}, id);
@@ -398,7 +398,7 @@ public class Proveedores {
 		    public void itemClick(ItemClickEvent event) {
 		    	if (event.isDoubleClick()){
 
-		    		//Saco el id para evitar confusión cuando hay dos facturas con un mismo folio
+		    		//Saco el id para evitar confusiï¿½n cuando hay dos facturas con un mismo folio
 		    		Property<String> itemProperty = event.getItem().getItemProperty("ID");
 		    		final String id = itemProperty.getValue();
 
@@ -430,15 +430,15 @@ public class Proveedores {
 					final TextField contacto = new TextField("Contacto");
 						contacto.setWidth("80%");
 						contacto.setMaxLength(500);
-					final TextField telefono = new TextField("Teléfono");
+					final TextField telefono = new TextField("TelÃ©fono");
 						telefono.setMaxLength(100);
-					final TextField correo = new TextField("Correo electrónico");
+					final TextField correo = new TextField("Correo electrÃ³nico");
 						correo.setWidth("80%");
 						correo.setMaxLength(500);
-					final TextField pagina = new TextField("Página web");
+					final TextField pagina = new TextField("PÃ¡gina web");
 						pagina.setWidth("80%");
 						pagina.setMaxLength(100);
-					final TextArea direccion = new TextArea("Dirección");
+					final TextArea direccion = new TextArea("DirecciÃ³n");
 						direccion.setWidth("80%");
 						direccion.setMaxLength(1000);
 					final TextArea observaciones = new TextArea("Observaciones");
@@ -475,7 +475,7 @@ public class Proveedores {
 		    				    		
 			    				    		generarTabla(tablas, usuario.getCustidsRelacionados());
 			    				    		
-											Notification n = new Notification("Correcta actualización de proveedor", Type.TRAY_NOTIFICATION);
+											Notification n = new Notification("Correcta actualizaciÃ³n de proveedor", Type.TRAY_NOTIFICATION);
 											n.setDelayMsec(2000);
 											n.setPosition(Notification.POSITION_CENTERED); //POSITION_TOP_RIGHT
 											n.setStyleName(ValoTheme.NOTIFICATION_SUCCESS);
@@ -486,7 +486,7 @@ public class Proveedores {
 		    				    		}
 		    				    		
 		    			    	}catch(Exception e){
-		    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+		    			    		Notification.show("Error en la aplicaciÃ³n: "+e.toString(), Type.ERROR_MESSAGE);
 		    			    		e.printStackTrace();
 		    			    	}finally{
 		    			    		sql.cerrar();
@@ -499,7 +499,7 @@ public class Proveedores {
 		    			eliminar.addListener(new Button.ClickListener() {
 		    			    public void buttonClick(ClickEvent event) {
 		    				    		
-		    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de querer eliminarlo?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 
 		    			            public void onClose(ConfirmDialog dialog) {
@@ -528,7 +528,7 @@ public class Proveedores {
 				    				    		}
 				    				    		
 				    			    	}catch(Exception e){
-				    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				    			    		Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				    			    		e.printStackTrace();
 				    			    	}finally{
 				    			    		sql.cerrar();
@@ -564,7 +564,7 @@ public class Proveedores {
 		    			UI.getCurrent().addWindow(ventanaActualizar);
 		    			
 		    		}catch(Exception e){
-		    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+		    			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 		    			e.printStackTrace();
 		    		}finally{
 		    			sql.cerrar();

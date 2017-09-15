@@ -93,7 +93,7 @@ public class Graficas {
 				tipo.setNullSelectionAllowed(false);
 				tipo.addItem("Ventas vs Costos (Con IVA)");
 				tipo.addItem("Ventas vs Costos (Sin IVA)");
-				tipo.addItem("Productos m�s vendidos");
+				tipo.addItem("Productos más vendidos");
 				tipo.addItem("Mejores clientes");
 				//tipo.addItem("Ganancia por producto");
 				
@@ -171,7 +171,7 @@ public class Graficas {
 						    	Vector<ResultSet> vector = new Vector<ResultSet>();
 						    	vector.add(rs);
 						    	
-						    	if(!tipo.getValue().toString().equals("Productos m�s vendidos") && !tipo.getValue().toString().equals("Ganancia por producto") && !tipo.getValue().toString().equals("Mejores clientes"))
+						    	if(!tipo.getValue().toString().equals("Productos más vendidos") && !tipo.getValue().toString().equals("Ganancia por producto") && !tipo.getValue().toString().equals("Mejores clientes"))
 						    		vector.add(rs2);
 						    	
 						    	//Defino colores
@@ -183,14 +183,14 @@ public class Graficas {
 						    //Cargo en LayOut
 						    	graficasLay.removeAllComponents();
 					    		
-						    	if(tipo.getValue().toString().equals("Productos m�s vendidos")){
-						    		graficasLay.addComponent(graficaBarras.Graficar(vector, "Productos m�s vendidos - "+año.getValue().toString(), null, "# de ventas"));
+						    	if(tipo.getValue().toString().equals("Productos más vendidos")){
+						    		graficasLay.addComponent(graficaBarras.Graficar(vector, "Productos más vendidos - "+año.getValue().toString(), null, "# de ventas"));
 						    	}else if (tipo.getValue().toString().equals("Mejores clientes")){
 						    		graficasLay.addComponent(graficaBarras.GraficarClientes(vector, "Mejores clientes - "+año.getValue().toString(), null, "# de compras"));						    		
 						    	}else if (tipo.getValue().toString().equals("Ganancia por producto")){
-						    		graficasLay.addComponent(graficaPie.GraficarProducto(usuario.getCustidsRelacionados(), "An�lisis por producto - "+producto.getItemCaption(producto.getValue()), producto.getItemCaption(producto.getValue()), producto.getValue().toString(), colores, 80));						    		
+						    		graficasLay.addComponent(graficaPie.GraficarProducto(usuario.getCustidsRelacionados(), "Análisis por producto - "+producto.getItemCaption(producto.getValue()), producto.getItemCaption(producto.getValue()), producto.getValue().toString(), colores, 80));						    		
 						    	}else if (tipo.getValue().toString().equals("Area")){
-						    		graficasLay.addComponent(graficaArea.Graficar(vector, "Productos m�s vendidos - "+año.getValue().toString(), null, "# de ventas", colores));						    		
+						    		graficasLay.addComponent(graficaArea.Graficar(vector, "Productos más vendidos - "+año.getValue().toString(), null, "# de ventas", colores));						    		
 						    	}else{
 						    		graficasLay.addComponent(grafica.Graficar(vector, "Ventas vs Costos - "+año.getValue().toString(), null, null, colores));
 						    	}
@@ -319,7 +319,7 @@ public class Graficas {
 					"GROUP  BY a.mnth, year(b.fecha),month(b.fecha)\r\n" + 
 					"ORDER  BY a.rn, b.fecha ASC";
 			
-		}else if(reporte.equals("Productos m�s vendidos")){
+		}else if(reporte.equals("Productos más vendidos")){
 			
 			return "SELECT 'Ventas' as nombreSerie, (select nombre from "+SqlConf.obtenerBase()+"inventario.productos where id = a.id_producto) as nombre, sum(cantidad) as dato\r\n" + 
 					"FROM "+SqlConf.obtenerBase()+"inventario.ventas a force index (custid)\r\n" + 
@@ -439,7 +439,7 @@ public class Graficas {
 					"GROUP  BY a.mnth, year(b.fecha),month(b.fecha)\r\n" + 
 					"ORDER  BY a.rn, b.fecha ASC";
 			
-		}else if(reporte.equals("Productos m�s vendidos")){
+		}else if(reporte.equals("Productos más vendidos")){
 			
 			return "SELECT 'Ventas' as nombreSerie, (select nombre from "+SqlConf.obtenerBase()+"inventario.productos where id = a.id_producto) as nombre, sum(cantidad) as dato\r\n" + 
 					"FROM "+SqlConf.obtenerBase()+"inventario.ventas a force index (custid)\r\n" + 

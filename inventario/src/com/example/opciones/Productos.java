@@ -129,7 +129,7 @@ public class Productos {
 						info.setHeight("100%");
 						info.setWidth("100%");
 						info.setMargin(true);
-						tab.addTab(info,"Informaci�n");
+						tab.addTab(info,"Información");
 						
 					final TextField nombre = new TextField("Nombre de producto");
 						nombre.setWidth("80%");
@@ -473,7 +473,7 @@ public class Productos {
 											proveedor.setWidth("80%");
 											
 											
-										final AutocompleteTextField categoria = new AutocompleteTextField("Categor�a");
+										final AutocompleteTextField categoria = new AutocompleteTextField("Categoría");
 											categoria.setWidth("80%");
 											categoria.setCache(true); // Client side should cache suggestions
 											categoria.setDelay(50); // Delay before sending a query to the server
@@ -500,9 +500,9 @@ public class Productos {
 											nombreInterno.setWidth("80%");
 											nombreInterno.setMaxLength(200);
 
-										final NumberField minimo = new NumberField("Cantidad m�nima");
+										final NumberField minimo = new NumberField("Cantidad mínima");
 											//minimo.setWidth("80%");
-										final NumberField maximo = new NumberField("Cantidad m�xima");
+										final NumberField maximo = new NumberField("Cantidad máxima");
 											
 										final ComboBox unidad = llenarUnidadesMedida(new ComboBox());
 										unidad.setNullSelectionAllowed(false);
@@ -1239,7 +1239,7 @@ public class Productos {
 							//precio.setEnabled(false);
 						
 						//Agregar check de IVA
-						final CheckBox iva = new CheckBox("�Grava IVA?");
+						final CheckBox iva = new CheckBox("¿Grava IVA?");
 						//iva.setValue(true);
 						
 						
@@ -1379,7 +1379,7 @@ public class Productos {
 		    				    		
 			    				    		generarTabla(tablas, usuario.getCustidsRelacionados());
 			    				    		
-											Notification n = new Notification("Actualizaci�n correcta del producto", Type.TRAY_NOTIFICATION);
+											Notification n = new Notification("Actualización correcta del producto", Type.TRAY_NOTIFICATION);
 											n.setDelayMsec(2000);
 											n.setPosition(Notification.POSITION_CENTERED); //POSITION_TOP_RIGHT
 											n.setStyleName(ValoTheme.NOTIFICATION_SUCCESS);

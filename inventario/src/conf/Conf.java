@@ -4,7 +4,7 @@ public class Conf {
 
 	//Variables
 		final static private boolean nuevoMundo = true;
-		final static private boolean hostingLayer = true;
+		final static private boolean hostingLayer = false;
 	
 	//Constructores
 		

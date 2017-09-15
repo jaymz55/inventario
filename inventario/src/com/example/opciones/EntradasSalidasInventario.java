@@ -135,7 +135,7 @@ public class EntradasSalidasInventario {
 						proveedor.setEnabled(false);
 						
 						
-					final AutocompleteTextField categoria = new AutocompleteTextField("Categoría");
+					final AutocompleteTextField categoria = new AutocompleteTextField("CategorÃ­a");
 						categoria.setWidth("80%");
 						categoria.setCache(true); // Client side should cache suggestions
 						categoria.setDelay(50); // Delay before sending a query to the server	
@@ -160,18 +160,18 @@ public class EntradasSalidasInventario {
 						unidades.setNullRepresentation("");
 						unidades.setDecimalAllowed(true);
 						unidades.setDecimalPrecision(3);
-						unidades.setErrorText("Número no válido");
+						unidades.setErrorText("NÃºmero no vÃ¡lido");
 						unidades.setInvalidAllowed(false);
 						unidades.setNegativeAllowed(false);
 					
 					final NumberField costo = new NumberField("Costo por unidad");
 						costo.setNullRepresentation("");
 						costo.setDecimalPrecision(2);
-						costo.setErrorText("Número no válido");
+						costo.setErrorText("NÃºmero no vÃ¡lido");
 						costo.setInvalidAllowed(false);
 						costo.setNegativeAllowed(false);
 						
-					final CheckBox iva = new CheckBox("¿Contiene IVA?");
+					final CheckBox iva = new CheckBox("Â¿Contiene IVA?");
 						iva.setValue(true);
 					
 					final DateField fecha = new DateField("Fecha de ingreso");
@@ -214,7 +214,7 @@ public class EntradasSalidasInventario {
 						    				}
 						    			
 						    		}catch(Exception e){
-						    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+						    			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 						    			e.printStackTrace();
 						    		}finally{
 						    			sql.cerrar();
@@ -465,7 +465,7 @@ public class EntradasSalidasInventario {
 						final NumberField unidades = new NumberField("Unidades");
 							unidades.setNullRepresentation("");
 							unidades.setDecimalPrecision(2);
-							unidades.setErrorText("Número no válido");
+							unidades.setErrorText("Nï¿½mero no vï¿½lido");
 							unidades.setInvalidAllowed(false);
 							unidades.setNegativeAllowed(false);
 						
@@ -496,7 +496,7 @@ public class EntradasSalidasInventario {
 				    			    		
 				    				    		generarTabla(tablas, usuario.getCustidsRelacionados(),Funcion.fechaFormato(fecha.getValue(), "yyyy-MM-dd"),Funcion.fechaFormato(fecha.getValue(), "yyyy-MM-dd"));
 				    				    		
-												Notification n = new Notification("Actualización de entrada correcta", Type.TRAY_NOTIFICATION);
+												Notification n = new Notification("ActualizaciÃ³n de entrada correcta", Type.TRAY_NOTIFICATION);
 												n.setDelayMsec(2000);
 												n.setPosition(Notification.POSITION_CENTERED); //POSITION_TOP_RIGHT
 												n.setStyleName(ValoTheme.NOTIFICATION_SUCCESS);
@@ -508,7 +508,7 @@ public class EntradasSalidasInventario {
 			    				    		}
 				    				    		
 				    			    	}catch(Exception e){
-				    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				    			    		Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				    			    		e.printStackTrace();
 				    			    	}finally{
 				    			    		sql.cerrar();
@@ -590,9 +590,9 @@ public class EntradasSalidasInventario {
 		
 	}
 	
-	//Empiezan métodos externos
+	//Empiezan mï¿½todos externos
 	
-	//Generar tabla de búsqueda
+	//Generar tabla de bï¿½squeda
 	private VerticalLayout generarTabla(VerticalLayout tablas, String custid, String fechaInicial, String fechaFinal){
 		
 		Mysql sql = new Mysql();
@@ -635,7 +635,7 @@ public class EntradasSalidasInventario {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -648,7 +648,7 @@ public class EntradasSalidasInventario {
 		
 	}
 	
-	//Crear tabla con 3 filtros para Búsqueda
+	//Crear tabla con 3 filtros para Bï¿½squeda
 	@SuppressWarnings("deprecation")
 	public VerticalLayout crearCon3FiltrosInventario(final VerticalLayout tablas, ResultSet rs, final String tituloColumnaFiltrar, final String tituloColumnaFiltrar2, final String tituloColumnaFiltrar3, final Object[] columnasExportar, final String fechaInicial, final String fechaFinal) throws UnsupportedOperationException, Exception{
 
@@ -722,7 +722,7 @@ public class EntradasSalidasInventario {
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10)}, id);
 			}else if(count==11){ 
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), Encriptar.Desencriptar(rs.getString(5)), rs.getDouble(6), rs.getDouble(7), rs.getDouble(8), rs.getDouble(9), rs.getString(10), rs.getString(11)}, id);
-			}else if(count==12){ //Éste es el que usa
+			}else if(count==12){ //ï¿½ste es el que usa
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), Encriptar.Desencriptar(rs.getString(5)), rs.getDouble(6), rs.getDouble(7), rs.getDouble(8), rs.getDouble(9), rs.getString(10), rs.getString(11), rs.getString(12)}, id);
 			}
 			id++;
@@ -809,7 +809,7 @@ public class EntradasSalidasInventario {
 
 		    		if(movimiento.equals("SALIDA")){
 
-		    			//Ventana para saber de dónde proviene el movimiento
+		    			//Ventana para saber de dï¿½nde proviene el movimiento
 		    			
 		    			Mysql sql = new Mysql();
 		    			BeanConexion beanCon;
@@ -888,7 +888,7 @@ public class EntradasSalidasInventario {
 		    			eliminar.addListener(new Button.ClickListener() {
 		    			    public void buttonClick(ClickEvent event) {
 		    			
-		    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de querer eliminarlo?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 
 		    			            public void onClose(ConfirmDialog dialog) {
@@ -917,7 +917,7 @@ public class EntradasSalidasInventario {
 				    				    		}
 				    				    		
 					    			    	}catch(Exception e){
-					    			    		Notification.show("Error en la aplicación: ", Type.ERROR_MESSAGE);
+					    			    		Notification.show("Error en la aplicaciï¿½n: ", Type.ERROR_MESSAGE);
 					    			    		e.printStackTrace();
 					    			    	}finally{
 					    			    		sql.cerrar();
@@ -972,7 +972,7 @@ public class EntradasSalidasInventario {
 						final NumberField unidades = new NumberField("Unidades");
 							unidades.setNullRepresentation("");
 							unidades.setDecimalPrecision(2);
-							unidades.setErrorText("Número no válido");
+							unidades.setErrorText("Nï¿½mero no vï¿½lido");
 							unidades.setInvalidAllowed(false);
 							unidades.setNegativeAllowed(false);
 							
@@ -980,12 +980,12 @@ public class EntradasSalidasInventario {
 						final NumberField costo = new NumberField("Costo por unidad");
 							costo.setNullRepresentation("");
 							costo.setDecimalPrecision(2);
-							costo.setErrorText("Número no válido");
+							costo.setErrorText("Nï¿½mero no vï¿½lido");
 							costo.setInvalidAllowed(false);
 							costo.setNegativeAllowed(false);
 							
 						//Agregar IVA
-						final CheckBox iva = new CheckBox("¿Tiene IVA?");
+						final CheckBox iva = new CheckBox("Â¿Tiene IVA?");
 							
 						final DateField fecha = new DateField("Desde");
 							fecha.setDateFormat("dd MMMM yyyy");
@@ -1049,7 +1049,7 @@ public class EntradasSalidasInventario {
 			    				    		
 				    				    		generarTabla(tablas, usuario.getCustidsRelacionados(),fechaInicial,fechaFinal);
 				    				    		
-												Notification n = new Notification("Actualización de entrada correcta", Type.TRAY_NOTIFICATION);
+												Notification n = new Notification("ActualizaciÃ³n de entrada correcta", Type.TRAY_NOTIFICATION);
 												n.setDelayMsec(2000);
 												n.setPosition(Notification.POSITION_CENTERED); //POSITION_TOP_RIGHT
 												n.setStyleName(ValoTheme.NOTIFICATION_SUCCESS);
@@ -1060,7 +1060,7 @@ public class EntradasSalidasInventario {
 			    				    		ventanaActualizar.close();
 			    				    		
 			    			    	}catch(Exception e){
-			    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			    			    		Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 			    			    		e.printStackTrace();
 			    			    	}finally{
 			    			    		sql.cerrar();
@@ -1075,7 +1075,7 @@ public class EntradasSalidasInventario {
 			    			eliminar.addListener(new Button.ClickListener() {
 			    			    public void buttonClick(ClickEvent event) {
 			    			
-			    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+			    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de querer eliminarlo?",
 			    							"SI", "NO", new ConfirmDialog.Listener() {
 
 			    			            public void onClose(ConfirmDialog dialog) {
@@ -1104,7 +1104,7 @@ public class EntradasSalidasInventario {
 					    				    		}
 					    				    		
 						    			    	}catch(Exception e){
-						    			    		Notification.show("Error en la aplicación: ", Type.ERROR_MESSAGE);
+						    			    		Notification.show("Error en la aplicaciï¿½n: ", Type.ERROR_MESSAGE);
 						    			    		e.printStackTrace();
 						    			    	}finally{
 						    			    		sql.cerrar();
@@ -1146,7 +1146,7 @@ public class EntradasSalidasInventario {
 			    			UI.getCurrent().addWindow(ventanaActualizar);
 		    			
 		    		}catch(Exception e){
-		    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+		    			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 		    			e.printStackTrace();
 		    		}finally{
 		    			sql.cerrar();
@@ -1192,7 +1192,7 @@ public class EntradasSalidasInventario {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -1275,7 +1275,7 @@ public class EntradasSalidasInventario {
 				tabla.addItem(new Object[]{rs.getObject(1), rs.getObject(2), rs.getObject(3), rs.getObject(4), rs.getObject(5), rs.getObject(6)}, id);
 			}else if(count==7){ 
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getDouble(6), rs.getDouble(7)}, id);
-			}else if(count==8){ //Éste es el que usa (haciendo cambio de orden para existencia y diferencial)
+			}else if(count==8){ //ï¿½ste es el que usa (haciendo cambio de orden para existencia y diferencial)
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble("minimo"), rs.getDouble("maximo"), rs.getDouble("existencia"), rs.getDouble("diferencial")}, id);
 			}else if(count==9){
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)}, id);
@@ -1409,7 +1409,7 @@ public class EntradasSalidasInventario {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1445,7 +1445,7 @@ public class EntradasSalidasInventario {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1483,7 +1483,7 @@ public class EntradasSalidasInventario {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1522,7 +1522,7 @@ public class EntradasSalidasInventario {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();

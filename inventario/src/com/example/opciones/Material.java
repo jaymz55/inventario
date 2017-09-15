@@ -91,7 +91,7 @@ public class Material {
 						proveedor.setWidth("80%");
 						
 						
-					final AutocompleteTextField categoria = new AutocompleteTextField("Categoría");
+					final AutocompleteTextField categoria = new AutocompleteTextField("CategorÃ­a");
 						categoria.setWidth("80%");
 						categoria.setCache(true); // Client side should cache suggestions
 						categoria.setDelay(50); // Delay before sending a query to the server
@@ -118,11 +118,11 @@ public class Material {
 						nombreInterno.setWidth("80%");
 						nombreInterno.setMaxLength(200);
 
-					final NumberField minimo = new NumberField("Cantidad mínima");
+					final NumberField minimo = new NumberField("Cantidad mÃ­nima");
 						minimo.setDecimalAllowed(true);
 						minimo.setDecimalPrecision(3);
 						//minimo.setWidth("80%");
-					final NumberField maximo = new NumberField("Cantidad máxima");
+					final NumberField maximo = new NumberField("Cantidad mÃ¡xima");
 						maximo.setDecimalAllowed(true);
 						maximo.setDecimalPrecision(3);
 						
@@ -185,7 +185,7 @@ public class Material {
 						    			}
 						    			
 						    		}catch(Exception e){
-						    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+						    			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 						    			e.printStackTrace();
 						    		}finally{
 						    			sql.cerrar();
@@ -283,14 +283,14 @@ public class Material {
 						    		//dos.setComponentAlignment(insertar, Alignment.BOTTOM_RIGHT);
 						    	
 					    	}else{
-					    		Notification.show("Se deben de ingresar Categoría, Nombre, Unidades y Fecha",  Type.WARNING_MESSAGE);
+					    		Notification.show("Se deben de ingresar CategorÃ­a, Nombre, Unidades y Fecha",  Type.WARNING_MESSAGE);
 					    	}
 						    		
 						    }
 						});
 							
 					
-				//Botón para registrar proveedores (copiado de Proveedores.java
+				//Botï¿½n para registrar proveedores (copiado de Proveedores.java
 						Button botonProveedor = new Button("Agregar proveedor");
 							botonProveedor.setStyleName(ValoTheme.BUTTON_LINK);
 							botonProveedor.addListener(new Button.ClickListener() {
@@ -312,15 +312,15 @@ public class Material {
 								final TextField contacto = new TextField("Contacto");
 									contacto.setWidth("80%");
 									contacto.setMaxLength(500);
-								final TextField telefono = new TextField("Teléfono");
+								final TextField telefono = new TextField("TelÃ©fono");
 									telefono.setMaxLength(100);
-								final TextField correo = new TextField("Correo electrónico");
+								final TextField correo = new TextField("Correo electrÃ³nico");
 									correo.setWidth("80%");
 									correo.setMaxLength(500);
-								final TextField pagina = new TextField("Página web");
+								final TextField pagina = new TextField("PÃ¡gina web");
 									pagina.setWidth("80%");
 									pagina.setMaxLength(100);
-								final TextArea direccion = new TextArea("Dirección");
+								final TextArea direccion = new TextArea("DirecciÃ³n");
 									direccion.setWidth("80%");
 									direccion.setMaxLength(1000);
 								final TextArea observaciones = new TextArea("Observaciones");
@@ -452,7 +452,7 @@ public class Material {
 						dos.setComponentAlignment(insertar, Alignment.BOTTOM_RIGHT);
 				
 				}catch(Exception e){
-					Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+					Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 					e.printStackTrace();
 				}/*finally{
 					sql.cerrar();
@@ -460,7 +460,7 @@ public class Material {
 				}*/
 				
 				//Titulo
-				Label titulo = new Label("Catálogo de material");
+				Label titulo = new Label("CatÃ¡logo de material");
 				titulo.setStyleName(ValoTheme.LABEL_H1);
 				
 				cabecera.addComponent(titulo);
@@ -473,7 +473,7 @@ public class Material {
 				respuesta.addComponent(dos);
 
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -484,7 +484,7 @@ public class Material {
 		
 	}
 	
-	//Empiezan métodos externos
+	//Empiezan mï¿½todos externos
 	
 	private VerticalLayout generarTabla(VerticalLayout tablas, String custid){
 		
@@ -511,7 +511,7 @@ public class Material {
 			tablas.setComponentAlignment(tablas.getComponent(0), Alignment.TOP_CENTER);
 		
 		}catch(Exception e){
-			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 			e.printStackTrace();
 		}finally{
 			sql.cerrar();
@@ -589,7 +589,7 @@ public class Material {
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5)}, id);
 			}else if(count==6){ 
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getDouble(6)}, id);
-			}else if(count==7){ //Éste es el que usa
+			}else if(count==7){ //ï¿½ste es el que usa
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), Encriptar.Desencriptar(rs.getString(5)), rs.getDouble(6), rs.getDouble(7)}, id);
 			}else if(count==8){
 				tabla.addItem(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)}, id);
@@ -678,7 +678,7 @@ public class Material {
 		    public void itemClick(ItemClickEvent event) {
 		    	if (event.isDoubleClick()){
 
-		    		//Saco el id para evitar confusión cuando hay dos facturas con un mismo folio
+		    		//Saco el id para evitar confusiï¿½n cuando hay dos facturas con un mismo folio
 		    		Property<String> itemProperty = event.getItem().getItemProperty("ID");
 		    		final String id = itemProperty.getValue();
 
@@ -706,7 +706,7 @@ public class Material {
 						final ComboBox proveedor = llenarComboBox(new ComboBox(), usuario.getCustidsRelacionados());
 						proveedor.setWidth("80%");
 						
-						final AutocompleteTextField categoria = new AutocompleteTextField("Categoría");
+						final AutocompleteTextField categoria = new AutocompleteTextField("CategorÃ­a");
 						categoria.setWidth("80%");
 						categoria.setCache(true); // Client side should cache suggestions
 						categoria.setDelay(50); // Delay before sending a query to the server
@@ -733,11 +733,11 @@ public class Material {
 						nombreInterno.setWidth("80%");
 						nombreInterno.setMaxLength(200);
 
-					final NumberField minimo = new NumberField("Cantidad mínima");
+					final NumberField minimo = new NumberField("Cantidad mÃ­nima");
 						minimo.setDecimalAllowed(true);
 						minimo.setDecimalPrecision(3);
 
-					final NumberField maximo = new NumberField("Cantidad máxima");
+					final NumberField maximo = new NumberField("Cantidad mÃ¡xima");
 		    			maximo.setDecimalAllowed(true);
 		    			maximo.setDecimalPrecision(3);
 					
@@ -799,7 +799,7 @@ public class Material {
 		    				    		
 			    				    		generarTabla(tablas, usuario.getCustidsRelacionados());
 			    				    		
-											Notification n = new Notification("Correcta actualización de material", Type.TRAY_NOTIFICATION);
+											Notification n = new Notification("Correcta actualizaciÃ³n de material", Type.TRAY_NOTIFICATION);
 											n.setDelayMsec(2000);
 											n.setPosition(Notification.POSITION_CENTERED); //POSITION_TOP_RIGHT
 											n.setStyleName(ValoTheme.NOTIFICATION_SUCCESS);
@@ -808,7 +808,7 @@ public class Material {
 		    				    		}
 		    				    		
 		    			    	}catch(Exception e){
-		    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+		    			    		Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 		    			    		e.printStackTrace();
 		    			    	}finally{
 		    			    		sql.cerrar();
@@ -823,7 +823,7 @@ public class Material {
 		    			eliminar.addListener(new Button.ClickListener() {
 		    			    public void buttonClick(ClickEvent event) {
 		    				    
-		    					ConfirmDialog.show(UI.getCurrent(), "Confirmación", "¿Estás seguro de querer eliminarlo?",
+		    					ConfirmDialog.show(UI.getCurrent(), "Confirmaciï¿½n", "ï¿½Estï¿½s seguro de querer eliminarlo?",
 		    							"SI", "NO", new ConfirmDialog.Listener() {
 
 		    			            public void onClose(ConfirmDialog dialog) {
@@ -845,7 +845,7 @@ public class Material {
 				    				    		
 					    				    		generarTabla(tablas, usuario.getCustidsRelacionados());
 					    				    		
-													Notification n = new Notification("Eliminación correcta de material", Type.TRAY_NOTIFICATION);
+													Notification n = new Notification("Eliminaciï¿½n correcta de material", Type.TRAY_NOTIFICATION);
 													n.setDelayMsec(2000);
 													n.setPosition(Notification.POSITION_CENTERED); //POSITION_TOP_RIGHT
 													n.setStyleName(ValoTheme.NOTIFICATION_SUCCESS);
@@ -855,7 +855,7 @@ public class Material {
 				    				    		}
 				    				    		
 				    			    	}catch(Exception e){
-				    			    		Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				    			    		Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				    			    		e.printStackTrace();
 				    			    	}finally{
 				    			    		sql.cerrar();
@@ -892,7 +892,7 @@ public class Material {
 		    			UI.getCurrent().addWindow(ventanaActualizar);
 		    			
 		    		}catch(Exception e){
-		    			Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+		    			Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 		    			e.printStackTrace();
 		    		}finally{
 		    			sql.cerrar();
@@ -909,7 +909,7 @@ public class Material {
 		return respuesta;
 	}
 	
-	//Empiezan métodos externos
+	//Empiezan mï¿½todos externos
 	
 		private AutocompleteSuggestionProvider listaCategorias(String custid){
 			
@@ -933,7 +933,7 @@ public class Material {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -969,7 +969,7 @@ public class Material {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1007,7 +1007,7 @@ public class Material {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1049,7 +1049,7 @@ public class Material {
 				combo.setValue(1);
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
@@ -1089,7 +1089,7 @@ public class Material {
 				}
 				
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
+				Notification.show("Error en la aplicaciï¿½n: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 				sql.cerrar();
