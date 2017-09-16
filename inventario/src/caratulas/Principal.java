@@ -142,7 +142,7 @@ public class Principal {
 				final AppMateriales appMateriales = new AppMateriales();
 				final AppProveedores appProveedores = new AppProveedores();
 				final AppInventario appInventario = new AppInventario();
-				final AppProductos appProductos = new AppProductos();
+				//final AppProductos appProductos = new AppProductos();
 				
 				
 			MenuBar barmenu = new MenuBar();

@@ -27,7 +27,7 @@ public class PdfQRCodigo {
 	
 		File temp;
 		Paragraph preface = new Paragraph();
-	    Font small = new Font(Font.FontFamily.HELVETICA, 18,Font.NORMAL);
+	    Font small = new Font(Font.FontFamily.HELVETICA, 17,Font.NORMAL);
 
 	//Metodos
 	
@@ -42,6 +42,9 @@ public class PdfQRCodigo {
 			PdfWriter.getInstance(document, new FileOutputStream(temp));
 			document.open();
 
+			//Reinicio preface para que no acumule los codigos
+			//preface = new Paragraph();
+			
 			agregarLeyenda(document, leyenda);
 			agregarCodigo(document, codigo);
 			abrirArchivo(temp, codigo);
@@ -59,7 +62,7 @@ public class PdfQRCodigo {
 			
 			try{
 
-		        addEmptyLine(preface, 1);
+		        //addEmptyLine(preface, 1);
 		        preface.add(new Paragraph(leyenda, small));
 	        
 			}catch(Exception e){
@@ -77,7 +80,7 @@ public class PdfQRCodigo {
 				
 				QRCode qr = new QRCode();
 				try {
-					tempQR = qr.createQRImage(tempQR, "TuInventario/"+codigo, 250, "png");
+					tempQR = qr.createQRImage(tempQR, "TuInventario/"+codigo, 170, "png");
 				} catch (WriterException e1) {
 					e1.printStackTrace();
 				}
@@ -130,6 +133,12 @@ public class PdfQRCodigo {
         for (int i = 0; i < number; i++) {
             paragraph.add(new Paragraph(" "));
         }
+    }
+    
+    public void reiniciarPdf(){
+    	
+    	preface = new Paragraph();
+    	
     }
 	
 }
