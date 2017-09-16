@@ -244,7 +244,7 @@ public class Principal {
 				if(usuario.getPrivilegios().equals("1") || usuario.getPrivilegios().equals("2")){
 					inventario.addItem("Material", null, mycommand);
 					inventario.addItem("Inventario", null, mycommand);
-					//inventario.addItem("QR de material", mycommand);
+					inventario.addItem("QR de material", mycommand);
 				}
 				
 			MenuBar.MenuItem solicitudes =

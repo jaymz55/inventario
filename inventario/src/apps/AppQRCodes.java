@@ -1,96 +1,97 @@
 package apps;
 
-import com.vaadin.annotations.Widgetset;
-import com.vaadin.server.BrowserWindowOpener;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.BrowserFrame;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.JavaScript;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.Notification.Type;
-import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Window;
+import com.vaadin.ui.Button.ClickEvent;
 
-public class AppQRCodes{
+import comboBox.ComboMateriales;
+import pdf.PdfQRCodigo;
 
-	public static VerticalLayout cuerpo(){
+public class AppQRCodes extends App{
+
+	//Variables
+		Button btnGenerar;
+		ComboMateriales comboMateriales;
+		PdfQRCodigo pdf;
+	
 		
-		VerticalLayout respuesta = new VerticalLayout();
-			respuesta.setWidth("100%");
-			respuesta.setHeight("100%");
-			respuesta.setMargin(true);
-		
-		final HorizontalLayout cabecera = new HorizontalLayout();
-			cabecera.setHeight("70");
-			cabecera.setWidth("90%");
-
-		final VerticalLayout cuerpo = new VerticalLayout();
-			cuerpo.setMargin(true);
-			
-		//Variables
-			final HorizontalLayout layOut = new HorizontalLayout();
-			Label texto = new Label();
+	//Const
+		public AppQRCodes(){
+			super();
+			elementosFormato();
+			elementosAgregar();
+			listeners();
+		}
+	
+	//Metodos
+	
+	public VerticalLayout cuerpo(){
 			
 			try{
 			
-				texto.setValue("Cajas de kleenex - 435");
 
-				layOut.addComponent(texto);
-				
-				cuerpo.addComponent(layOut);
-				
-		    	BrowserWindowOpener opener =
-		    	        new BrowserWindowOpener(PrintUI.class);
-		    	opener.setFeatures("height=200,width=400,resizable");
-		    
-		    	Button print = new Button("Click to Print");
-		    	opener.extend(print);
-				
-
-				
-				cuerpo.addComponent(print);
 
 			}catch(Exception e){
-				Notification.show("Error en la aplicación: "+e.toString(), Type.ERROR_MESSAGE);
 				e.printStackTrace();
 			}finally{
 			}
 
-			
-		respuesta.addComponent(cabecera);
-		respuesta.addComponent(cuerpo);
-		return respuesta;
+			return respuesta;
 		
 	}
-	
-	//Metodos
 
 	
-	//Clases internas
-	@Widgetset("com.example.inventario.widgetset.InventarioWidgetset")
-	public static class PrintUI extends UI {
-	    @Override
-	    protected void init(VaadinRequest request) {
-	        // Have some content to print
-	    	
-	    	HorizontalLayout layOut = new HorizontalLayout();
-	    	
-	    	Label label = new Label("Producto de importación");
-
-			layOut.addComponent(label);
+	//Metodos	
+		protected void elementosFormato() {
 			
-	        setContent(layOut);
+			titulo.setValue("Generador de códigos QR");
+			
+			pdf = new PdfQRCodigo();
+			
+			btnGenerar = new Button("Generar");
+			
+			comboMateriales = new ComboMateriales();
+				comboMateriales.setWidth("60%");
+				
+			
+			
+		}
+	
+		
+		protected void elementosAgregar() {
+			
+			cabecera.addComponent(titulo);
+				cabecera.setComponentAlignment(titulo, Alignment.BOTTOM_LEFT);
 
-	        // Print automatically when the window opens
-	        JavaScript.getCurrent().execute(
-	            "setTimeout(function() {" +
-	            "  print(); self.close();}, 0);");
-	    }
-	}
+			cuerpo.addComponent(comboMateriales);
+				cuerpo.setComponentAlignment(comboMateriales, Alignment.BOTTOM_LEFT);
+				
+			cuerpo.addComponent(btnGenerar);
+				cuerpo.setComponentAlignment(btnGenerar, Alignment.BOTTOM_LEFT);
+			
+		}
+	
+		
+		protected void listeners() {
+			
+			btnGenerar.addClickListener(new Button.ClickListener() {
+				private static final long serialVersionUID = 1L;
+				
+				public void buttonClick(ClickEvent event) {
+				
+			    	try {
+						
+			    		pdf.generarPdf(comboMateriales.getItemCaption(comboMateriales.getValue()).toString(), comboMateriales.getValue().toString());
+			    		
+					} catch (IllegalArgumentException
+							| NullPointerException e) {
+						e.printStackTrace();
+					}
+			    	
+			    }
+			});
+			
+		}
 	
 }

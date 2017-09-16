@@ -10,7 +10,6 @@ import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.Iterator;
 
-import com.google.zxing.WriterException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -32,7 +31,6 @@ import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Window;
 
-import codes.QRCode;
 import conexiones.BeanConsulta;
 import conexiones.Mysql;
 import sql.SqlConf;
@@ -42,7 +40,7 @@ public class Nuevo {
 	
 	//http://www.vogella.com/tutorials/JavaPDF/article.html
 	
-    //private static String FILE = "C:\\Users\\Héctor\\Desktop\\Cotizacion.pdf";
+    //private static String FILE = "C:\\Users\\Hï¿½ctor\\Desktop\\Cotizacion.pdf";
 	
 	//private static String FILE = url.toString();
 	
@@ -82,8 +80,6 @@ public class Nuevo {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
-		//Genero el título y subtítulo
 
 		
 	}
@@ -95,8 +91,6 @@ public class Nuevo {
 		try{
 		
 	        Paragraph preface = new Paragraph();
-	
-	        System.out.println("Padre: "+usuario.getPadre());
 	        
 	        URL url = new URL("http://www.tuprograma.mx/imagenes/"+usuario.getPadre()+".png");
 	        HttpURLConnection huc = (HttpURLConnection) url.openConnection();
@@ -123,13 +117,13 @@ public class Nuevo {
 	        preface.add(new Paragraph(obtenerTexto(usuario.getPadre(), "titulo_grande"), catFont));
 	        preface.add(new Paragraph(obtenerTexto(usuario.getPadre(), "titulo_chico"), small));
 	        
-	       //Agregamos línea punteada
+	       //Agregamos linea punteada
 	        /*DottedLineSeparator dottedline = new DottedLineSeparator();
 	        dottedline.setOffset(-2);
 	        dottedline.setGap(2f);
 	        preface.add(dottedline);*/
 	        
-	       //Agregamos línea corrida
+	       //Agregamos linea corrida
 	        LineSeparator line = new LineSeparator();
 	        preface.add(line);
 	        
@@ -148,8 +142,6 @@ public class Nuevo {
 		}finally{
 			usuario = null;	
 		}
-		
-        
         
 	}
 	
@@ -158,7 +150,7 @@ public class Nuevo {
 		//Variables
 		//double total;
 		
-		//Especificando el número de columnas
+		//Especificando el nï¿½mero de columnas
         PdfPTable table = new PdfPTable(3);
 
         float[] columnWidths = new float[]{10f, 30f, 10f};
@@ -216,14 +208,14 @@ public class Nuevo {
         celdaCantidad.setHorizontalAlignment(Element.ALIGN_CENTER);
 
         table.addCell(celdaCantidad);
-        table.addCell("Cúrcuma");
+        table.addCell("Cï¿½rcuma");
         
         PdfPCell precio = new PdfPCell(new Phrase("145.00"));
         precio.setHorizontalAlignment(Element.ALIGN_RIGHT);
         table.addCell(precio);
         
         table.addCell(celdaCantidad);
-        table.addCell("Cepillo de dientes y de cuidado personal especial para los pequeños hijos de Dios");
+        table.addCell("Cepillo de dientes y de cuidado personal especial para los pequeï¿½os hijos de Dios");
 
         precio = new PdfPCell(new Phrase("250.00"));
         precio.setHorizontalAlignment(Element.ALIGN_RIGHT);
@@ -302,52 +294,6 @@ public class Nuevo {
         addEmptyLine(preface, 2);
         preface.add(new Paragraph(obtenerTexto(usuario.getPadre(), "pie"), smallBold));
         
-        /*preface.add(new Paragraph("Condiciones:", smallBold));
-        preface.add(new Paragraph(
-                "(A) El envío es gratuito dentro de la Ciudad de México en pedidos superiores a $3,000. En caso contrario en Área Metropolitana habrá un cargo de $180 (más IVA)",
-                small));
-        preface.add(new Paragraph(
-                "(B)  Hay recolección gratuita en la Colonia Escandon, Ciudad de México",
-                small));
-        preface.add(new Paragraph(
-                "(C)  Una vez confirmado el pedido,  se enviará el  comprobante de pago a info@spanda-ayurveda.com.mx",
-                small));
-        preface.add(new Paragraph(
-                "(D)  Hay recolección gratuita en la Colonia Escandon, Ciudad de México",
-                small));
-        preface.add(new Paragraph(
-                "(E)  Una vez confirmado el pedido,  se enviará el  comprobante de pago a info@spanda-ayurveda.com.mx",
-                small));
-        preface.add(new Paragraph(
-                "(F) Una vez confirmado el pago el tiempo de entrega y/o envío es de 3-5 días hábiles dependiendo del volumen de compra y método de envío",
-                small));
-        preface.add(new Paragraph(
-                "(G) Una vez entregada la mercancía no se aceptan devoluciones",
-                small));
-        preface.add(new Paragraph(
-                "(H) Los precios y condiciones están sujetos a cambio sin previo aviso",
-                small));
-        preface.add(new Paragraph(
-                "* Productos sujetos para distribución a consideración de Spanda Ayurveda. Sujetos a disponibilidad",
-                small));
-        addEmptyLine(preface, 2);
-        
-        preface.add(new Paragraph(
-                "CUENTA SPANDA AYURVEDA / SANTANDER",
-                smallBold));
-
-        preface.add(new Paragraph(
-                "LUZ MARIA DIAZ CONDE",
-                smallBold));
-        
-        preface.add(new Paragraph(
-                "CTA: 60-55247732-2",
-                smallBold));
-
-        preface.add(new Paragraph(
-                "CLABE: 014457605524773226",
-                smallBold));*/
-        
         addEmptyLine(preface, 1);
         
         Paragraph firma = new Paragraph(obtenerTexto(usuario.getPadre(), "firma"),smallBold);
@@ -365,58 +311,12 @@ public class Nuevo {
 	
 	private static void abrirArchivo(final File temp) throws IOException{
 		
-		/*Window window = new Window();
-		//((VerticalLayout) window.getContent()).setSizeFull();
-		window.setResizable(true);
-		window.setCaption("Cotización");
-		window.setWidth("800");
-		window.setHeight("600");
-		window.center();
-		StreamSource s = new StreamResource.StreamSource() {
-
-		@Override
-		public InputStream getStream() {
-		try {
-		//File f = new File("C:/themes/repy.pdf");
-		FileInputStream fis = new FileInputStream(temp);
-		return fis;
-		} catch (Exception e) {
-		e.printStackTrace();
-		return null;
-		}
-		}
-		};
-
-		StreamResource r = new StreamResource(s, "Cotiza.pdf"); //, mainLayout.getApplication()
-		Embedded e = new Embedded();
-		e.setSizeFull();
-		e.setType(Embedded.TYPE_BROWSER);
-		r.setMIMEType("application/pdf");
-
-		e.setSource(r);
-		
-		window.setContent(e);
-		UI.getCurrent().addWindow(window);*/
-		
 		//Revisar si es IE
 		if(Page.getCurrent().getWebBrowser().isIE()){
 			
 			Notification.show("Debes utilizar otro navegador para abrir PDF", Type.WARNING_MESSAGE);
 			
 		}else{
-		
-			//Genero QR
-			/*File tempQR = File.createTempFile("codigo", ".png");
-			
-			QRCode qr = new QRCode();
-			try {
-				tempQR = qr.createQRImage(tempQR, "119-5555", 345, "png");
-			} catch (WriterException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			FileResource resource = new FileResource(tempQR);*/
 			
 			FileResource resource = new FileResource(temp);
 			
@@ -449,7 +349,7 @@ public class Nuevo {
     	
     	try{
     		
-    		// agrego count(custid) para que de devuelva campo vacío en caso de no existir info
+    		// agrego count(custid) para que de devuelva campo vacï¿½o en caso de no existir info
     		bean = sql.consultaSimple("select "+campo+", count(custid) from "+SqlConf.obtenerBase()+"inventario.solicitudes_pdf where custid = "+custid);
     		
     		if(!bean.getRespuesta().equals("OK")){
