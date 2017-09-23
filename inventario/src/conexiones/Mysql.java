@@ -19,7 +19,7 @@ public class Mysql {
 	
 	public Mysql(){
 		
-		//While para lograr la conexión
+		//While para lograr la conexiï¿½n
 		
 		boolean conectado = false;
 		
@@ -33,12 +33,12 @@ public class Mysql {
 					
 					if(Conf.getHostingLayer()){
 						//Layer
-						conex_mysql = DriverManager.getConnection("jdbc:mysql://www.tuprograma.com.mx:3306", SqlConf.obtenerUsuario(), "Hetfield#55");
+						conex_mysql = DriverManager.getConnection("jdbc:mysql://66.70.176.73:3306", SqlConf.obtenerUsuario(), "Hetfield#55");
 						estSQL = conex_mysql.createStatement();
 						conectado = true;
 					}else{
 						//Astrahosting
-						conex_mysql = DriverManager.getConnection("jdbc:mysql://www.tuprograma.mx:3306", SqlConf.obtenerUsuario(), "Hetfield#55");
+						conex_mysql = DriverManager.getConnection("jdbc:mysql://130.255.190.13:3306", SqlConf.obtenerUsuario(), "Hetfield#55");
 						estSQL = conex_mysql.createStatement();
 						conectado = true;	
 					}
@@ -167,7 +167,7 @@ public class Mysql {
 
 	}
 
-	//Transacción abrir
+	//Transacciï¿½n abrir
 	public void transaccionAbrir(){
 
 		try{
@@ -188,7 +188,7 @@ public class Mysql {
 		}
 	}
 	
-	//Transacción commit
+	//Transacciï¿½n commit
 	public void transaccionCommit(){
 		try{
 				conex_mysql.commit();
@@ -197,7 +197,7 @@ public class Mysql {
 		}
 	}
 
-	//Transacción cerrar
+	//Transacciï¿½n cerrar
 	public void transaccionRollBack(){
 		try{ 
 				conex_mysql.rollback();
