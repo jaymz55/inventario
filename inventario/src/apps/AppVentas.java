@@ -3,6 +3,7 @@ package apps;
 import java.util.Date;
 
 import tablas.TablaVentas;
+import ventanas.VentanaDevolucion;
 import ventanas.VentanaVendedor;
 import ventanas.VentanaVenta;
 
@@ -153,6 +154,20 @@ public class AppVentas extends App{
 					}
 				});
 			
+			//Boton devoluciones
+				btnDevolucion.addClickListener(new Button.ClickListener() {
+					private static final long serialVersionUID = 1L;
+	
+					public void buttonClick(ClickEvent event) {
+						try {
+							UI.getCurrent().addWindow(new VentanaDevolucion(false, null, false, null));
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						
+					}
+				});
+				
 			//Boton vendedor
 				btnVendedores.addClickListener(new Button.ClickListener() {
 					private static final long serialVersionUID = 1L;
