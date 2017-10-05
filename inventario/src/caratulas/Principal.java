@@ -3,6 +3,7 @@ package caratulas;
 import java.io.File;
 
 import apps.AppClientes;
+import apps.AppGraficas;
 import apps.AppInventario;
 import apps.AppMateriales;
 import apps.AppProductos;
@@ -142,7 +143,7 @@ public class Principal {
 				final AppMateriales appMateriales = new AppMateriales();
 				final AppProveedores appProveedores = new AppProveedores();
 				final AppInventario appInventario = new AppInventario();
-				//final AppProductos appProductos = new AppProductos();
+				final AppGraficas appTablero = new AppGraficas();
 				
 				
 			MenuBar barmenu = new MenuBar();
@@ -208,6 +209,8 @@ public class Principal {
 			    		cuerpo.addComponent(graf.cuerpo());
 			    	}else if(opcion.equals("Por producto")){ 
 			    		cuerpo.addComponent(grafProd.cuerpo());
+			    	}else if(opcion.equals("Tablero")){ 
+			    		cuerpo.addComponent(appTablero.cuerpo());
 			    	}else if(opcion.equals("Clientes")){ 
 			    		if(Conf.getNuevoMundo())
 			    			cuerpo.addComponent(appClientes.cuerpo());
@@ -279,6 +282,7 @@ public class Principal {
 			
 				reportes.addItem("Generales", null, mycommand);
 				reportes.addItem("Por producto", null, mycommand);
+				reportes.addItem("Tablero", null, mycommand);
 			
 			MenuBar.MenuItem edoCuenta =
 					barmenu.addItem("Estado de cuenta", null, mycommand);
