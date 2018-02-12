@@ -1,6 +1,8 @@
 package charts;
 
 import java.util.ArrayList;
+
+import at.downdrown.vaadinaddons.highchartsapi.Colors;
 import at.downdrown.vaadinaddons.highchartsapi.HighChart;
 import at.downdrown.vaadinaddons.highchartsapi.HighChartFactory;
 import at.downdrown.vaadinaddons.highchartsapi.exceptions.HighChartsException;
@@ -42,6 +44,9 @@ public class Columnas extends HighChart{
 				//Para Series visibles
 				barConfiguration.setLegendEnabled(true);
 				//barConfiguration.setTitleFontSize(20);
+				
+			//Color de fondo
+				barConfiguration.setBackgroundColor(Colors.WHITE);
 				
 			//Titulos
 				this.tituloGrafica = tituloGrafica;

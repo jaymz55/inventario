@@ -1,6 +1,8 @@
 package charts;
 
 import java.util.ArrayList;
+
+import at.downdrown.vaadinaddons.highchartsapi.Colors;
 import at.downdrown.vaadinaddons.highchartsapi.HighChart;
 import at.downdrown.vaadinaddons.highchartsapi.HighChartFactory;
 import at.downdrown.vaadinaddons.highchartsapi.exceptions.HighChartsException;
@@ -45,6 +47,8 @@ public class Lineas extends HighChart{
 				lineConfiguration.setLegendEnabled(true);
 				//barConfiguration.setTitleFontSize(20);
 				
+			//Color de fondo
+				lineConfiguration.setBackgroundColor(Colors.WHITE);
 				
 				
 				lineConfiguration.setZoomType(ZoomType.XY);
