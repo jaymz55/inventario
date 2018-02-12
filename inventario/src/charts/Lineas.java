@@ -9,7 +9,6 @@ import at.downdrown.vaadinaddons.highchartsapi.exceptions.HighChartsException;
 import at.downdrown.vaadinaddons.highchartsapi.model.Axis;
 import at.downdrown.vaadinaddons.highchartsapi.model.ChartConfiguration;
 import at.downdrown.vaadinaddons.highchartsapi.model.ChartType;
-import at.downdrown.vaadinaddons.highchartsapi.model.Margin;
 import at.downdrown.vaadinaddons.highchartsapi.model.ZoomType;
 import at.downdrown.vaadinaddons.highchartsapi.model.Axis.AxisType;
 import at.downdrown.vaadinaddons.highchartsapi.model.series.LineChartSeries;
