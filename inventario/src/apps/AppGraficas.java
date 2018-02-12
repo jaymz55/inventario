@@ -75,6 +75,7 @@ public class AppGraficas extends App{
 
 			cuerpo.removeAllComponents();
 			cuerpo.addComponent(graficar());
+			cuerpo.addComponent(graficar2());
 			cuerpo.setComponentAlignment(cuerpo.getComponent(0), Alignment.MIDDLE_CENTER);
 				
 		}
@@ -144,4 +145,65 @@ public class AppGraficas extends App{
 			
 		}
 	
+		private HighChart graficar2() {
+			
+	    	try {
+	    		
+	    		ArrayList<String> nombres = new ArrayList<String>();
+	    		
+	    		nombres.add("Enero");
+	    		nombres.add("Febrero");
+	    		nombres.add("Marzo");
+	    		nombres.add("Abril");
+	    		nombres.add("Mayo");
+	    		
+	    		ArrayList<Object> parcial = new ArrayList<Object>();
+	    		parcial.add("120");
+	    		parcial.add("140");
+	    		parcial.add("150");
+	    		parcial.add("145");
+	    		parcial.add("186");
+	    		
+	    		ArrayList<ArrayList<Object>> listas = new ArrayList<ArrayList<Object>>();
+	    		
+	    		listas.add(parcial);
+	    		
+	    		parcial = new ArrayList<Object>();
+	    		parcial.add("200");
+	    		parcial.add("220");
+	    		parcial.add("210");
+	    		parcial.add("260");
+	    		parcial.add("295");
+	    		
+	    		listas.add(parcial);
+	    		
+	    		parcial = new ArrayList<Object>();
+	    		parcial.add("300");
+	    		parcial.add("310");
+	    		parcial.add("330");
+	    		parcial.add("340");
+	    		parcial.add("380");
+
+	    		
+	    		listas.add(parcial);
+	    		
+	    		ArrayList<String> nombresSeries = new ArrayList<String>();
+	    		nombresSeries.add("Jaime Reyes");
+	    		nombresSeries.add("Francisco Mora");
+	    		nombresSeries.add("Héctor Betancourt");
+	    		
+	    		
+	    		Columnas columnas = new Columnas("Prueba", "horizontal", "vertical");
+	    		columnas.cargarDatos(nombres, nombresSeries, listas);
+	    		
+	    		return columnas.crearGrafica(50, 50);
+	    		
+			} catch (IllegalArgumentException
+					| NullPointerException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+	
+		}
+		
 }
